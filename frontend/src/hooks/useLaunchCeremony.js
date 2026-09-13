@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { storage } from "@/lib/storage";
+import { unlockAudio, playChime } from "@/lib/chime";
 import { COUNTDOWN_MS, ZERO_HOLD_MS, CELEBRATION_MS, STORAGE_KEYS } from "@/lib/site";
 
 const COUNTDOWN_END = COUNTDOWN_MS + ZERO_HOLD_MS;
@@ -22,9 +23,11 @@ export const useLaunchCeremony = ({ respectSeen = true } = {}) => {
   const [phase, setPhase] = useState(initial.current.phase);
   const [remaining, setRemaining] = useState(COUNTDOWN_MS / 1000);
   const [progress, setProgress] = useState(0);
+  const chimedRef = useRef(false);
 
   const start = useCallback(() => {
     if (startedAtRef.current && phase !== "idle") return;
+    unlockAudio();
     const now = Date.now();
     startedAtRef.current = now;
     storage.set(STORAGE_KEYS.startedAt, String(now));
@@ -39,6 +42,10 @@ export const useLaunchCeremony = ({ respectSeen = true } = {}) => {
       const elapsed = Date.now() - startedAtRef.current;
       setRemaining(Math.max(0, Math.ceil((COUNTDOWN_MS - elapsed) / 1000)));
       setProgress(Math.min(1, elapsed / COUNTDOWN_MS));
+      if (elapsed >= COUNTDOWN_MS && !chimedRef.current) {
+        chimedRef.current = true;
+        playChime();
+      }
       if (elapsed >= COUNTDOWN_END) setPhase("celebration");
     };
     tick();

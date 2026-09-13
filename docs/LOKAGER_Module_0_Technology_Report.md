@@ -297,5 +297,13 @@ No new dependencies in this revision (Framer Motion, canvas-confetti, react-i18n
 
 ### 12.10 Verification (iteration_2)
 `/app/test_reports/iteration_2.json` — 11/11 scenarios passed: full 60 → 0 per-second sequence recorded with no skipped/duplicated numbers; all 20 scenes in order with correct lead/support text; all photos loaded (no 4xx); celebration at ≈ 60.7 s, Coming Soon ≈ 9 s later with no redirect; reload resume (55 → 54); gate behaviour; no horizontal overflow on 1920 / 1366 / 820 / 390; side panels only ≥ 1024 px; zero console errors; zero API calls.
+
+## 13. Revision 3 — Launch Chime
+- **What:** a subtle, premium three-note chime (C6 → E6 → G6 with a faint octave harmonic, ~2.5 s decay, peak gain 0.16) plays **exactly when the countdown reaches 0**, before the gold sweep begins. No phone vibration (device support varies, per founder decision).
+- **How:** synthesised with the **Web Audio API** — no audio file, no download, no new dependency. `frontend/src/lib/chime.js` (`unlockAudio()`, `playChime()`); wired in `useLaunchCeremony.js`: the `LAUNCH LOKAGER` tap unlocks the AudioContext (browsers require a user gesture), and the 100 ms tick fires the chime once at `elapsed ≥ 60000 ms`.
+- **Graceful degradation:** if the page is reloaded mid-countdown the gesture unlock is lost and the chime is silently skipped; if the device is on silent / has no Web Audio, nothing breaks. The ceremony never depends on audio.
+- **Launch-day tip:** keep the phone's ringer on and media volume at ~60 %.
+
+## 11. Repository & Commit
 - Branch recommendation: `module-0-launch` → merge to `main` after founder sign-off.
 - Push from the Emergent platform "Save to GitHub" action to repo `lokager-platform`.
