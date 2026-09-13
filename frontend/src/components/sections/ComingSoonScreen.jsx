@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Stage } from "@/components/layout/Stage";
-import { Wordmark } from "@/components/layout/Wordmark";
+import { Logo } from "@/components/brand/Logo";
 import { GoldRule } from "@/components/sections/GoldRule";
 import { VerticalList } from "@/components/sections/VerticalList";
 
@@ -25,11 +25,8 @@ export const ComingSoonScreen = () => {
           {t("comingSoon.badge")}
         </motion.span>
         <motion.div {...fade(0.3)} className="mt-8 sm:mt-10">
-          <Wordmark size="xl" testId="coming-soon-wordmark" />
+          <Logo variant="vertical" size="lg" testId="coming-soon-logo" />
         </motion.div>
-        <motion.p {...fade(0.5)} data-testid="coming-soon-tagline" className="mt-6 font-display italic text-2xl sm:text-3xl text-charcoal">
-          {t("brand.tagline")}
-        </motion.p>
         <motion.div {...fade(0.6)}>
           <GoldRule className="my-8 sm:my-10" />
         </motion.div>

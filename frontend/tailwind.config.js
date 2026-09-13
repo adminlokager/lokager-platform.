@@ -24,6 +24,7 @@ module.exports = {
       },
       fontFamily: {
         display: ["Fraunces", "Playfair Display", "Georgia", "serif"],
+        brand: ["Montserrat", "Inter", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       letterSpacing: { widest2: "0.3em", eyebrow: "0.25em" },

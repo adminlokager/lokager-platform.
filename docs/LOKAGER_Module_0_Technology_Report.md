@@ -12,7 +12,7 @@ Module 0 delivers the official LOKAGER launch moment as a premium, single-purpos
 
 1. **Launch screen** — LOKAGER wordmark, tagline *"Where Property Meets Trust."*, one large `LAUNCH LOKAGER` button.
 2. **30-second countdown** — charcoal stage, gold serif numerals, SVG progress ring, rotating micro-phrases (no claims).
-3. **Celebration** — gold confetti, *"Congratulations!" → "LOKAGER IS NOW LIVE"* (7 s).
+3. **Celebration** — gold confetti and soft gold glow around the logo; *"Congratulations!" → "LOKAGER IS NOW LIVE" → [LOGO] → "WHERE PROPERTY MEETS TRUST." → "A New World of Property Begins."* (9 s).
 4. **Coming Soon** — wordmark, tagline, trust statement *"Building a more trusted property experience."*, the seven verticals (Buy · Sell · Rent · New Projects · Commercial · Land · Mortgage), minimal footer.
 5. **404 page**, SEO/meta foundation, i18n scaffold, favicon/OG placeholders.
 
@@ -81,7 +81,8 @@ Per the founder's scope decision during kickoff, **the waitlist form, homepage s
 │       ├── locales/en/common.json All UI copy (single source of truth)
 │       ├── routes/AppRoutes.jsx   "/", "/launch", "*"
 │       ├── pages/                 HomePage, LaunchPage, NotFoundPage
-│       ├── components/layout/     Stage, Header, Footer, Wordmark, Meta
+│       ├── components/brand/      Logo, LogoMark  ← OFFICIAL LOGO, single central location (see §5.0)
+│       ├── components/layout/     Stage, Header, Footer, Meta
 │       ├── components/sections/   Ceremony, LaunchScreen, CountdownScreen, CountdownRing,
 │       │                          CelebrationScreen, ComingSoonScreen, VerticalList, GoldRule
 │       ├── hooks/                 useLaunchCeremony (state machine), useGoldConfetti
@@ -109,12 +110,41 @@ Per the founder's scope decision during kickoff, **the waitlist form, homepage s
 
 ## 5. Design System
 
+### 5.0 Official Logo — central asset location (read this before replacing the logo)
+
+The approved identity (architectural geometric gold "L" skyline mark + charcoal LOKAGER wordmark + gold tagline) lives in **one place only**:
+
+```
+frontend/src/components/brand/
+├── LogoMark.jsx   ← the gold geometric L symbol (inline SVG, faithful recreation of the approved reference)
+├── Logo.jsx       ← composes LogoMark + "LOKAGER" wordmark (Montserrat 700) + tagline; variants below
+└── index.js       ← re-exports { Logo, LogoMark }
+```
+
+| Prop | Values | Purpose |
+|---|---|---|
+| `variant` | `vertical` (default) · `horizontal` | Stacked lock-up vs. side-by-side (header) |
+| `size` | `sm` · `md` · `lg` | Header → hero |
+| `tone` | `charcoal` (default) · `ivory` | Wordmark colour for light vs. dark surfaces (mark stays gold) |
+| `showTagline` | `true` / `false` | Show "WHERE PROPERTY MEETS TRUST." under the wordmark |
+
+Used today in: Header (`horizontal/sm`), Launch screen (`vertical/lg`), Countdown (`LogoMark` only, small), Celebration (`LogoMark` large with gold glow), Coming Soon (`vertical/lg`). Intended for later modules: Homepage, Footer, Login, Admin, Developer portal, Mobile app (same component / same SVG).
+
+**How to drop in the final professional asset (no redesign needed):**
+1. Place the final file at `frontend/src/assets/brand/lokager-mark.svg` (or `.png`).
+2. In `LogoMark.jsx`, replace the inline `<svg>` body with `<img src={mark} alt="LOKAGER" className={className} />` where `mark` is the imported file. Every screen updates automatically.
+3. Replace `frontend/public/favicon.svg` (browser tab / app icon) and `frontend/public/og-image.svg` (social preview) with the supplied icon/OG exports — these are the only two additional copies, required because browsers read them outside the React bundle.
+
+The logo is **never** embedded in backgrounds, CSS or duplicated across components.
+
+### 5.1 Tokens
 | Token | Value |
 |---|---|
 | Ivory (background) | `#F6F1E7` (`ivory`), `#EFEAE0` (`ivory-deep`) |
 | Charcoal (text / dark stage) | `#111111` (`charcoal`), `#444444` (`charcoal-soft`) |
 | Gold (accent) | `#B8894A` (`gold`), `#D4AF37` (`gold-bright`), `#F3E5AB` (`gold-light`) |
 | Display font | Fraunces (variable optical size) → Playfair Display → Georgia |
+| Brand wordmark font | Montserrat 700 uppercase, tracking `0.12em` |
 | Body font | Inter 300–600 |
 | Eyebrow tracking | `0.25em` uppercase |
 | Wordmark tracking | `0.3em` uppercase |

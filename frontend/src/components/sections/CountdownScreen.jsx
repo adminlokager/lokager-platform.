@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Stage } from "@/components/layout/Stage";
+import { LogoMark } from "@/components/brand/LogoMark";
 import { CountdownRing } from "@/components/sections/CountdownRing";
 
 export const CountdownScreen = ({ remaining, progress }) => {
@@ -11,8 +12,9 @@ export const CountdownScreen = ({ remaining, progress }) => {
   return (
     <Stage dark testId="countdown-screen">
       <div className="flex flex-col items-center text-center">
+        <LogoMark className="h-9 sm:h-11 w-auto mb-5 sm:mb-6" testId="countdown-logo-mark" />
         <p className="font-sans text-xs sm:text-sm font-semibold uppercase tracking-eyebrow text-gold">{t("countdown.eyebrow")}</p>
-        <div className="relative mt-10 sm:mt-12 flex items-center justify-center">
+        <div className="relative mt-8 sm:mt-10 flex items-center justify-center">
           <div className="absolute inset-0 -m-16 rounded-full bg-gold/10 blur-3xl animate-shimmer" aria-hidden="true" />
           <CountdownRing progress={progress} />
           <span
@@ -24,7 +26,7 @@ export const CountdownScreen = ({ remaining, progress }) => {
           </span>
         </div>
         <p className="mt-6 font-sans text-xs uppercase tracking-eyebrow text-ivory/50">{t("countdown.unit")}</p>
-        <div className="mt-10 sm:mt-14 h-8">
+        <div className="mt-8 sm:mt-12 h-8">
           <AnimatePresence mode="wait">
             <motion.p
               key={phrase}

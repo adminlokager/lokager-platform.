@@ -21,6 +21,8 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - Layout: Stage, Header, Footer, Wordmark, Meta; Tailwind tokens; grain texture.
 - SEO: index.html meta/OG/canonical, robots.txt, sitemap.xml, manifest.json, favicon.svg, og-image.svg.
 - Backend trimmed to `GET /api/health` (no DB usage).
+- Official logo identity implemented as a single central component (`src/components/brand/Logo.jsx` + `LogoMark.jsx`): gold geometric L skyline mark, Montserrat wordmark, gold tagline. Used in header, launch, countdown, celebration and coming soon. Swap instructions in the report §5.0.
+- Celebration sequence now: Congratulations! → LOKAGER IS NOW LIVE → logo with gold glow → tagline → "A New World of Property Begins." (9 s).
 - Report: `/app/docs/LOKAGER_Module_0_Technology_Report.md`.
 
 ## Backlog (prioritised)

@@ -1,7 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3C27C"/><stop offset="1" stop-color="#B8894A"/></linearGradient>
+    <linearGradient id="d" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A67A3E"/><stop offset="1" stop-color="#85602F"/></linearGradient>
+  </defs>
   <rect width="1200" height="630" fill="#F6F1E7"/>
-  <rect x="80" y="80" width="1040" height="470" fill="none" stroke="#B8894A" stroke-opacity="0.35"/>
-  <text x="600" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="120" letter-spacing="30" fill="#111111">LOKAGER</text>
-  <rect x="560" y="340" width="80" height="2" fill="#B8894A"/>
-  <text x="600" y="410" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="36" fill="#444444">Where Property Meets Trust.</text>
+  <g transform="translate(300 150) scale(2.4)">
+    <polygon points="10,60 24,52 24,86 10,86" fill="url(#g)"/>
+    <polygon points="20,54 24,52 24,86 20,86" fill="url(#d)"/>
+    <polygon points="30,44 44,36 44,86 30,86" fill="url(#g)"/>
+    <polygon points="40,38 44,36 44,86 40,86" fill="url(#d)"/>
+    <polygon points="50,26 72,14 72,86 50,86" fill="url(#g)"/>
+    <polygon points="64,18 72,14 72,86 64,86" fill="url(#d)"/>
+    <polygon points="10,86 96,86 110,100 10,100" fill="url(#g)"/>
+    <polygon points="10,100 110,100 104,106 10,106" fill="url(#d)"/>
+  </g>
+  <text x="600" y="405" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="96" letter-spacing="12" fill="#111111">LOKAGER</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="22" letter-spacing="8" fill="#B8894A">WHERE PROPERTY MEETS TRUST.</text>
 </svg>
