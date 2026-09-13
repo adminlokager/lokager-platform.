@@ -12,8 +12,8 @@ const screens = {
   complete: () => <ComingSoonScreen />,
 };
 
-export const Ceremony = ({ respectSeen = true }) => {
-  const ceremony = useLaunchCeremony({ respectSeen });
+export const Ceremony = () => {
+  const ceremony = useLaunchCeremony();
   return (
     <AnimatePresence mode="wait">
       <motion.div

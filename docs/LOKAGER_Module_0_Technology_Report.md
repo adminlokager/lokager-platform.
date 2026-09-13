@@ -304,6 +304,12 @@ No new dependencies in this revision (Framer Motion, canvas-confetti, react-i18n
 - **Graceful degradation:** if the page is reloaded mid-countdown the gesture unlock is lost and the chime is silently skipped; if the device is on silent / has no Web Audio, nothing breaks. The ceremony never depends on audio.
 - **Launch-day tip:** keep the phone's ringer on and media volume at ~60 %.
 
+## 14. Revision 4 — Manual launch trigger restored (functional fix)
+- **Cause:** the once-per-browser gate (`lokager_launched_seen`) and the reload-resume timestamp made `/` open on the Coming Soon screen (or mid-countdown) after any earlier run on the same browser.
+- **Fix:** all `localStorage` / `sessionStorage` / cookie state removed. Ceremony state is in-memory only. Every load of `/` or `/launch` stops on the opening screen (logo · tagline · OFFICIAL LAUNCH · `LAUNCH LOKAGER`). The countdown begins **only** on the tap; a `startedAtRef` guard makes double-tap/double-click a no-op. A refresh at any point returns to the opening screen (there is no resume — intentional, for rehearsal).
+- **Files:** `hooks/useLaunchCeremony.js`, `lib/site.js` (storage keys removed), `components/sections/Ceremony.jsx`, `pages/HomePage.jsx`, `pages/LaunchPage.jsx`; `lib/storage.js` deleted. §4.1 "Reload-safe / Once-per-browser" no longer applies.
+- **Verified** (`/app/test_reports/iteration_3.json`): launch screen shows on `/` and `/launch` even with legacy keys pre-seeded; no auto-start after 8 s idle; single tap → 60 → 49 over 10 s; double-click starts one timer only; refresh mid-countdown returns to the opening screen; mobile button 342 × 76 px above the fold; no `/api` calls; no `lokager_*` storage keys written.
+
 ## 11. Repository & Commit
 - Branch recommendation: `module-0-launch` → merge to `main` after founder sign-off.
 - Push from the Emergent platform "Save to GitHub" action to repo `lokager-platform`.

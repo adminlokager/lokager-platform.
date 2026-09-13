@@ -25,6 +25,7 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - Celebration sequence now: Congratulations! → LOKAGER IS NOW LIVE → logo with gold glow → tagline → "A New World of Property Begins." (9 s).
 - Revision 2 (June 2026): 60 s brand film (20 scenes × 3 s), ivory countdown stage with 60-tick instrument dial, desktop left/right storytelling panels, mobile single visual, champagne-only celebration, final screen with "A NEW WORLD OF PROPERTY BEGINS." Logo re-matched to the founder's reference (tall slab + descending pillars, gold house-A in LOKAGER). Two font families: Fraunces + Montserrat. Verified 11/11 in iteration_2.
 - Revision 3: subtle Web Audio chime (C6-E6-G6) exactly at 0, unlocked by the launch tap; no vibration. Founder decisions: logo swap only when the final Canva asset is uploaded; waitlist + vertical pages deferred to tomorrow.
+- Revision 4 (bug fix): removed all localStorage gating/resume — `/` and `/launch` always stop on the LAUNCH LOKAGER screen; countdown starts only on tap; double-tap guarded; refresh returns to opening screen. Verified iteration_3.
 - Report: `/app/docs/LOKAGER_Module_0_Technology_Report.md`.
 
 ## Backlog (prioritised)

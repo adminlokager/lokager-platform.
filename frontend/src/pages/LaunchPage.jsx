@@ -7,7 +7,7 @@ export default function LaunchPage() {
   return (
     <>
       <Meta title={t("meta.launch.title")} description={t("meta.launch.description")} path="/launch" noIndex />
-      <Ceremony respectSeen={false} />
+      <Ceremony />
     </>
   );
 }

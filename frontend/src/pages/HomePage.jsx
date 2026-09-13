@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <Meta title={t("meta.home.title")} description={t("meta.home.description")} path="/" />
-      <Ceremony respectSeen />
+      <Ceremony />
     </>
   );
 }
