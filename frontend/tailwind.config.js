@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ivory: { DEFAULT: "#F6F1E7", deep: "#EFEAE0" },
-        charcoal: { DEFAULT: "#111111", soft: "#444444" },
-        gold: { DEFAULT: "#B8894A", bright: "#D4AF37", light: "#F3E5AB" },
+        ivory: { DEFAULT: "#F6F1E7", light: "#FBF8F2", deep: "#EFEAE0" },
+        charcoal: { DEFAULT: "#111111", soft: "#292725" },
+        gold: { DEFAULT: "#B8894A", champagne: "#D4B47C", bright: "#D4AF37", light: "#F3E5AB" },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         border: "hsl(var(--border))",
@@ -24,8 +24,8 @@ module.exports = {
       },
       fontFamily: {
         display: ["Fraunces", "Playfair Display", "Georgia", "serif"],
-        brand: ["Montserrat", "Inter", "system-ui", "sans-serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Montserrat", "system-ui", "sans-serif"],
+        brand: ["Montserrat", "system-ui", "sans-serif"],
       },
       letterSpacing: { widest2: "0.3em", eyebrow: "0.25em" },
       borderRadius: {
@@ -36,10 +36,14 @@ module.exports = {
       keyframes: {
         "fade-up": { from: { opacity: "0", transform: "translateY(12px)" }, to: { opacity: "1", transform: "translateY(0)" } },
         shimmer: { "0%, 100%": { opacity: "0.35" }, "50%": { opacity: "0.7" } },
+        "slow-zoom": { from: { transform: "scale(1)" }, to: { transform: "scale(1.07)" } },
+        "pulse-ring": { "0%": { transform: "scale(0.6)", opacity: "0.6" }, "100%": { transform: "scale(1.6)", opacity: "0" } },
       },
       animation: {
         "fade-up": "fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
         shimmer: "shimmer 3s ease-in-out infinite",
+        "slow-zoom": "slow-zoom 4s linear both",
+        "pulse-ring": "pulse-ring 2.4s ease-out infinite",
       },
     },
   },

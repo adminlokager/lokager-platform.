@@ -1,2 +1,2 @@
-export { Logo } from "@/components/brand/Logo";
-export { LogoMark } from "@/components/brand/LogoMark";
+export { Logo, BrandWord } from "@/components/brand/Logo";
+export { LogoMark, BrandA } from "@/components/brand/LogoMark";

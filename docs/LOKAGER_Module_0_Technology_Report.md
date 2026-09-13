@@ -10,8 +10,8 @@
 
 Module 0 delivers the official LOKAGER launch moment as a premium, single-purpose web experience:
 
-1. **Launch screen** — LOKAGER wordmark, tagline *"Where Property Meets Trust."*, one large `LAUNCH LOKAGER` button.
-2. **30-second countdown** — charcoal stage, gold serif numerals, SVG progress ring, rotating micro-phrases (no claims).
+1. **Launch screen** — LOKAGER logo, tagline, "The Beginning of a New World of Property", one large `LAUNCH LOKAGER` button, architectural gold frame, faint skyline.
+2. **60-second brand film** — ivory stage, luxury instrument dial, gold numerals, 20 scenes (one every 3 s) with left/right property visuals on desktop and a single visual on mobile (see §12).
 3. **Celebration** — gold confetti and soft gold glow around the logo; *"Congratulations!" → "LOKAGER IS NOW LIVE" → [LOGO] → "WHERE PROPERTY MEETS TRUST." → "A New World of Property Begins."* (9 s).
 4. **Coming Soon** — wordmark, tagline, trust statement *"Building a more trusted property experience."*, the seven verticals (Buy · Sell · Rent · New Projects · Commercial · Land · Mortgage), minimal footer.
 5. **404 page**, SEO/meta foundation, i18n scaffold, favicon/OG placeholders.
@@ -213,6 +213,89 @@ Manual rehearsal checklist for launch day:
 
 ---
 
-## 11. Repository & Commit
+## 12. Revision 2 — Final Visual Revision (60-second brand film)
+
+**Backend: NONE (used).** The FastAPI process exists only as `GET /api/health` for platform liveness; the launch experience makes **zero** API calls.
+**Database: NONE.** Nothing is read or written to MongoDB.
+
+### 12.1 What changed
+| Area | Before | Now |
+|---|---|---|
+| Countdown length | 30 s | **60 s**, number changes every second (60 → 1, then `0` shown for 0.7 s) |
+| Countdown stage | Dark charcoal | **Ivory-light `#FBF8F2`** + charcoal + refined gold; black only in typography/button |
+| Content during countdown | Rotating phrase | **20 brand scenes**, one every 3 s (LOK = WORLD → AGER = PROPERTY → … → WELCOME TO THE WORLD OF LOKAGER) |
+| Canvas usage | Centre only | Desktop: centre (logo · dial · message) + **left/right storytelling panels** (framed visual on one side, chapter card on the other, alternating); mobile: one primary visual below the message |
+| Dial | Plain ring | **Luxury instrument dial**: 60 tick marks (major every 5) that light up as time passes, champagne outer ring, gold progress arc |
+| Finale | — | 3 → 2 → 1 numerals turn gold, scale up 9 % per step, soft glow, expanding gold ring pulse |
+| Launch moment | Multicolour confetti | **Gold light sweep** (one pass, 1.7 s) then **champagne particles** only (circles, 4 gentle drifts) — no multicolour, no fireworks |
+| Celebration copy | — | CONGRATULATIONS! · LOKAGER · is now live · WHERE PROPERTY MEETS TRUST. · A New World of Property Begins. (held ≈ 9 s) |
+| Final screen | Coming soon | Logo · "A NEW WORLD / OF PROPERTY / BEGINS." · verticals · COMING SOON · trust line · "ROOTED IN INDIA. BUILT FOR THE WORLD." — remains, no redirect |
+| Logo | Ascending bars | **Reference-matched**: tall gold slab left, two descending pillars, perspective foot; wordmark LOK**A**GER with gold house-A; tagline in charcoal |
+| Typography | Fraunces + Inter + Montserrat | **Two families only**: Fraunces (editorial display, numerals, statements) + Montserrat (geometric sans: wordmark, labels, body) |
+
+### 12.2 Files modified / added
+```
+MODIFIED
+frontend/public/index.html                      fonts (Fraunces + Montserrat only)
+frontend/public/favicon.svg, og-image.svg        new mark geometry
+frontend/tailwind.config.js                      tokens: ivory.light, charcoal.soft #292725, gold.champagne; fonts; keyframes slow-zoom, pulse-ring
+frontend/src/index.css                           grain opacity 4.5 % → 2.8 %
+frontend/src/lib/site.js                         COUNTDOWN_MS 60000, ZERO_HOLD_MS 700, CELEBRATION_MS 9000, SCENE_COUNT 20
+frontend/src/hooks/useLaunchCeremony.js          zero-hold handling
+frontend/src/hooks/useGoldConfetti.js            champagne-only particles
+frontend/src/locales/en/common.json              all new copy incl. 20 scenes
+frontend/src/components/brand/LogoMark.jsx       new mark + BrandA (gold house-A glyph)
+frontend/src/components/brand/Logo.jsx           BrandWord (LOK·A·GER) + charcoal tagline
+frontend/src/components/layout/Stage.jsx         hideHeader / hideFooter props
+frontend/src/components/sections/LaunchScreen.jsx, CountdownScreen.jsx, CelebrationScreen.jsx, ComingSoonScreen.jsx, VerticalList.jsx
+
+ADDED
+frontend/src/lib/scenes.js                       scene → visual map, image URLs, sceneIndexAt(), preloadScenes()
+frontend/src/components/sections/CountdownDial.jsx      60-tick instrument dial (replaces CountdownRing.jsx — removed)
+frontend/src/components/sections/CountdownNumber.jsx    numeral + finale pulse
+frontend/src/components/sections/SceneVisual.jsx        framed visual (image / collage / line-art) with horizontal reveal
+frontend/src/components/sections/SceneCard.jsx          chapter card (desktop)
+frontend/src/components/sections/SceneMessage.jsx       lead / message / support with cross-fade
+frontend/src/components/sections/LineArt.jsx            SVG line-art: globe, merge, world, network, identity
+frontend/src/components/sections/ArchFrame.jsx          gold architectural frame + corner captions
+frontend/src/components/sections/BrandStrip.jsx         BUY • SELL • … / PROPERTY • PEOPLE • POSSIBILITIES
+frontend/src/components/sections/Skyline.jsx            faint geometric skyline (launch + final screens)
+```
+
+### 12.3 Assets & image formats
+- **Photography (13 files)** — Unsplash CDN, requested as `?auto=format&fit=crop&w=720&h=900&q=62`. `auto=format` serves **AVIF/WebP** to browsers that support them (JPEG fallback), ~70–150 KB each, 720 × 900 (portrait, cropped by CSS to 16:9 on mobile). Total ≈ 1.5 MB spread over 60 s. Photo IDs are listed in `src/lib/scenes.js`.
+- **Line-art (5 scenes)** — inline SVG, zero network cost: globe, globe + mark merge, world with India pulse, network, identity.
+- **Collage (1 scene)** — reuses four already-cached photos (no extra downloads).
+- **Logo** — inline SVG (`LogoMark.jsx`), favicon/OG SVG copies in `public/`.
+- No video, no GIFs, no icon fonts.
+
+### 12.4 Countdown implementation
+Timestamp-based (unchanged principle): tap → `Date.now()` stored in `localStorage.lokager_launch_started_at`; a 100 ms interval recomputes `remaining = ceil((60000 − elapsed)/1000)` and `progress = elapsed/60000`. Drift-free, throttle-proof, survives reload. `ZERO_HOLD_MS = 700` lets "0" be seen before the celebration begins (celebration is triggered at 60.7 s). Numerals re-mount per second with a 0.35 s opacity/scale ease; from 3 downward the scale grows 9 % per step and the colour switches to gold.
+
+### 12.5 Scene sequencing
+`sceneIndex = min(19, floor(progress × 20))` → one scene per 3 s, derived from the same timestamp as the number (so scenes and numbers can never drift apart, and a reload resumes on the correct scene). Copy lives in `common.json → scenes[]`; visuals/sides in `scenes.js → SCENE_VISUALS[]`. Scene changes are animated with `AnimatePresence mode="wait"` (Framer Motion): visuals use a clip-path horizontal reveal (0.9 s) and a 0.45 s fade-out; messages cross-fade with a 12 px rise. Scenes 19–20 have `side: "none"` → side panels fade to 0 and the centre takes focus.
+
+### 12.6 Animation technology
+Framer Motion (already in the scaffold) for mount/unmount transitions, gold sweep and finale pulse; CSS keyframes for slow image zoom (`slow-zoom`, 4 s, GPU transform) and the India pulse ring; SVG `stroke-dashoffset` transition for the dial arc; `canvas-confetti` for champagne particles only (4 short bursts, circles). All motion is opacity/transform based — no layout-thrashing properties. `prefers-reduced-motion` collapses animations and skips particles.
+
+### 12.7 Performance
+- Rolling preload: the launch screen pre-warms scenes 1–4 after 1.2 s; during the countdown the next 3 scenes are preloaded via `new Image()` (deduplicated). A phone never downloads more than a few images ahead.
+- One image per scene; only one `<img>` (or four small collage tiles) mounted at a time; unmounted images are released.
+- 100 ms tick with two cheap state updates; dial is a static SVG with one animated offset.
+- Fonts: two Google families with `display=swap` and preconnect.
+- QA run: no console errors, zero /api calls, all images 200, no jank observed at 1920/1366/820/390.
+
+### 12.8 Responsive behaviour
+| Breakpoint | Layout |
+|---|---|
+| ≥ 1024 px (laptop/desktop) | 3-column grid `1fr / 600px / 1fr`; side panels sized `min(340–420px, (100dvh − 400px) × 0.72)` so they never overflow short laptops; dial `clamp(230px, 38dvh, 400px)`; numeral `clamp(5rem, 13dvh, 9rem)` |
+| 768–1023 px (tablet) | Single column; one framed 16:9 visual below the message; side panels hidden |
+| < 768 px (mobile) | Same as tablet with tighter spacing; 76 px launch button, corner captions hidden, brand strip wraps |
+
+### 12.9 Dependencies
+No new dependencies in this revision (Framer Motion, canvas-confetti, react-i18next already present).
+
+### 12.10 Verification (iteration_2)
+`/app/test_reports/iteration_2.json` — 11/11 scenarios passed: full 60 → 0 per-second sequence recorded with no skipped/duplicated numbers; all 20 scenes in order with correct lead/support text; all photos loaded (no 4xx); celebration at ≈ 60.7 s, Coming Soon ≈ 9 s later with no redirect; reload resume (55 → 54); gate behaviour; no horizontal overflow on 1920 / 1366 / 820 / 390; side panels only ≥ 1024 px; zero console errors; zero API calls.
 - Branch recommendation: `module-0-launch` → merge to `main` after founder sign-off.
 - Push from the Emergent platform "Save to GitHub" action to repo `lokager-platform`.

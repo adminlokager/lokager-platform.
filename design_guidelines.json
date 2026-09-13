@@ -103,7 +103,13 @@
     "confetti_settings": {
       "particleCount": 120,
       "spread": 80,
-      "colors": ["#B8894A", "#D4AF37", "#F3E5AB", "#111111", "#FFFFFF"]
+      "colors": [
+        "#B8894A",
+        "#D4AF37",
+        "#F3E5AB",
+        "#111111",
+        "#FFFFFF"
+      ]
     }
   },
   "testing_attributes": {
@@ -117,6 +123,23 @@
   "image_urls": {
     "architectural_accent_1": "https://images.unsplash.com/photo-1722421492323-eaf9c401befe?crop=entropy&cs=srgb&fm=jpg&q=85",
     "architectural_accent_2": "https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "launch_scene_images": {
+    "land_green": "https://images.unsplash.com/photo-1769258958976-8852440011b8",
+    "land_aerial": "https://images.unsplash.com/photo-1747854805840-9be7d5e360e6",
+    "villa": "https://images.unsplash.com/photo-1544984243-ec57ea16fe25",
+    "apartments": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00",
+    "interior_living": "https://images.unsplash.com/photo-1564078516393-cf04bd966897",
+    "interior_rental": "https://images.unsplash.com/photo-1771219491795-3b4dafc1cdf3",
+    "towers_new": "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3",
+    "office": "https://images.unsplash.com/photo-1532888277436-2286814f0ee1",
+    "community": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "finance_abstract": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    "skyline_india": "https://images.unsplash.com/photo-1710582308582-55cc0c461c4e",
+    "skyline_global": "https://images.unsplash.com/photo-1768463852019-4881a17a1c0e",
+    "architecture_lines": "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+    "architecture_identity": "https://images.unsplash.com/photo-1596716999716-544f09b06743",
+    "homes_family": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7"
   },
   "instructions_to_main_agent": [
     "Ensure both / and /launch routes load the ceremony application cleanly.",

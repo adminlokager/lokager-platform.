@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { storage } from "@/lib/storage";
-import { COUNTDOWN_MS, CELEBRATION_MS, STORAGE_KEYS } from "@/lib/site";
+import { COUNTDOWN_MS, ZERO_HOLD_MS, CELEBRATION_MS, STORAGE_KEYS } from "@/lib/site";
+
+const COUNTDOWN_END = COUNTDOWN_MS + ZERO_HOLD_MS;
 
 const derivePhase = (respectSeen) => {
   const startedAt = Number(storage.get(STORAGE_KEYS.startedAt));
   if (startedAt) {
     const elapsed = Date.now() - startedAt;
-    if (elapsed < COUNTDOWN_MS) return { phase: "countdown", startedAt };
-    if (elapsed < COUNTDOWN_MS + CELEBRATION_MS) return { phase: "celebration", startedAt };
+    if (elapsed < COUNTDOWN_END) return { phase: "countdown", startedAt };
+    if (elapsed < COUNTDOWN_END + CELEBRATION_MS) return { phase: "celebration", startedAt };
     if (respectSeen) return { phase: "complete", startedAt };
   }
   if (respectSeen && storage.get(STORAGE_KEYS.seen) === "1") return { phase: "complete", startedAt: 0 };
@@ -37,7 +39,7 @@ export const useLaunchCeremony = ({ respectSeen = true } = {}) => {
       const elapsed = Date.now() - startedAtRef.current;
       setRemaining(Math.max(0, Math.ceil((COUNTDOWN_MS - elapsed) / 1000)));
       setProgress(Math.min(1, elapsed / COUNTDOWN_MS));
-      if (elapsed >= COUNTDOWN_MS) setPhase("celebration");
+      if (elapsed >= COUNTDOWN_END) setPhase("celebration");
     };
     tick();
     const id = setInterval(tick, 100);
@@ -47,7 +49,7 @@ export const useLaunchCeremony = ({ respectSeen = true } = {}) => {
   useEffect(() => {
     if (phase !== "celebration") return undefined;
     storage.set(STORAGE_KEYS.seen, "1");
-    const elapsed = Date.now() - startedAtRef.current - COUNTDOWN_MS;
+    const elapsed = Date.now() - startedAtRef.current - COUNTDOWN_END;
     const id = setTimeout(() => setPhase("complete"), Math.max(0, CELEBRATION_MS - elapsed));
     return () => clearTimeout(id);
   }, [phase]);

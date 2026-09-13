@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Stage } from "@/components/layout/Stage";
 import { Logo } from "@/components/brand/Logo";
-import { GoldRule } from "@/components/sections/GoldRule";
+import { ArchFrame } from "@/components/sections/ArchFrame";
+import { Skyline } from "@/components/sections/Skyline";
 import { VerticalList } from "@/components/sections/VerticalList";
 
 const fade = (delay) => ({
@@ -14,34 +15,33 @@ const fade = (delay) => ({
 export const ComingSoonScreen = () => {
   const { t } = useTranslation();
   return (
-    <Stage testId="coming-soon-container">
-      <div className="flex w-full max-w-4xl flex-col items-center text-center">
-        <motion.span
-          {...fade(0.1)}
-          data-testid="live-badge"
-          className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-4 py-1.5 font-sans text-[11px] sm:text-xs font-semibold uppercase tracking-eyebrow text-gold"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-          {t("comingSoon.badge")}
-        </motion.span>
-        <motion.div {...fade(0.3)} className="mt-8 sm:mt-10">
+    <Stage hideHeader hideFooter testId="coming-soon-container">
+      <ArchFrame tl={t("brand.indiaWorld")} tr={t("brand.connects")} />
+      <Skyline />
+      <div className="relative flex w-full max-w-4xl flex-col items-center text-center pb-16">
+        <motion.div {...fade(0.2)}>
           <Logo variant="vertical" size="lg" testId="coming-soon-logo" />
         </motion.div>
-        <motion.div {...fade(0.6)}>
-          <GoldRule className="my-8 sm:my-10" />
-        </motion.div>
-        <motion.h1 {...fade(0.7)} data-testid="coming-soon-title" className="font-display font-normal text-4xl sm:text-5xl text-charcoal">
-          {t("comingSoon.title")}
+        <motion.h1 {...fade(0.6)} data-testid="coming-soon-statement" className="mt-10 sm:mt-12 font-display font-normal leading-[1.08] text-4xl sm:text-5xl lg:text-6xl text-charcoal">
+          {t("comingSoon.statement").map((line) => (
+            <span key={line} className="block">{line}</span>
+          ))}
         </motion.h1>
-        <motion.p {...fade(0.85)} data-testid="trust-statement" className="mt-4 font-sans text-sm sm:text-base text-charcoal-soft">
-          {t("brand.trust")}
-        </motion.p>
-        <motion.p {...fade(0.95)} className="mt-2 max-w-lg font-sans text-sm text-charcoal-soft/80">
-          {t("comingSoon.lead")}
-        </motion.p>
-        <motion.div {...fade(1.1)} className="mt-10 sm:mt-14 w-full">
+        <motion.div {...fade(0.9)} className="mt-10 sm:mt-12 w-full">
           <VerticalList items={t("comingSoon.verticals")} />
         </motion.div>
+        <motion.p {...fade(1.1)} data-testid="coming-soon-title" className="mt-10 font-sans text-sm sm:text-base font-semibold uppercase tracking-[0.34em] text-gold">
+          {t("comingSoon.title")}
+        </motion.p>
+        <motion.p {...fade(1.2)} data-testid="trust-statement" className="mt-3 font-sans text-sm sm:text-base text-charcoal-soft/85">
+          {t("brand.trust")}
+        </motion.p>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-2 px-6 pb-7 sm:pb-9 text-center">
+        <p data-testid="coming-soon-footer-statement" className="font-sans text-[11px] sm:text-xs font-semibold uppercase tracking-[0.3em] text-charcoal">
+          {t("brand.rooted")} {t("brand.builtWorld")}
+        </p>
+        <p data-testid="footer-rights" className="font-sans text-[10px] sm:text-[11px] text-charcoal-soft/55">{t("footer.rights", { year: new Date().getFullYear() })}</p>
       </div>
     </Stage>
   );

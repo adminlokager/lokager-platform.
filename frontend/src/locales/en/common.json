@@ -2,39 +2,67 @@
   "brand": {
     "name": "LOKAGER",
     "tagline": "Where Property Meets Trust.",
-    "trust": "Building a more trusted property experience.",
-    "region": "India"
+    "trust": "Building a smarter, more trusted property experience.",
+    "region": "India",
+    "est": "Est. 2026",
+    "indiaWorld": "India → The World",
+    "connects": "Property connects people",
+    "rooted": "Rooted in India.",
+    "builtWorld": "Built for the World.",
+    "pillars": ["Property", "People", "Possibilities"]
   },
   "launch": {
     "eyebrow": "Official Launch",
-    "title": "A new chapter in property begins today.",
+    "title": "The Beginning of a New World of Property",
+    "pillars": ["People", "Places", "Possibilities"],
     "button": "LAUNCH LOKAGER",
-    "hint": "Tap once to begin the launch."
+    "hint": "Tap once to begin the launch.",
+    "stamp": "Official Launch • 2026",
+    "sideLeft": ["Homes", "Investments", "Businesses", "Communities"],
+    "sideRight": ["A smarter,", "more trusted", "property experience."]
   },
   "countdown": {
-    "eyebrow": "Launching in",
+    "eyebrow": "Official Launch",
+    "beginsIn": "Begins in",
     "unit": "seconds",
-    "phrases": [
-      "Preparing the stage…",
-      "Where Property Meets Trust.",
-      "A more trusted property experience…",
-      "Almost there…"
-    ]
+    "journey": "60 sec journey"
   },
+  "scenes": [
+    { "lead": "LOK means", "lines": ["WORLD."], "support": "A world of possibilities begins here.", "chapter": "World" },
+    { "lead": "AGER means", "lines": ["PROPERTY."], "support": "Land. Homes. Spaces. Possibilities.", "chapter": "Property" },
+    { "lead": "Together,", "lines": ["they become LOKAGER."], "support": "The World of Property.", "chapter": "LOKAGER" },
+    { "lines": ["ROOTED IN INDIA."], "support": "Built with a global vision.", "chapter": "India" },
+    { "lines": ["LAND"], "support": "Where every possibility begins.", "chapter": "Land" },
+    { "lines": ["HOMES"], "support": "Spaces where life happens.", "chapter": "Homes" },
+    { "lines": ["BUY"], "support": "Discover with confidence.", "chapter": "Buy" },
+    { "lines": ["SELL"], "support": "Connect with the right opportunity.", "chapter": "Sell" },
+    { "lines": ["RENT"], "support": "Find a place that fits your life.", "chapter": "Rent" },
+    { "lines": ["NEW PROJECTS"], "support": "Discover tomorrow's addresses.", "chapter": "New Projects" },
+    { "lines": ["COMMERCIAL"], "support": "Spaces where businesses grow.", "chapter": "Commercial" },
+    { "lines": ["LAND"], "support": "Build your future from the ground up.", "chapter": "Community" },
+    { "lines": ["MORTGAGE"], "support": "Property and possibilities, connected.", "chapter": "Mortgage" },
+    { "lines": ["EVERY PROPERTY NEED."], "support": "One trusted destination.", "chapter": "Everything" },
+    { "lines": ["INDIA → THE WORLD"], "support": "A vision without boundaries.", "chapter": "Vision" },
+    { "lines": ["SMARTER PROPERTY."], "support": "Better information. Better decisions.", "chapter": "Smarter" },
+    { "lines": ["TRUSTED CONNECTIONS."], "support": "Property connects people.", "chapter": "Trust" },
+    { "lines": ["WHERE PROPERTY", "MEETS TRUST."], "chapter": "LOKAGER" },
+    { "lines": ["A NEW WORLD", "OF PROPERTY", "IS ABOUT TO BEGIN."], "chapter": "" },
+    { "lines": ["WELCOME TO", "THE WORLD OF LOKAGER."], "chapter": "" }
+  ],
   "celebration": {
     "eyebrow": "Congratulations!",
-    "title": "LOKAGER IS NOW LIVE",
+    "name": "LOKAGER",
+    "live": "is now live",
     "sub": "A New World of Property Begins."
   },
   "comingSoon": {
-    "badge": "Now Live",
+    "statement": ["A NEW WORLD", "OF PROPERTY", "BEGINS."],
     "title": "Coming Soon",
-    "lead": "The full LOKAGER experience is being crafted with care. Here is what we are building.",
     "verticals": ["Buy", "Sell", "Rent", "New Projects", "Commercial", "Land", "Mortgage"]
   },
   "footer": {
     "rights": "© {{year}} LOKAGER. All rights reserved.",
-    "built": "Built for India"
+    "built": "Rooted in India. Built for the World."
   },
   "notFound": {
     "code": "404",
@@ -43,7 +71,7 @@
     "button": "Return to LOKAGER"
   },
   "meta": {
-    "home": { "title": "LOKAGER — Where Property Meets Trust.", "description": "Building a more trusted property experience for India." },
+    "home": { "title": "LOKAGER — Where Property Meets Trust.", "description": "Building a smarter, more trusted property experience. Rooted in India. Built for the World." },
     "launch": { "title": "LOKAGER — Official Launch", "description": "The official launch ceremony of LOKAGER." },
     "notFound": { "title": "Page not found — LOKAGER", "description": "This page does not exist." }
   }
