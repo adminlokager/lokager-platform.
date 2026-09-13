@@ -1,0 +1,50 @@
+{
+  "brand": {
+    "name": "LOKAGER",
+    "tagline": "Where Property Meets Trust.",
+    "trust": "Building a more trusted property experience.",
+    "region": "India"
+  },
+  "launch": {
+    "eyebrow": "Official Launch",
+    "title": "A new chapter in property begins today.",
+    "button": "LAUNCH LOKAGER",
+    "hint": "Tap once to begin the launch."
+  },
+  "countdown": {
+    "eyebrow": "Launching in",
+    "unit": "seconds",
+    "phrases": [
+      "Preparing the stage…",
+      "Where Property Meets Trust.",
+      "A more trusted property experience…",
+      "Almost there…"
+    ]
+  },
+  "celebration": {
+    "eyebrow": "Congratulations!",
+    "title": "LOKAGER IS NOW LIVE",
+    "sub": "Where Property Meets Trust."
+  },
+  "comingSoon": {
+    "badge": "Now Live",
+    "title": "Coming Soon",
+    "lead": "The full LOKAGER experience is being crafted with care. Here is what we are building.",
+    "verticals": ["Buy", "Sell", "Rent", "New Projects", "Commercial", "Land", "Mortgage"]
+  },
+  "footer": {
+    "rights": "© {{year}} LOKAGER. All rights reserved.",
+    "built": "Built for India"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "This address does not exist.",
+    "body": "The page you are looking for has moved or was never listed.",
+    "button": "Return to LOKAGER"
+  },
+  "meta": {
+    "home": { "title": "LOKAGER — Where Property Meets Trust.", "description": "Building a more trusted property experience for India." },
+    "launch": { "title": "LOKAGER — Official Launch", "description": "The official launch ceremony of LOKAGER." },
+    "notFound": { "title": "Page not found — LOKAGER", "description": "This page does not exist." }
+  }
+}

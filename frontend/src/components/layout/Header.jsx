@@ -1,0 +1,13 @@
+import { useTranslation } from "react-i18next";
+import { Wordmark } from "@/components/layout/Wordmark";
+
+export const Header = ({ tone = "charcoal" }) => {
+  const { t } = useTranslation();
+  const muted = tone === "ivory" ? "text-ivory/60" : "text-charcoal-soft/70";
+  return (
+    <header data-testid="site-header" className="relative z-10 flex items-center justify-between px-6 sm:px-12 pt-6 sm:pt-8">
+      <Wordmark size="sm" tone={tone} testId="header-wordmark" />
+      <span className={`hidden sm:block font-sans text-xs uppercase tracking-eyebrow ${muted}`}>{t("brand.region")}</span>
+    </header>
+  );
+};

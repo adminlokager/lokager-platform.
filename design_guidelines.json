@@ -1,0 +1,133 @@
+{
+  "project_name": "LOKAGER — Module 0: Public Launch Page",
+  "app_type": "landing_page_ceremony",
+  "design_persona": "E1 - The Anti-AI Designer (High-End PropTech Luxury & Trust)",
+  "color_palette": {
+    "background_primary": "#F6F1E7",
+    "background_secondary": "#EFEAE0",
+    "text_primary": "#111111",
+    "text_secondary": "#444444",
+    "accent_gold": "#B8894A",
+    "accent_gold_bright": "#D4AF37",
+    "accent_gold_light": "#F3E5AB",
+    "surface_dark": "#111111",
+    "surface_dark_text": "#F6F1E7",
+    "border_subtle": "rgba(17, 17, 17, 0.12)",
+    "border_gold": "rgba(184, 137, 74, 0.35)",
+    "rules": [
+      "Strict compliance with palette: warm ivory #F6F1E7, deep charcoal #111111, refined gold #B8894A",
+      "No full-screen heavy gradients or saturated tech blues/purples",
+      "Gradients are strictly limited to subtle gold radial glows behind countdown numerals and confetti overlays",
+      "Dark surfaces (e.g. countdown or celebration active state card) must use deep charcoal #111111 with ivory text"
+    ]
+  },
+  "typography": {
+    "headings": {
+      "font_family": "'Fraunces', 'Playfair Display', serif",
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-[#111111] leading-[1.15]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-normal text-[#111111]",
+      "subheading": "text-lg sm:text-xl font-sans font-light text-[#444444] tracking-wide"
+    },
+    "body": {
+      "font_family": "'Inter', 'Outfit', sans-serif",
+      "main": "text-base font-sans font-normal text-[#111111] leading-relaxed",
+      "small_label": "text-xs sm:text-sm font-sans uppercase tracking-[0.25em] text-[#B8894A] font-semibold"
+    },
+    "wordmark": {
+      "font_family": "'Fraunces', 'Playfair Display', serif",
+      "style": "tracking-[0.3em] font-medium uppercase text-[#111111]"
+    }
+  },
+  "layout_and_spacing": {
+    "container": "max-w-5xl mx-auto px-6 sm:px-12 py-12 lg:py-20",
+    "whitespace": "Generous vertical spacing (p-8 to py-24) to convey trust, calm, and elegance",
+    "header_nav": "Clean floating or top-aligned header with LOKAGER wordmark and subtle 'India' trust indicator. Non-distracting.",
+    "ceremony_card": "Centered focus stage with crisp 1px borders (border-[#111111]/10 or gold glow border), rounded-2xl or rounded-3xl, deep ivory/charcoal contrast."
+  },
+  "ceremony_states": {
+    "state_1_launch_screen": {
+      "description": "Initial state. Shows LOKAGER wordmark, tagline 'Where Property Meets Trust', and the LAUNCH LOKAGER button.",
+      "button_design": {
+        "text": "LAUNCH LOKAGER",
+        "size": "min-h-[72px] px-10 py-5 text-xl sm:text-2xl font-serif tracking-wider",
+        "styling": "bg-[#111111] text-[#F6F1E7] border-2 border-[#B8894A] rounded-2xl shadow-xl hover:bg-[#B8894A] hover:text-[#111111] transition-all duration-300 transform active:scale-95 cursor-pointer flex items-center justify-center gap-4 w-full sm:w-auto mx-auto",
+        "reliability_focus": "One-tap trigger with instant visual and audio/haptic cue. Founder's mother friendly (large touch target, zero delay).",
+        "data_testid": "launch-button"
+      }
+    },
+    "state_2_countdown_screen": {
+      "duration_seconds": 30,
+      "numerals": "Massive serif numerals (e.g. text-7xl sm:text-9xl) in gold #B8894A with tabular numbers layout so text doesn't shift.",
+      "visuals": "SVG circular radial progress ring or sleek linear progress bar filling from 0 to 100%. Subtle glowing aura.",
+      "micro_messages": [
+        "Initializing Trust Engine...",
+        "Connecting Real Estate Ecosystem...",
+        "Securing Property Verifications...",
+        "Preparing Live Launch..."
+      ],
+      "data_testid": "countdown-timer"
+    },
+    "state_3_celebration_screen": {
+      "heading": "CONGRATULATIONS! LOKAGER IS NOW LIVE",
+      "effects": "Gold confetti explosion using canvas-confetti with custom palette (#B8894A, #D4AF37, #F3E5AB, #111111). Gold shimmer burst.",
+      "data_testid": "celebration-banner"
+    },
+    "state_4_coming_soon_screen": {
+      "heading": "LOKAGER IS NOW LIVE",
+      "tagline": "Where Property Meets Trust",
+      "trust_statement": "Building a more trusted property experience.",
+      "offerings_list": [
+        "Buy",
+        "Sell",
+        "Rent",
+        "New Projects",
+        "Commercial",
+        "Land",
+        "Mortgage"
+      ],
+      "offerings_styling": "Horizontal/vertical pill wrap in refined charcoal text, gold dot separators, clean minimalist aesthetics.",
+      "footer": "Minimal footer with copyright, 'Built for India', and subtle restart ceremony option for testing/demo.",
+      "data_testid": "coming-soon-container"
+    }
+  },
+  "page_404": {
+    "route": "/404",
+    "headline": "404 — Property Not Found",
+    "subtext": "The page or property you are looking for has been moved or does not exist.",
+    "button_text": "Return to Launch",
+    "data_testid_button": "back-home-button"
+  },
+  "motion_and_effects": {
+    "library": "framer-motion and canvas-confetti",
+    "principles": "Subtle, dignified, non-gimmicky. Smooth opacity fades, gentle scale-ups, no jitter.",
+    "confetti_settings": {
+      "particleCount": 120,
+      "spread": 80,
+      "colors": ["#B8894A", "#D4AF37", "#F3E5AB", "#111111", "#FFFFFF"]
+    }
+  },
+  "testing_attributes": {
+    "launch_button": "launch-button",
+    "countdown_timer": "countdown-timer",
+    "celebration_banner": "celebration-banner",
+    "coming_soon_container": "coming-soon-container",
+    "back_home_button": "back-home-button",
+    "reset_ceremony_button": "reset-ceremony-button"
+  },
+  "image_urls": {
+    "architectural_accent_1": "https://images.unsplash.com/photo-1722421492323-eaf9c401befe?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "architectural_accent_2": "https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "instructions_to_main_agent": [
+    "Ensure both / and /launch routes load the ceremony application cleanly.",
+    "The LAUNCH LOKAGER button must be extremely prominent, highly responsive on touch, with data-testid='launch-button'.",
+    "When tapped, transition seamlessly into the 30-second countdown.",
+    "Ensure the countdown tick is exact (30s timer) and updates every second smoothly.",
+    "When countdown reaches 0, auto-transition to Celebration state with confetti explosion and heading 'CONGRATULATIONS! LOKAGER IS NOW LIVE'.",
+    "After 4 seconds of celebration (or smooth transition), reveal the final Coming Soon screen featuring wordmark, tagline ('Where Property Meets Trust'), trust statement ('Building a more trusted property experience.'), vertical/pill list of categories (Buy, Sell, Rent, New Projects, Commercial, Land, Mortgage), and minimal footer.",
+    "Provide a subtle reset/re-launch button at the bottom of the final screen to allow easy re-testing of the ceremony.",
+    "Build a custom, elegant 404 page matching the warm ivory/charcoal/gold palette with data-testid='back-home-button'.",
+    "Strictly follow the user's constraints: no forms, no fake numbers, no fake testimonials, no cartoon icons, no heavy gradient overloads.",
+    "Include data-testid on all key interactive elements."
+  ]
+}
