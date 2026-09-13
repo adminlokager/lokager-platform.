@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Stage } from "@/components/layout/Stage";
 import { LogoMark } from "@/components/brand/LogoMark";
-import { BrandWord } from "@/components/brand/Logo";
+import { Wordmark } from "@/components/brand/Wordmark";
 import { ArchFrame } from "@/components/sections/ArchFrame";
 import { useGoldConfetti } from "@/hooks/useGoldConfetti";
 
@@ -34,8 +34,8 @@ export const CelebrationScreen = () => {
         <motion.p {...fade(0.9)} data-testid="celebration-eyebrow" className="mt-10 font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.34em] text-gold">
           {t("celebration.eyebrow")}
         </motion.p>
-        <motion.h1 {...fade(1.3)} data-testid="celebration-title" className="mt-5 text-5xl sm:text-7xl lg:text-8xl">
-          <BrandWord className="tracking-[0.14em]" testId="celebration-wordmark" />
+        <motion.h1 {...fade(1.3)} data-testid="celebration-title" className="mt-6 flex justify-center">
+          <Wordmark className="h-10 sm:h-16 lg:h-20 w-auto" testId="celebration-wordmark" />
         </motion.h1>
         <motion.p {...fade(1.7)} data-testid="celebration-live" className="mt-4 font-display italic text-3xl sm:text-4xl lg:text-5xl text-charcoal">
           {t("celebration.live")}

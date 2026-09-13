@@ -1,0 +1,51 @@
+{
+  "summary": "Frontend-only visual/layout regression for LOKAGER Module 0 launch ceremony. Verified new SVG wordmark and cinematic side-panel layout at 1920x1080, 1440x900, 1366x768, plus mobile 390x844 and tablet 820x1180. Wordmark refactor to inline SVG is correct across all 4 usages; centring is pixel-perfect. Side panels look great at 1920 and 1440; on 1366x768 the panel is slightly below the 60% target (59.6%) and the page produces ~101px vertical scroll (exceeds the 24px tolerance). All scene images load, captions gate correctly, scenes 19-20 panels fade out, celebration and coming-soon screens reached, no console errors, no /api requests.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "CountdownScreen SidePanel @ 1366x768", "issue": "documentElement.scrollHeight=869 vs viewport 768 = 101px vertical scroll (spec requires <=24px). Panel height also computes to 458/768=59.6% (spec: 60-85%). Reason: min(76dvh, 100dvh-310px)=458 works, but header pt-12 + countdown (~210px) + message + brand-strip footer pb-9 exceed 768. Consider tightening 310px reserve, reducing header/footer padding at lg breakpoint, or using 100dvh-260px at that breakpoint.", "selector": "[data-testid=side-panel-left]/[data-testid=side-panel-right]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "measurements": {
+    "panel_height_pct_of_viewport": {
+      "1920x1080": "71.3% (770px)",
+      "1440x900": "65.6% (590px)",
+      "1366x768": "59.6% (458px) - just below 60%"
+    },
+    "document_scroll_vs_viewport": {
+      "1920x1080": "sh=1080 vs vh=1080 (0px, OK)",
+      "1440x900": "sh=919 vs vh=900 (19px, OK)",
+      "1366x768": "sh=869 vs vh=768 (101px, FAIL - exceeds 24px tolerance)"
+    },
+    "wordmark_centring_delta_x": {
+      "1920x1080": "mark-word=0.0px, word-tag=0.0px",
+      "1440x900": "mark-word=0.0px, word-tag=0.0px",
+      "1366x768": "mark-word=0.0px, word-tag=0.0px"
+    },
+    "scenes_19_20": "opacity(left motion wrapper)=0, opacity(right)=0, no captions - PASS",
+    "mobile_390x844": "side panels hidden; scene-visual-mobile bbox top=686.78 (<900); no horizontal scroll (sw=390); countdown-timer and scene-message within viewport & non-overlapping",
+    "tablet_820x1180": "side panels hidden; scene-visual-mobile visible with img nw=900; sw=820 no horizontal scroll",
+    "wordmark_test_ids_all_svg_aria_LOKAGER": ["launch-logo-wordmark", "countdown-logo-wordmark", "celebration-wordmark", "coming-soon-logo-wordmark"],
+    "sampled_scene_images_naturalWidth": "8/8 loaded (nw=900) across t=5,20,40 on three desktop sizes",
+    "celebration_reached_and_coming_soon_reached": true,
+    "api_requests_count": 0,
+    "console_errors": 0
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix 1366x768 layout: page currently scrolls ~101px vertically and panel is 59.6% (below 60% threshold). Options: reduce the 310px reserve in `h-[min(76dvh,calc(100dvh-310px))]` to ~260px at lg only, or shrink header/footer vertical padding at lg breakpoint, or drop CountdownNumber's fixed height slightly. Aim: sh<=vh+24 AND panel>=60% at 1366x768."
+  ],
+  "critical_code_review_comments": [
+    "CountdownScreen SidePanel uses `100dvh-310px` reserve which assumes a taller viewport; at 768px this collapses panel to 59.6% and still overflows because header+timer+message+brand-strip exceed the remainder. Consider a responsive reserve (e.g., 260px @ lg, 310px @ xl+).",
+    "SceneVisual Frame has `-inset-2.5 sm:-inset-3.5` decorative border that extends beyond bounds; harmless but worth verifying it doesn't leak past viewport at 1366px (currently panels have x=56 left/x=983 right, safe)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "90%"},
+  "seed_data_creation": "none",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Iteration 4 focused on visual layout of the new cinematic side panels and the inline-SVG wordmark. Panels/wordmark are correct at 1920 and 1440; the only measurable regression is at 1366x768 (panel 59.6% and 101px vertical scroll). Mobile & tablet variants are correct. All 20 scene images (Unsplash) load. Timing (60s -> celebration -> +9s coming-soon) verified end-to-end.",
+  "rca of the issue": "At 1366x768, SidePanel height = min(76dvh=583.68, 100dvh-310px=458) = 458 (59.6%). Above/below the main grid the header (pt-12 ~= 48px + logo ~= 100px), countdown block (eyebrow+beginsIn+number 210px+unit label ~= 300px) and footer (BrandStrip 41px + pb-9=36px) plus vertical padding push total content to ~869px, forcing 101px scroll. Fix by lowering the fixed 310px offset at lg breakpoint or reducing pt-12/pb-9."
+}

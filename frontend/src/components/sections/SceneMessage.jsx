@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export const SceneMessage = ({ scene, sceneKey }) => {
   const multi = scene.lines.length > 1;
   return (
-    <div className="flex min-h-[8.5rem] sm:min-h-[9.5rem] w-full flex-col items-center justify-start text-center">
+    <div className="flex min-h-[6.5rem] sm:min-h-[9.5rem] lg:min-h-[7.5rem] w-full flex-col items-center justify-start text-center">
       <AnimatePresence mode="wait">
         <motion.div
           key={sceneKey}

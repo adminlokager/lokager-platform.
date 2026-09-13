@@ -19,7 +19,7 @@ export const CountdownDial = ({ progress }) => {
     <svg
       data-testid="countdown-dial"
       viewBox={`0 0 ${SIZE} ${SIZE}`}
-      className="h-[clamp(230px,38dvh,400px)] w-[clamp(230px,38dvh,400px)]"
+      className="h-[clamp(200px,28dvh,320px)] w-[clamp(200px,28dvh,320px)] lg:h-[clamp(230px,34dvh,400px)] lg:w-[clamp(230px,34dvh,400px)]"
       aria-hidden="true"
     >
       <circle cx={C} cy={C} r={R_OUTER} fill="none" stroke="#D4B47C" strokeOpacity="0.4" strokeWidth="1" />

@@ -1,6 +1,6 @@
 import { SCENE_COUNT } from "@/lib/site";
 
-const img = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=720&h=900&q=62`;
+const img = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&h=1200&q=60`;
 
 export const IMAGES = {
   landAerial: img("photo-1747854805840-9be7d5e360e6"),
@@ -21,28 +21,30 @@ export const IMAGES = {
 
 const image = (src) => ({ type: "image", src });
 const art = (name) => ({ type: "art", art: name });
+const none = { type: "none" };
+const I = IMAGES;
 
 export const SCENE_VISUALS = [
-  { side: "left", visual: art("globe") },
-  { side: "right", visual: image(IMAGES.landAerial) },
-  { side: "left", visual: art("merge") },
-  { side: "right", visual: image(IMAGES.skylineIndia) },
-  { side: "left", visual: image(IMAGES.landGreen) },
-  { side: "right", visual: image(IMAGES.villa) },
-  { side: "left", visual: image(IMAGES.apartments) },
-  { side: "right", visual: image(IMAGES.interiorLiving) },
-  { side: "left", visual: image(IMAGES.interiorRental) },
-  { side: "right", visual: image(IMAGES.skylineGlobal) },
-  { side: "left", visual: image(IMAGES.office) },
-  { side: "right", visual: image(IMAGES.community) },
-  { side: "left", visual: image(IMAGES.financeAbstract) },
-  { side: "right", visual: { type: "collage", srcs: [IMAGES.villa, IMAGES.office, IMAGES.landGreen, IMAGES.homesFamily] } },
-  { side: "left", visual: art("world") },
-  { side: "right", visual: image(IMAGES.architectureLines) },
-  { side: "left", visual: art("network") },
-  { side: "right", visual: art("identity") },
-  { side: "none", visual: { type: "none" } },
-  { side: "none", visual: { type: "none" } },
+  { side: "left", visual: art("globe"), secondary: image(I.skylineGlobal) },
+  { side: "right", visual: image(I.landAerial), secondary: image(I.landGreen) },
+  { side: "left", visual: art("merge"), secondary: image(I.architectureIdentity) },
+  { side: "right", visual: image(I.skylineIndia), secondary: image(I.homesFamily) },
+  { side: "left", visual: image(I.landGreen), secondary: image(I.landAerial) },
+  { side: "right", visual: image(I.villa), secondary: image(I.interiorLiving) },
+  { side: "left", visual: image(I.apartments), secondary: image(I.skylineIndia) },
+  { side: "right", visual: image(I.interiorLiving), secondary: image(I.villa) },
+  { side: "left", visual: image(I.interiorRental), secondary: image(I.apartments) },
+  { side: "right", visual: image(I.skylineGlobal), secondary: image(I.architectureLines) },
+  { side: "left", visual: image(I.office), secondary: image(I.financeAbstract) },
+  { side: "right", visual: image(I.community), secondary: image(I.landGreen) },
+  { side: "left", visual: image(I.financeAbstract), secondary: image(I.office) },
+  { side: "right", visual: { type: "collage", srcs: [I.villa, I.office, I.landGreen, I.homesFamily] }, secondary: image(I.homesFamily) },
+  { side: "left", visual: art("world"), secondary: image(I.skylineIndia) },
+  { side: "right", visual: image(I.architectureLines), secondary: image(I.architectureIdentity) },
+  { side: "left", visual: art("network"), secondary: image(I.community) },
+  { side: "right", visual: art("identity"), secondary: image(I.architectureLines) },
+  { side: "none", visual: none, secondary: none },
+  { side: "none", visual: none, secondary: none },
 ];
 
 export const sceneIndexAt = (progress) => Math.min(SCENE_COUNT - 1, Math.floor(progress * SCENE_COUNT));
@@ -51,8 +53,8 @@ const srcsOf = (visual) => (visual.type === "image" ? [visual.src] : visual.type
 
 const loaded = new Set();
 export const preloadScenes = (from, count) => {
-  SCENE_VISUALS.slice(from, from + count).forEach(({ visual }) =>
-    srcsOf(visual).forEach((src) => {
+  SCENE_VISUALS.slice(from, from + count).forEach(({ visual, secondary }) =>
+    [...srcsOf(visual), ...srcsOf(secondary)].forEach((src) => {
       if (loaded.has(src)) return;
       loaded.add(src);
       const im = new Image();

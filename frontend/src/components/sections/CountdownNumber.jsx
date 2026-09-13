@@ -15,7 +15,7 @@ export const CountdownNumber = ({ remaining, progress }) => {
           initial={{ scale: 0.85, opacity: 0.45 }}
           animate={{ scale: 1.25, opacity: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute h-[clamp(230px,38dvh,400px)] w-[clamp(230px,38dvh,400px)] rounded-full border border-gold"
+          className="absolute h-[clamp(200px,28dvh,320px)] w-[clamp(200px,28dvh,320px)] lg:h-[clamp(230px,34dvh,400px)] lg:w-[clamp(230px,34dvh,400px)] rounded-full border border-gold"
         />
       )}
       <CountdownDial progress={progress} />
@@ -27,7 +27,7 @@ export const CountdownNumber = ({ remaining, progress }) => {
         animate={{ opacity: 1, scale }}
         transition={{ duration: 0.35, ease: "easeOut" }}
         className={cn(
-          "absolute font-display tabular font-light leading-none text-[clamp(5rem,13dvh,9rem)]",
+          "absolute font-display tabular font-light leading-none text-[clamp(4.5rem,10dvh,7rem)] lg:text-[clamp(5rem,12dvh,9rem)]",
           finale ? "text-gold drop-shadow-[0_0_28px_rgba(184,137,74,0.45)]" : "text-charcoal",
         )}
       >
