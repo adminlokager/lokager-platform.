@@ -26,6 +26,7 @@ module.exports = {
         display: ["Fraunces", "Playfair Display", "Georgia", "serif"],
         sans: ["Montserrat", "system-ui", "sans-serif"],
         brand: ["Montserrat", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
       },
       letterSpacing: { widest2: "0.3em", eyebrow: "0.25em" },
       borderRadius: {

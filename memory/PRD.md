@@ -1,6 +1,15 @@
 # LOKAGER — Product Requirements (living document)
 
-## Original problem statement (condensed)
+## Current approved requirements (supersede historical implementations below)
+- Premium public launch site for lokager.com, a trust-first, India-first PropTech brand. One-tap manual launch is essential for the founder's mother presenting on a phone.
+- `/` and `/launch` ALWAYS begin at LAUNCH LOKAGER; no auto-start, saved-state gate or reload resume.
+- 60-second countdown, 20 cinematic scenes at approximately 3-second intervals, zero hold and chime, then 9-second celebration and final Coming Soon screen.
+- Preserve the existing ivory/charcoal/gold palette, page layouts, animations, routes and approved copy.
+- Use the supplied complete logo artwork exactly as provided: no redrawing, recolouring, cropping, background removal or splitting out the wordmark. Keep aspect ratio locked and responsive sizing/alignment on desktop/mobile.
+- One reusable logo asset/component; final Canva SVG can be substituted later without redesigning layouts. Current approved attachment is WebP, not SVG.
+- Module 0 remains frontend-only: no forms, auth, listings, waitlist, backend/DB usage or mocked integrations. ChatGPT integration remains paused pending explicit scope/approval.
+
+## Original problem statement (historical, condensed)
 Premium public launch site for lokager.com, a trust-first PropTech brand (India-first). Module 0 scope was narrowed by the founder at kickoff to the **official launch ceremony only**: `LAUNCH LOKAGER` button → exact 30 s countdown → gold celebration "CONGRATULATIONS! LOKAGER IS NOW LIVE" → final premium Coming Soon screen. No forms, no backend/database usage, no skip button, no fake data. Tagline: "Where Property Meets Trust." Trust language: "Building a more trusted property experience." Launch will be performed by the founder's mother on a phone → one-tap reliability is the top priority.
 
 ## User personas
@@ -28,6 +37,12 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - Revision 4 (bug fix): removed all localStorage gating/resume — `/` and `/launch` always stop on the LAUNCH LOKAGER screen; countdown starts only on tap; double-tap guarded; refresh returns to opening screen. Verified iteration_3.
 - Revision 5: wordmark rendered as one generated SVG (perfect baseline), cinematic side panels 61–71 % of viewport on both sides, no scroll at 1920/1440/1366. Verified iteration_4 + re-measure.
 - Report: `/app/docs/LOKAGER_Module_0_Technology_Report.md`.
+
+## Implemented (June 2026 — Module 1: Homepage frontend)
+- New homepage at `/` (frontend-only). Ceremony moved to `/launch` (untouched); its final Coming Soon screen has an ENTER LOKAGER button → `/`. No redirect loops / duplicate countdowns.
+- 14 sections built with reusable components: sticky SiteHeader + mobile hamburger, hero + tabbed SearchBar, 4 trust pillars (Better Information / Smarter Comparisons / Fresher Listings / Trusted Connections), huge `<AdShowcase />` (16:9, image+video, play/pause/mute, sponsored disclosure, no sound autoplay, poster fallback), 6 explore category cards, 6 featured PropertyCards, 3 ProjectCards, 3 locality intelligence cards, Property Intelligence (6 Coming Soon), LOKAGER Services (12 chips, Coming Soon), List/Sell, Trust Statement, India→Global, national-brand SiteFooter.
+- No verification/guarantee claims anywhere; demo data isolated in `src/data/home.js` with PROPERTY≠LISTING model. IBM Plex Mono added for metrics.
+- QA: iteration_7 passed 100% (all sections, search interactions, ad controls + fallback, launch→home flow, no horizontal overflow at 1920/430/390, no console errors). Report: `/app/docs/LOKAGER_Module_1_Technology_Report.md`.
 
 ## Backlog (prioritised)
 - **P0 (Module 1):** Waitlist capture (`/api/waitlist`, Mongo or MySQL per stack decision), per-vertical Coming Soon routes `/buy` … `/mortgage`.

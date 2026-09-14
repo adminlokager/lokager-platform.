@@ -1,0 +1,281 @@
+{
+  "1920x1080": {
+    "launch": {
+      "sw": 1920,
+      "sh": 1080,
+      "docScrollW": 1920,
+      "docScrollH": 1080,
+      "horizScroll": false,
+      "btnRect": {
+        "x": 730.25,
+        "w": 459.484375,
+        "y": 680.140625
+      },
+      "logoOk": {
+        "complete": true,
+        "nw": 2000,
+        "nh": 751,
+        "cx": 960
+      }
+    },
+    "countdown": {
+      "sw": 1920,
+      "sh": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "horizOverflow": 0,
+      "vertOverflow": 0,
+      "smRect": {
+        "x": 861.5,
+        "y": 804.1875,
+        "w": 197,
+        "h": 48,
+        "inViewX": true
+      },
+      "numRect": {
+        "y": 435.390625,
+        "h": 194.390625
+      }
+    },
+    "long_scenes": [
+      {
+        "id": "scene-message-s0",
+        "overflow": false
+      }
+    ]
+  },
+  "1440x900": {
+    "launch": {
+      "sw": 1440,
+      "sh": 900,
+      "docScrollW": 1440,
+      "docScrollH": 900,
+      "horizScroll": false,
+      "btnRect": {
+        "x": 490.25,
+        "w": 459.484375,
+        "y": 590.140625
+      },
+      "logoOk": {
+        "complete": true,
+        "nw": 2000,
+        "nh": 751,
+        "cx": 720
+      }
+    },
+    "countdown": {
+      "sw": 1440,
+      "sh": 900,
+      "scrollW": 1440,
+      "scrollH": 900,
+      "horizOverflow": 0,
+      "vertOverflow": 0,
+      "smRect": {
+        "x": 621.5,
+        "y": 683.59375,
+        "w": 197,
+        "h": 48,
+        "inViewX": true
+      },
+      "numRect": {
+        "y": 361.644775390625,
+        "h": 161.89794921875
+      }
+    },
+    "long_scenes": [
+      {
+        "id": "scene-message-s0",
+        "overflow": false
+      }
+    ]
+  },
+  "1366x768": {
+    "launch": {
+      "sw": 1366,
+      "sh": 768,
+      "docScrollW": 1366,
+      "docScrollH": 839,
+      "horizScroll": false,
+      "btnRect": {
+        "x": 453.25,
+        "w": 459.484375,
+        "y": 559.796875
+      },
+      "logoOk": {
+        "complete": true,
+        "nw": 2000,
+        "nh": 751,
+        "cx": 683
+      }
+    },
+    "countdown": {
+      "sw": 1366,
+      "sh": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "horizOverflow": 0,
+      "vertOverflow": 0,
+      "smRect": {
+        "x": 584.5,
+        "y": 595.140625,
+        "w": 197,
+        "h": 48,
+        "inViewX": true
+      },
+      "numRect": {
+        "y": 307.52239990234375,
+        "h": 138.0958251953125
+      }
+    },
+    "long_scenes": [
+      {
+        "id": "scene-message-s0",
+        "overflow": false
+      }
+    ]
+  },
+  "820x1180": {
+    "launch": {
+      "sw": 820,
+      "sh": 1180,
+      "docScrollW": 820,
+      "docScrollH": 1180,
+      "horizScroll": false,
+      "btnRect": {
+        "x": 204.796875,
+        "w": 410.40625,
+        "y": 706.84375
+      },
+      "logoOk": {
+        "complete": true,
+        "nw": 2000,
+        "nh": 751,
+        "cx": 410
+      }
+    },
+    "countdown": {
+      "sw": 820,
+      "sh": 1180,
+      "scrollW": 820,
+      "scrollH": 1213,
+      "horizOverflow": 0,
+      "vertOverflow": 33,
+      "smRect": {
+        "x": 336,
+        "y": 674.1875,
+        "w": 148,
+        "h": 40,
+        "inViewX": true
+      },
+      "numRect": {
+        "y": 342.2625732421875,
+        "h": 167.849853515625
+      }
+    },
+    "long_scenes": [
+      {
+        "id": "scene-message-s0",
+        "overflow": false
+      }
+    ]
+  },
+  "430x932": {
+    "launch": {
+      "sw": 430,
+      "sh": 932,
+      "docScrollW": 430,
+      "docScrollH": 932,
+      "horizScroll": false,
+      "btnRect": {
+        "x": 24,
+        "w": 382,
+        "y": 561.296875
+      },
+      "logoOk": {
+        "complete": true,
+        "nw": 2000,
+        "nh": 751,
+        "cx": 215
+      }
+    },
+    "countdown": {
+      "sw": 430,
+      "sh": 932,
+      "scrollW": 430,
+      "scrollH": 950,
+      "horizOverflow": 0,
+      "vertOverflow": 18,
+      "smRect": {
+        "x": 153,
+        "y": 533.140625,
+        "w": 124,
+        "h": 36,
+        "inViewX": true
+      },
+      "numRect": {
+        "y": 264.2857360839844,
+        "h": 139.72540283203125
+      }
+    },
+    "long_scenes": [
+      {
+        "id": "scene-message-s0",
+        "overflow": false
+      }
+    ]
+  },
+  "390x844": {
+    "launch": {
+      "sw": 390,
+      "sh": 844,
+      "docScrollW": 390,
+      "docScrollH": 844,
+      "horizScroll": false,
+      "btnRect": {
+        "x": 24,
+        "w": 342,
+        "y": 517.296875
+      },
+      "logoOk": {
+        "complete": true,
+        "nw": 2000,
+        "nh": 751,
+        "cx": 195
+      }
+    },
+    "countdown": {
+      "sw": 390,
+      "sh": 844,
+      "scrollW": 390,
+      "scrollH": 900,
+      "horizOverflow": 0,
+      "vertOverflow": 56,
+      "smRect": {
+        "x": 133,
+        "y": 508.5,
+        "w": 124,
+        "h": 36,
+        "inViewX": true
+      },
+      "numRect": {
+        "y": 258.56011962890625,
+        "h": 126.5516357421875
+      }
+    },
+    "long_scenes": [
+      {
+        "id": "scene-message-s0",
+        "overflow": false
+      }
+    ]
+  },
+  "optional_image_abort": {
+    "scrollW": 1440,
+    "sw": 1440,
+    "scenes": [
+      "scene-message-s6"
+    ],
+    "phase": "ceremony-phase-countdown",
+    "brokenImgs": []
+  }
+}

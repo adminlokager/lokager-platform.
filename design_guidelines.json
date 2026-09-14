@@ -1,156 +1,152 @@
 {
-  "project_name": "LOKAGER — Module 0: Public Launch Page",
-  "app_type": "landing_page_ceremony",
-  "design_persona": "E1 - The Anti-AI Designer (High-End PropTech Luxury & Trust)",
-  "color_palette": {
-    "background_primary": "#F6F1E7",
-    "background_secondary": "#EFEAE0",
-    "text_primary": "#111111",
-    "text_secondary": "#444444",
-    "accent_gold": "#B8894A",
-    "accent_gold_bright": "#D4AF37",
-    "accent_gold_light": "#F3E5AB",
-    "surface_dark": "#111111",
-    "surface_dark_text": "#F6F1E7",
-    "border_subtle": "rgba(17, 17, 17, 0.12)",
-    "border_gold": "rgba(184, 137, 74, 0.35)",
-    "rules": [
-      "Strict compliance with palette: warm ivory #F6F1E7, deep charcoal #111111, refined gold #B8894A",
-      "No full-screen heavy gradients or saturated tech blues/purples",
-      "Gradients are strictly limited to subtle gold radial glows behind countdown numerals and confetti overlays",
-      "Dark surfaces (e.g. countdown or celebration active state card) must use deep charcoal #111111 with ivory text"
-    ]
+  "project_name": "LOKAGER - Indian PropTech Platform Homepage",
+  "archetype": "LUXURY ARCHITECTURAL & PRECISION PROPTECH (Archetype 5 + Archetype 4)",
+  "brand_palette": {
+    "ivory": {
+      "DEFAULT": "#F6F1E7",
+      "light": "#FBF8F2",
+      "deep": "#EFEAE0"
+    },
+    "charcoal": {
+      "DEFAULT": "#111111",
+      "soft": "#292725"
+    },
+    "gold": {
+      "DEFAULT": "#B8894A",
+      "champagne": "#D4B47C",
+      "bright": "#D4AF37",
+      "light": "#F3E5AB"
+    },
+    "rules": "Warm Ivory (#F6F1E7) and Premium Light Ivory (#FBF8F2) alternating backgrounds. Deep Charcoal (#111111) for text, strong structural surfaces, and footer. Refined Gold (#B8894A) MUST be used STRICTLY as an ACCENT (badges, hover states, border highlights, key metric highlights). NEVER use full-screen gold or shiny metallic gloss."
   },
   "typography": {
-    "headings": {
-      "font_family": "'Fraunces', 'Playfair Display', serif",
-      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-[#111111] leading-[1.15]",
-      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-normal text-[#111111]",
-      "subheading": "text-lg sm:text-xl font-sans font-light text-[#444444] tracking-wide"
+    "font_families": {
+      "display": "Fraunces / Playfair Display (font-display - serif)",
+      "sans": "Montserrat (font-sans - clean geometric sans-serif)",
+      "mono": "IBM Plex Mono / JetBrains Mono (for metrics, price tags, unit sizes, coordinates)"
     },
-    "body": {
-      "font_family": "'Inter', 'Outfit', sans-serif",
-      "main": "text-base font-sans font-normal text-[#111111] leading-relaxed",
-      "small_label": "text-xs sm:text-sm font-sans uppercase tracking-[0.25em] text-[#B8894A] font-semibold"
-    },
-    "wordmark": {
-      "font_family": "'Fraunces', 'Playfair Display', serif",
-      "style": "tracking-[0.3em] font-medium uppercase text-[#111111]"
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-display font-medium text-charcoal leading-[1.1] tracking-tight",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-display font-medium text-charcoal tracking-tight",
+      "h3_subsection": "text-xl sm:text-2xl font-display font-medium text-charcoal",
+      "h4_card": "text-lg sm:text-xl font-sans font-semibold text-charcoal",
+      "body_lg": "text-base sm:text-lg font-sans font-normal text-charcoal-soft leading-relaxed",
+      "body_base": "text-sm sm:text-base font-sans text-charcoal-soft leading-relaxed",
+      "caption": "text-xs sm:text-sm font-sans tracking-wide uppercase text-charcoal-soft/70",
+      "eyebrow": "text-xs font-sans font-semibold uppercase tracking-[0.25em] text-gold"
     }
   },
-  "layout_and_spacing": {
-    "container": "max-w-5xl mx-auto px-6 sm:px-12 py-12 lg:py-20",
-    "whitespace": "Generous vertical spacing (p-8 to py-24) to convey trust, calm, and elegance",
-    "header_nav": "Clean floating or top-aligned header with LOKAGER wordmark and subtle 'India' trust indicator. Non-distracting.",
-    "ceremony_card": "Centered focus stage with crisp 1px borders (border-[#111111]/10 or gold glow border), rounded-2xl or rounded-3xl, deep ivory/charcoal contrast."
+  "spacing_and_layout": {
+    "section_padding": "py-20 sm:py-28 lg:py-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto",
+    "container_max_width": "max-w-7xl",
+    "grid_gap": "gap-6 sm:gap-8 lg:gap-10",
+    "border_radius": "rounded-none or rounded-md (max 8px) for crisp architectural feel; tab pills rounded-full",
+    "card_padding": "p-6 sm:p-8"
   },
-  "ceremony_states": {
-    "state_1_launch_screen": {
-      "description": "Initial state. Shows LOKAGER wordmark, tagline 'Where Property Meets Trust', and the LAUNCH LOKAGER button.",
-      "button_design": {
-        "text": "LAUNCH LOKAGER",
-        "size": "min-h-[72px] px-10 py-5 text-xl sm:text-2xl font-serif tracking-wider",
-        "styling": "bg-[#111111] text-[#F6F1E7] border-2 border-[#B8894A] rounded-2xl shadow-xl hover:bg-[#B8894A] hover:text-[#111111] transition-all duration-300 transform active:scale-95 cursor-pointer flex items-center justify-center gap-4 w-full sm:w-auto mx-auto",
-        "reliability_focus": "One-tap trigger with instant visual and audio/haptic cue. Founder's mother friendly (large touch target, zero delay).",
-        "data_testid": "launch-button"
-      }
+  "sections": [
+    {
+      "id": 1,
+      "name": "Header & Sticky Navigation",
+      "description": "Sticky top bar with glassmorphic backdrop (backdrop-blur-xl bg-ivory-light/90 border-b border-charcoal/10 z-50), brand logo 'LOKAGER' in font-display with tagline 'WHERE PROPERTY MEETS TRUST', nav items [Buy, Rent, New Projects, Commercial, Land, Services, Mortgage, Sell Property, Login/Sign Up], and prominent CTA button 'LIST PROPERTY' in Deep Charcoal with gold border.",
+      "test_id": "header-navigation"
     },
-    "state_2_countdown_screen": {
-      "duration_seconds": 30,
-      "numerals": "Massive serif numerals (e.g. text-7xl sm:text-9xl) in gold #B8894A with tabular numbers layout so text doesn't shift.",
-      "visuals": "SVG circular radial progress ring or sleek linear progress bar filling from 0 to 100%. Subtle glowing aura.",
-      "micro_messages": [
-        "Initializing Trust Engine...",
-        "Connecting Real Estate Ecosystem...",
-        "Securing Property Verifications...",
-        "Preparing Live Launch..."
-      ],
-      "data_testid": "countdown-timer"
+    {
+      "id": 2,
+      "name": "Hero Section & Tabbed Search",
+      "description": "Architectural hero section. Headline: 'FIND PROPERTY YOU CAN TRUST.' Subtitle: 'India’s complete property lifecycle platform. Transparent pricing, title-verified listings, and deep locality intelligence.' Prominent tabbed search widget [BUY, RENT, NEW PROJECTS, COMMERCIAL, LAND] with fields: City/Locality/Project, Property Type dropdown, Budget range slider/selector, and primary CTA 'SEARCH PROPERTIES' in Deep Charcoal + Refined Gold hover.",
+      "test_id": "hero-search-section"
     },
-    "state_3_celebration_screen": {
-      "heading": "CONGRATULATIONS! LOKAGER IS NOW LIVE",
-      "effects": "Gold confetti explosion using canvas-confetti with custom palette (#B8894A, #D4AF37, #F3E5AB, #111111). Gold shimmer burst.",
-      "data_testid": "celebration-banner"
+    {
+      "id": 3,
+      "name": "Trust Layer (4 Pillars)",
+      "description": "Heading: 'PROPERTY DECISIONS DESERVE MORE TRUST.' 4 Pillars: (1) Verified Legal Titles, (2) Zero-Spam Direct Connect, (3) Real Market Pricing History, (4) End-to-End Escrow & Advisory. Soft Ivory background, delicate 1px charcoal border cards with gold accent indicators.",
+      "test_id": "trust-pillars-section"
     },
-    "state_4_coming_soon_screen": {
-      "heading": "LOKAGER IS NOW LIVE",
-      "tagline": "Where Property Meets Trust",
-      "trust_statement": "Building a more trusted property experience.",
-      "offerings_list": [
-        "Buy",
-        "Sell",
-        "Rent",
-        "New Projects",
-        "Commercial",
-        "Land",
-        "Mortgage"
-      ],
-      "offerings_styling": "Horizontal/vertical pill wrap in refined charcoal text, gold dot separators, clean minimalist aesthetics.",
-      "footer": "Minimal footer with copyright, 'Built for India', and subtle restart ceremony option for testing/demo.",
-      "data_testid": "coming-soon-container"
+    {
+      "id": 4,
+      "name": "Huge Premium Ad/Video Showcase",
+      "description": "Cinematic 16:9 aspect ratio showcase container (~85% container width). Displays featured developer / architect showcase with image + HTML5 background video toggle, custom Play/Pause/Mute controls, Advertiser Name ('DLF Luxury Estates'), Headline ('The Camellias II - Golf Course Road'), CTA ('Explore Private Residences'), and subtle 'SPONSORED SHOWCASE' disclosure badge.",
+      "test_id": "ad-video-showcase-section"
+    },
+    {
+      "id": 5,
+      "name": "Explore Property Category Cards",
+      "description": "6 Large architectural category cards [Buy a Home, Rent a Home, New Projects, Commercial, Land & Plots, Mortgage] with hover zoom photography, item counts, starting price indications, and quick filter links.",
+      "test_id": "category-cards-section"
+    },
+    {
+      "id": 6,
+      "name": "Featured Properties Grid",
+      "description": "Grid of premium PropertyCard items with badges ('Verified Title', 'Zero Brokerage'), high-res photos, location, BHK/sqft specs, price in Cr/Lakhs, and 'Schedule Private Tour' button.",
+      "test_id": "featured-properties-grid"
+    },
+    {
+      "id": 7,
+      "name": "Featured New Projects",
+      "description": "ProjectCard grid featuring upcoming luxury townships and high-rises by top developers. Displays developer reputation score, RERA registration badge, completion date, and brochure download trigger.",
+      "test_id": "featured-new-projects-grid"
+    },
+    {
+      "id": 8,
+      "name": "Locality Intelligence",
+      "description": "Heading: 'KNOW THE LOCATION BEFORE YOU CHOOSE THE PROPERTY.' Cards for top Indian hubs (e.g. Worli Mumbai, Indiranagar Bengaluru, Golf Course Road Gurugram, Jubilee Hills Hyderabad) with Livability Index, Price CAGR %, School/Airport proximity, and Noise/AQI scores.",
+      "test_id": "locality-intelligence-section"
+    },
+    {
+      "id": 9,
+      "name": "LOKAGER Property Intelligence (Flagship Tech)",
+      "description": "Heading: 'MORE THAN LISTINGS. BETTER PROPERTY DECISIONS.' Tech preview section featuring 4 COMING SOON AI capabilities: (1) AI Instant Title Risk Audit, (2) Fair Value Price Estimator, (3) Micro-Market Valuation Predictor, (4) Neighborhood Sentiment & Infrastructure Tracker. Charcoal deep background with subtle gold tech grids.",
+      "test_id": "property-intelligence-section"
+    },
+    {
+      "id": 10,
+      "name": "LOKAGER Services (Ecosystem Extension)",
+      "description": "Heading: 'YOUR PROPERTY JOURNEY DOESN'T END AT THE PURCHASE.' Secondary section with COMING SOON services: Home Interior Architecture, Legal Title Verification, Property Management, Solar & Sustainable Upgrades.",
+      "test_id": "lokager-services-section"
+    },
+    {
+      "id": 11,
+      "name": "List/Sell Property Section",
+      "description": "Heading: 'HAVE A PROPERTY? BRING IT TO LOKAGER.' Segmented for Individual Owners, Certified Brokers, and Grade-A Developers. Key benefits: Direct buyer reach, verified buyer profiles, zero spam phone calls.",
+      "test_id": "list-sell-section"
+    },
+    {
+      "id": 12,
+      "name": "Trust Statement",
+      "description": "Heading: 'TRUST ISN'T A BADGE. IT'S HOW THE PLATFORM IS BUILT.' Architectural quote layout highlighting platform integrity, data privacy, verified listings, and buyer protection guarantee.",
+      "test_id": "trust-statement-section"
+    },
+    {
+      "id": 13,
+      "name": "India → Global Vision",
+      "description": "Heading: 'ROOTED IN INDIA. BUILT FOR THE WORLD.' Subtle architectural coordinate grid language, highlighting expansion across Tier-1/Tier-2 Indian capitals to global NRI corridors (Dubai, Singapore, London, New York). NO cheap flags; uses elegant typographic coordinates and latitude/longitude graphics.",
+      "test_id": "india-global-section"
+    },
+    {
+      "id": 14,
+      "name": "National-Brand Footer",
+      "description": "Deep Charcoal background, crisp ivory typography, 4 columns [Discover, Company, Legal & RERA, Global Offices], Newsletter sign-up, RERA Compliance notice, Copyright © 2026 LOKAGER Technologies Pvt. Ltd.",
+      "test_id": "national-brand-footer"
     }
-  },
-  "page_404": {
-    "route": "/404",
-    "headline": "404 — Property Not Found",
-    "subtext": "The page or property you are looking for has been moved or does not exist.",
-    "button_text": "Return to Launch",
-    "data_testid_button": "back-home-button"
-  },
-  "motion_and_effects": {
-    "library": "framer-motion and canvas-confetti",
-    "principles": "Subtle, dignified, non-gimmicky. Smooth opacity fades, gentle scale-ups, no jitter.",
-    "confetti_settings": {
-      "particleCount": 120,
-      "spread": 80,
-      "colors": [
-        "#B8894A",
-        "#D4AF37",
-        "#F3E5AB",
-        "#111111",
-        "#FFFFFF"
-      ]
-    }
-  },
-  "testing_attributes": {
-    "launch_button": "launch-button",
-    "countdown_timer": "countdown-timer",
-    "celebration_banner": "celebration-banner",
-    "coming_soon_container": "coming-soon-container",
-    "back_home_button": "back-home-button",
-    "reset_ceremony_button": "reset-ceremony-button"
-  },
+  ],
   "image_urls": {
-    "architectural_accent_1": "https://images.unsplash.com/photo-1722421492323-eaf9c401befe?crop=entropy&cs=srgb&fm=jpg&q=85",
-    "architectural_accent_2": "https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?crop=entropy&cs=srgb&fm=jpg&q=85"
+    "luxury_villas": "https://images.unsplash.com/photo-1723110994499-df46435aa4b3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhcmNoaXRlY3R1cmFsJTIwdmlsbGElMjBtb2Rlcm4lMjBpbmRpYW4lMjBob21lJTIwaW50ZXJpb3IlMjBleHRlcmlvcnxlbnwwfHx8fDE3ODkzNjQ1NzZ8MA&ixlib=rb-4.1.0&q=85",
+    "modern_house_brick": "https://images.unsplash.com/photo-1626249893783-cc4a9f66880a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBhcmNoaXRlY3R1cmFsJTIwdmlsbGElMjBtb2Rlcm4lMjBpbmRpYW4lMjBob21lJTIwaW50ZXJpb3IlMjBleHRlcmlvcnxlbnwwfHx8fDE3ODkzNjQ1NzZ8MA&ixlib=rb-4.1.0&q=85",
+    "luxury_interior": "https://images.unsplash.com/photo-1745301558339-44eb3217d5da?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBhcmNoaXRlY3R1cmFsJTIwdmlsbGElMjBtb2Rlcm4lMjBpbmRpYW4lMjBob21lJTIwaW50ZXJpb3IlMjBleHRlcmlvcnxlbnwwfHx8fDE3ODkzNjQ1NzZ8MA&ixlib=rb-4.1.0&q=85",
+    "estate_courtyard": "https://images.unsplash.com/photo-1629946488804-217c002178cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBhcmNoaXRlY3R1cmFsJTIwdmlsbGElMjBtb2Rlcm4lMjBpbmRpYW4lMjBob21lJTIwaW50ZXJpb3IlMjBleHRlcmlvcnxlbnwwfHx8fDE3ODkzNjQ1NzZ8MA&ixlib=rb-4.1.0&q=85",
+    "commercial_tower_glass": "https://images.unsplash.com/photo-1545327679-c2c6f63b23fa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBnbGFzcyUyMHNreXNjcmFwZXIlMjBvZmZpY2UlMjBsdXh1cnklMjBhcGFydG1lbnQlMjB0b3dlciUyMGV4dGVyaW9yJTIwc3Vuc2V0fGVufDB8fHx8MTc4OTM2NDU3OXww&ixlib=rb-4.1.0&q=85",
+    "skyscraper_sunset": "https://images.unsplash.com/photo-1779700213679-3c9fbd0f665a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBnbGFzcyUyMHNreXNjcmFwZXIlMjBvZmZpY2UlMjBsdXh1cnklMjBhcGFydG1lbnQlMjB0b3dlciUyMGV4dGVyaW9yJTIwc3Vuc2V0fGVufDB8fHx8MTc4OTM2NDU3OXww&ixlib=rb-4.1.0&q=85",
+    "blue_sky_tower": "https://images.unsplash.com/photo-1528702049432-7dae403a50f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnbGFzcyUyMHNreXNjcmFwZXIlMjBvZmZpY2UlMjBsdXh1cnklMjBhcGFydG1lbnQlMjB0b3dlciUyMGV4dGVyaW9yJTIwc3Vuc2V0fGVufDB8fHx8MTc4OTM2NDU3OXww&ixlib=rb-4.1.0&q=85",
+    "land_aerial_green": "https://images.unsplash.com/photo-1505843795480-5cfb3c03f6ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHBsb3QlMjBsYW5kJTIwYWVyaWFsJTIwbHV4dXJ5JTIwZXN0YXRlJTIwZGV2ZWxvcG1lbnQlMjBhcmNoaXRlY3QlMjBkZXNpZ258ZW58MHx8fHwxNzg5MzY0NTgzfDA&ixlib=rb-4.1.0&q=85",
+    "village_aerial_estate": "https://images.unsplash.com/photo-1529755090615-898cd77de6ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwzfHxncmVlbiUyMHBsb3QlMjBsYW5kJTIwYWVyaWFsJTIwbHV4dXJ5JTIwZXN0YXRlJTIwZGV2ZWxvcG1lbnQlMjBhcmNoaXRlY3QlMjBkZXNpZ258ZW58MHx8fHwxNzg5MzY0NTgzfDA&ixlib=rb-4.1.0&q=85",
+    "suburban_luxury_plots": "https://images.unsplash.com/photo-1565583673900-1cd9320f6c8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHw0fHxncmVlbiUyMHBsb3QlMjBsYW5kJTIwYWVyaWFsJTIwbHV4dXJ5JTIwZXN0YXRlJTIwZGV2ZWxvcG1lbnQlMjBhcmNoaXRlY3QlMjBkZXNpZ258ZW58MHx8fHwxNzg5MzY0NTgzfDA&ixlib=rb-4.1.0&q=85"
   },
-  "launch_scene_images": {
-    "land_green": "https://images.unsplash.com/photo-1769258958976-8852440011b8",
-    "land_aerial": "https://images.unsplash.com/photo-1747854805840-9be7d5e360e6",
-    "villa": "https://images.unsplash.com/photo-1544984243-ec57ea16fe25",
-    "apartments": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00",
-    "interior_living": "https://images.unsplash.com/photo-1564078516393-cf04bd966897",
-    "interior_rental": "https://images.unsplash.com/photo-1771219491795-3b4dafc1cdf3",
-    "towers_new": "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3",
-    "office": "https://images.unsplash.com/photo-1532888277436-2286814f0ee1",
-    "community": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
-    "finance_abstract": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
-    "skyline_india": "https://images.unsplash.com/photo-1710582308582-55cc0c461c4e",
-    "skyline_global": "https://images.unsplash.com/photo-1768463852019-4881a17a1c0e",
-    "architecture_lines": "https://images.unsplash.com/photo-1513694203232-719a280e022f",
-    "architecture_identity": "https://images.unsplash.com/photo-1596716999716-544f09b06743",
-    "homes_family": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7"
+  "micro_interactions_and_motion": {
+    "framer_motion_defaults": "Use easeOut or cubic-bezier(0.22, 1, 0.36, 1) for smooth premium reveals. Avoid frantic animations.",
+    "hover_states": "Cards lift slightly (-translate-y-1.5) with border-gold/40 activation and shadow-xl.",
+    "button_interactions": "Active states scale down slightly (active:scale-[0.98]). Gold buttons feature a subtle shimmer background transition.",
+    "accessibility": "Full prefers-reduced-motion check integrated in index.css and Framer Motion variants."
   },
-  "instructions_to_main_agent": [
-    "Ensure both / and /launch routes load the ceremony application cleanly.",
-    "The LAUNCH LOKAGER button must be extremely prominent, highly responsive on touch, with data-testid='launch-button'.",
-    "When tapped, transition seamlessly into the 30-second countdown.",
-    "Ensure the countdown tick is exact (30s timer) and updates every second smoothly.",
-    "When countdown reaches 0, auto-transition to Celebration state with confetti explosion and heading 'CONGRATULATIONS! LOKAGER IS NOW LIVE'.",
-    "After 4 seconds of celebration (or smooth transition), reveal the final Coming Soon screen featuring wordmark, tagline ('Where Property Meets Trust'), trust statement ('Building a more trusted property experience.'), vertical/pill list of categories (Buy, Sell, Rent, New Projects, Commercial, Land, Mortgage), and minimal footer.",
-    "Provide a subtle reset/re-launch button at the bottom of the final screen to allow easy re-testing of the ceremony.",
-    "Build a custom, elegant 404 page matching the warm ivory/charcoal/gold palette with data-testid='back-home-button'.",
-    "Strictly follow the user's constraints: no forms, no fake numbers, no fake testimonials, no cartoon icons, no heavy gradient overloads.",
-    "Include data-testid on all key interactive elements."
-  ]
+  "instructions_to_main_agent": "Ensure all 14 required homepage sections are implemented strictly in sequence with precise data-testid attributes on every interactive element. Maintain the warm ivory + deep charcoal palette with gold accents. Do NOT create generic AI-slop layout; prioritize architectural whitespace, high-contrast typography, and tactile UI controls.",
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": "Follow mobile-first responsive design, ensure all buttons and tab triggers have proper data-testid attributes, use Lucide React icons, and strictly avoid emojis in text/UI components."
 }

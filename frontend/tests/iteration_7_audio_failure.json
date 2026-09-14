@@ -1,0 +1,137 @@
+{
+  "scenarios": {
+    "A_AudioContext_ctor_throws": {
+      "pageerror": [],
+      "unhandledrejection": [],
+      "console_error": [],
+      "console_warning": [],
+      "audio_context_created": 0,
+      "resume_called": 0,
+      "resume_rejected": 0,
+      "createOscillator_called": 0,
+      "createOscillator_threw": 0,
+      "phase_transitions": [],
+      "requests_favicon": [],
+      "injected": {
+        "unhandledRejections": [],
+        "pageErrors": [],
+        "audioContextCreated": 0,
+        "resumeCalled": 0,
+        "resumeRejected": 0,
+        "oscCalled": 0,
+        "oscThrew": 0,
+        "phases": []
+      },
+      "current_phase": "ceremony-phase-countdown",
+      "launch_button_visible": false
+    },
+    "B_No_AudioContext": {
+      "pageerror": [],
+      "unhandledrejection": [],
+      "console_error": [],
+      "console_warning": [],
+      "audio_context_created": 0,
+      "resume_called": 0,
+      "resume_rejected": 0,
+      "createOscillator_called": 0,
+      "createOscillator_threw": 0,
+      "phase_transitions": [],
+      "requests_favicon": [],
+      "injected": {
+        "unhandledRejections": [],
+        "pageErrors": [],
+        "audioContextCreated": 0,
+        "resumeCalled": 0,
+        "resumeRejected": 0,
+        "oscCalled": 0,
+        "oscThrew": 0,
+        "phases": []
+      },
+      "current_phase": "ceremony-phase-countdown",
+      "launch_button_visible": false
+    },
+    "C_resume_rejects_NotAllowed": {
+      "pageerror": [
+        "Audio blocked"
+      ],
+      "unhandledrejection": [],
+      "console_error": [],
+      "console_warning": [],
+      "audio_context_created": 0,
+      "resume_called": 0,
+      "resume_rejected": 0,
+      "createOscillator_called": 0,
+      "createOscillator_threw": 0,
+      "phase_transitions": [],
+      "requests_favicon": [],
+      "injected": {
+        "unhandledRejections": [
+          "Audio blocked"
+        ],
+        "pageErrors": [],
+        "audioContextCreated": 1,
+        "resumeCalled": 1,
+        "resumeRejected": 1,
+        "oscCalled": 0,
+        "oscThrew": 0,
+        "phases": []
+      },
+      "current_phase": "ceremony-phase-countdown",
+      "launch_button_visible": false
+    },
+    "D_createOscillator_throws": {
+      "pageerror": [
+        "createOscillator blocked"
+      ],
+      "unhandledrejection": [],
+      "console_error": [],
+      "console_warning": [],
+      "audio_context_created": 0,
+      "resume_called": 0,
+      "resume_rejected": 0,
+      "createOscillator_called": 0,
+      "createOscillator_threw": 0,
+      "phase_transitions": [],
+      "requests_favicon": [],
+      "injected": {
+        "unhandledRejections": [],
+        "pageErrors": [
+          "Uncaught Error: createOscillator blocked"
+        ],
+        "audioContextCreated": 0,
+        "resumeCalled": 0,
+        "resumeRejected": 0,
+        "oscCalled": 1,
+        "oscThrew": 1,
+        "phases": []
+      },
+      "current_phase": "ceremony-phase-celebration",
+      "launch_button_visible": false
+    },
+    "E_baseline_favicon": {
+      "pageerror": [],
+      "unhandledrejection": [],
+      "console_error": [],
+      "console_warning": [],
+      "audio_context_created": 0,
+      "resume_called": 0,
+      "resume_rejected": 0,
+      "createOscillator_called": 0,
+      "createOscillator_threw": 0,
+      "phase_transitions": [],
+      "requests_favicon": [],
+      "injected": {
+        "unhandledRejections": [],
+        "pageErrors": [],
+        "audioContextCreated": 0,
+        "resumeCalled": 0,
+        "resumeRejected": 0,
+        "oscCalled": 0,
+        "oscThrew": 0,
+        "phases": []
+      },
+      "current_phase": "ceremony-phase-idle",
+      "launch_button_visible": true
+    }
+  }
+}

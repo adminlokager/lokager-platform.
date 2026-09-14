@@ -112,30 +112,31 @@ Per the founder's scope decision during kickoff, **the waitlist form, homepage s
 
 ### 5.0 Official Logo — central asset location (read this before replacing the logo)
 
-The approved identity (architectural geometric gold "L" skyline mark + charcoal LOKAGER wordmark + gold tagline) lives in **one place only**:
+The supplied artwork is now used **unchanged**, rather than recreated with SVG paths or web fonts. The currently supplied file is a **2000 × 751 WebP**, not the final Canva SVG. Its original colours, background, whitespace, symbol, wordmark and embedded tagline are retained.
 
 ```
-frontend/src/components/brand/
-├── LogoMark.jsx   ← the gold geometric L symbol (inline SVG, faithful recreation of the approved reference)
-├── Logo.jsx       ← composes LogoMark + "LOKAGER" wordmark (Montserrat 700) + tagline; variants below
-└── index.js       ← re-exports { Logo, LogoMark }
+frontend/public/brand/lokager-logo.webp   ← single byte-exact artwork file
+frontend/src/components/brand/Logo.jsx   ← single reusable renderer and responsive logo slots
+frontend/src/components/brand/index.js   ← exports { Logo }
 ```
 
 | Prop | Values | Purpose |
 |---|---|---|
-| `variant` | `vertical` (default) · `horizontal` | Stacked lock-up vs. side-by-side (header) |
-| `size` | `sm` · `md` · `lg` | Header → hero |
-| `tone` | `charcoal` (default) · `ivory` | Wordmark colour for light vs. dark surfaces (mark stays gold) |
-| `showTagline` | `true` / `false` | Show "WHERE PROPERTY MEETS TRUST." under the wordmark |
+| `size` | `sm`, `md` (default), `lg`, `celebration`, `art` | Existing header, countdown, hero, celebration and scene placements |
+| `className` | Tailwind classes | Placement within the existing scene frame |
+| `testId` | Unique placement name | Wrapper ID; the image gets `${testId}-image` |
 
-Used today in: Header (`horizontal/sm`), Launch screen (`vertical/lg`), Countdown (`LogoMark` only, small), Celebration (`LogoMark` large with gold glow), Coming Soon (`vertical/lg`). Intended for later modules: Homepage, Footer, Login, Admin, Developer portal, Mobile app (same component / same SVG).
+Every image uses `object-fit: contain` and centred positioning: no cropping, stretching, recolouring, separate recreated tagline or opacity/filter applied by the logo component. Existing hero/countdown slot heights are reserved to retain surrounding layout positions. The complete lockup is intentionally not split into a symbol and wordmark. Legacy `LogoMark.jsx`, `Wordmark.jsx` and generated `wordmarkPaths.js` have been removed.
 
-**How to drop in the final professional asset (no redesign needed):**
-1. Place the final file at `frontend/src/assets/brand/lokager-mark.svg` (or `.png`).
-2. In `LogoMark.jsx`, replace the inline `<svg>` body with `<img src={mark} alt="LOKAGER" className={className} />` where `mark` is the imported file. Every screen updates automatically.
-3. Replace `frontend/public/favicon.svg` (browser tab / app icon) and `frontend/public/og-image.svg` (social preview) with the supplied icon/OG exports — these are the only two additional copies, required because browsers read them outside the React bundle.
+Used in the header, launch, countdown, celebration, Coming Soon, and merge/identity countdown scenes. Celebration displays one complete lockup in the upper logo slot; the announcement below uses a semantic LOKAGER heading in the former wordmark's height, retaining all existing fade timings, glow, confetti and copy. Browser favicon, touch icon, Open Graph, Twitter and manifest references point to the same raw asset rather than copies of the old generated logo.
 
-The logo is **never** embedded in backgrounds, CSS or duplicated across components.
+**Future Canva SVG swap (no layout redesign):**
+1. Add the complete final export to `frontend/public/brand/lokager-logo.svg`. Keep its intended viewBox, artwork proportions and export margins.
+2. Change `LOGO_SRC` in `Logo.jsx` to the new file. All in-app placements update together; leave size classes and page layouts alone.
+3. Update the artwork references in `frontend/public/index.html` and `manifest.json`, including the MIME type/dimensions where applicable. These static browser/social references sit outside React but use the same file.
+4. Test the desktop/mobile placements with the new export. A separate founder-supplied square export would be needed for ideal tiny favicon/PWA icons; the current complete artwork is not cropped to invent one.
+
+No backend, upload service, database or new integration is involved: this is a bundled static brand asset.
 
 ### 5.1 Tokens
 | Token | Value |

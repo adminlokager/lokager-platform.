@@ -1,0 +1,138 @@
+{
+  "environment": "playwright chromium; CPU throttle 4x; network 1.6Mbps/750Kbps 150ms latency; viewport 390x844 DPR2 mobile UA",
+  "note": "GPU/JIT differ from real device; treat as directional. Long task threshold 50ms.",
+  "page_load_seconds": 5.92,
+  "navigation": {
+    "domContentLoaded": 5572,
+    "loadEvent": 5866.0999999940395,
+    "transferSize": 21215
+  },
+  "paints": [
+    {
+      "name": "first-paint",
+      "startTime": 5516
+    },
+    {
+      "name": "first-contentful-paint",
+      "startTime": 6228
+    }
+  ],
+  "image_requests": [
+    {
+      "name": "https://lokager-launch.preview.emergentagent.com/brand/lokager-logo.webp",
+      "transferSize": 62056,
+      "encodedBodySize": 61756,
+      "decodedBodySize": 61756,
+      "duration": 904.7000000178814
+    }
+  ],
+  "image_request_count": 1,
+  "image_total_transfer_bytes": 62056,
+  "dom_images_count": 1,
+  "dom_images": [
+    {
+      "src": "https://lokager-launch.preview.emergentagent.com/brand/lokager-logo.webp",
+      "natural": [
+        2000,
+        751
+      ],
+      "display": [
+        342,
+        197
+      ],
+      "hidden": false,
+      "testid": "launch-logo-image"
+    }
+  ],
+  "css_hidden_but_fetched": [],
+  "oversized_natural_vs_display": [
+    {
+      "src": "https://lokager-launch.preview.emergentagent.com/brand/lokager-logo.webp",
+      "natural": [
+        2000,
+        751
+      ],
+      "display": [
+        342,
+        197
+      ],
+      "hidden": false,
+      "testid": "launch-logo-image"
+    }
+  ],
+  "launch_clicked": true,
+  "countdown_samples_1s_apart": [
+    "59",
+    "58",
+    "57",
+    "56",
+    "55",
+    "54",
+    "53",
+    "52",
+    "51",
+    "50",
+    "48",
+    "47",
+    "46",
+    "45",
+    "44",
+    "43",
+    "42",
+    "41",
+    "40",
+    "39"
+  ],
+  "scene_order_first_20s": [
+    "scene-message-s0",
+    "scene-message-s1",
+    "scene-message-s2",
+    "scene-message-s3",
+    "scene-message-s4",
+    "scene-message-s5",
+    "scene-message-s6",
+    "scene-message-s7"
+  ],
+  "frame_gap_stats": {
+    "count": 1028,
+    "avg_ms": 21.672373540844436,
+    "p50_ms": 16.099999994039536,
+    "p95_ms": 52.89999997615814,
+    "p99_ms": 69.2999999821186,
+    "max_ms": 180,
+    "gaps_over_100ms": 4,
+    "gaps_over_250ms": 0
+  },
+  "long_task_stats": {
+    "count": 13,
+    "total_blocking_ms": 1048,
+    "max_ms": 172,
+    "top5": [
+      {
+        "start": 9312.59999999404,
+        "duration": 172
+      },
+      {
+        "start": 8451.399999976158,
+        "duration": 145
+      },
+      {
+        "start": 15115.699999988079,
+        "duration": 83
+      },
+      {
+        "start": 22002.59999999404,
+        "duration": 83
+      },
+      {
+        "start": 9631.59999999404,
+        "duration": 79
+      }
+    ]
+  },
+  "errors_during_run": {
+    "pageerror": [],
+    "console_error": []
+  },
+  "favicon_requests": []
+}

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Stage } from "@/components/layout/Stage";
-import { LogoMark } from "@/components/brand/LogoMark";
-import { Wordmark } from "@/components/brand/Wordmark";
+import { Logo } from "@/components/brand/Logo";
 import { ArchFrame } from "@/components/sections/ArchFrame";
 import { useGoldConfetti } from "@/hooks/useGoldConfetti";
 
@@ -29,13 +28,13 @@ export const CelebrationScreen = () => {
       <div data-testid="celebration-banner" className="relative flex w-full max-w-5xl flex-col items-center text-center">
         <motion.div {...fade(0.5)} className="relative">
           <div className="absolute inset-0 -m-14 rounded-full bg-gold/15 blur-3xl animate-shimmer" aria-hidden="true" />
-          <LogoMark className="relative h-20 sm:h-28 lg:h-32 w-auto" testId="celebration-logo-mark" />
+          <Logo size="celebration" className="relative" testId="celebration-logo" />
         </motion.div>
         <motion.p {...fade(0.9)} data-testid="celebration-eyebrow" className="mt-10 font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.34em] text-gold">
           {t("celebration.eyebrow")}
         </motion.p>
-        <motion.h1 {...fade(1.3)} data-testid="celebration-title" className="mt-6 flex justify-center">
-          <Wordmark className="h-10 sm:h-16 lg:h-20 w-auto" testId="celebration-wordmark" />
+        <motion.h1 {...fade(1.3)} data-testid="celebration-title" className="mt-6 flex h-10 sm:h-16 lg:h-20 items-center justify-center font-brand font-semibold text-[40px] sm:text-[64px] lg:text-[80px] leading-none text-charcoal">
+          {t("celebration.name")}
         </motion.h1>
         <motion.p {...fade(1.7)} data-testid="celebration-live" className="mt-4 font-display italic text-3xl sm:text-4xl lg:text-5xl text-charcoal">
           {t("celebration.live")}

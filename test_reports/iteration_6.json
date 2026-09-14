@@ -1,0 +1,74 @@
+{
+  "summary": "Comprehensive final QA pass on the LOKAGER 60s launch ceremony (frontend-only, no backend). Full real-time end-to-end run captured every countdown number 60..0 (61 unique, none missing, ~1s dwell), all 20 scenes s0..s19 in correct order (LAND appearing at s4 and s11 is intentional per approved copy, not a bug), zero console errors/warnings, zero unhandled rejections, zero /api requests, chime produces exactly 4 oscillators at zero (none before), celebration reached at t+60.8s, coming-soon reached and remained stable +15s later, reload returns to idle. Double-tap protection works (startedAtRef guards re-entry). Legacy localStorage preseed AND storage-throwing both leave the launch button visible/functional. Responsive check across 1920/1440/1366/820/430/390 shows 0 horizontal overflow at all widths; small vertical overflow on mobile (33px @820, 18px @430, 56px @390) which is acceptable scrollable overflow, no clipping. Optional Unsplash image abort produced 0 broken glyphs; ceremony continued unaffected. Asset SHA256 for /brand/lokager-logo.webp matches bf39ce6e6e2c2f7e0991e04e422ce000367eb32013b03781064d01826afc6d4b. Only minor asset finding: /favicon.ico returns HTTP 200 with content-type text/html (CRA SPA fallback serves index.html); browsers use the explicit <link rel=icon> at /brand/lokager-logo.webp so no visible break, but /favicon.ico itself is not a valid image response.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "CountdownScreen @ 390x844", "issues": ["~56px vertical overflow on the narrowest mobile viewport (page becomes scrollable). Not clipped, but a smaller mobile could feel cramped. Consider tightening header/footer paddings at sm breakpoint or reducing min-heights on SceneMessage."]}
+    ]
+  },
+  "measurements": {
+    "asset_sha256_webp": "bf39ce6e6e2c2f7e0991e04e422ce000367eb32013b03781064d01826afc6d4b (match)",
+    "http_asset_checks": {
+      "/brand/lokager-logo.webp": "200 image/webp",
+      "/manifest.json": "200 application/json",
+      "/favicon.ico": "200 text/html (SPA fallback - browsers use rel=icon webp instead; minor)"
+    },
+    "real_time_run": {
+      "numbers_recorded": 61,
+      "missing_numbers_0_to_60": [],
+      "scene_message_ids_in_order": ["s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","s15","s16","s17","s18","s19"],
+      "missing_scenes": [],
+      "celebration_reached_at_s": 60.81,
+      "coming_soon_stable_plus_15s": true,
+      "idle_after_reload": true,
+      "console_errors": 0,
+      "console_warnings": 0,
+      "page_errors": 0,
+      "unhandled_rejections": 0,
+      "api_requests": 0,
+      "audio_oscillators_before_zero": 0,
+      "audio_oscillators_at_zero": 4
+    },
+    "double_tap_protection": "second click ignored (startedAtRef guard, useLaunchCeremony.js:15)",
+    "storage_preseed_launch_visible": true,
+    "storage_throwing_launch_visible": true,
+    "responsive_countdown_overflow": {
+      "1920x1080": {"horiz": 0, "vert": 0, "logo_cx": 960.0},
+      "1440x900":  {"horiz": 0, "vert": 0, "logo_cx": 720.0},
+      "1366x768":  {"horiz": 0, "vert": 0, "logo_cx": 683.0},
+      "820x1180":  {"horiz": 0, "vert": 33, "logo_cx": 410.0},
+      "430x932":   {"horiz": 0, "vert": 18, "logo_cx": 215.0},
+      "390x844":   {"horiz": 0, "vert": 56, "logo_cx": 195.0}
+    },
+    "optional_image_abort_test": "aborted photo-1544984243-ec57ea16fe25 (villa); at t+20s during countdown, phase=countdown, broken image glyphs=0, no layout collapse, no horizontal overflow. Framer Motion clip-path animation reveals blank frame if image is missing but page and ceremony remain intact.",
+    "logo_placements_verified": ["launch-logo-image","countdown-logo-image","celebration-logo-image","coming-soon-logo-image","header-logo-image (404)","art-merge-logo-image (s2)","art-identity-logo-image (s17)"]
+  },
+  "test_report_links": [
+    "/app/frontend/tests/iteration_6_test_script.py",
+    "/app/frontend/tests/iteration_6_run.json",
+    "/app/frontend/tests/iteration_6_viewports.json"
+  ],
+  "action_items": [
+    "(LOW) /favicon.ico returns HTML (SPA fallback). Add an actual /public/favicon.ico or /favicon.webp so bots/legacy clients receive a real image; the visible browser tab already uses <link rel=icon href=/brand/lokager-logo.webp> so no user-visible impact.",
+    "(LOW) Mobile 390x844 countdown page has ~56px vertical scroll. Consider trimming header/footer padding at sm breakpoint or SceneMessage min-heights to keep the ceremony fully within one viewport on the smallest phone. Not required by spec.",
+    "(LOW / code-quality) chime.js: unlockAudio() calls ctx.resume() without a .catch, and playChime() has no try/catch around tone() calls. Reproduce did NOT surface any unhandled rejection or page break during full run (chime scheduled 4 oscillators cleanly). But if AudioContext.resume() ever rejects on a locked-down browser, an unhandled rejection would appear. Cheap hardening: `ctx.resume().catch(()=>{})` and wrap tone/playChime body in try/catch.",
+    "(INFO) manifest.json only declares one 2000x751 icon. Per iteration_5 note, PWA installability audits expect 192/512 maskable square icons. Out of scope for launch ceremony; do not fabricate/crop the artwork."
+  ],
+  "critical_code_review_comments": [
+    "useLaunchCeremony.start() guards re-entry with startedAtRef — verified rapid double-tap does not restart. Good.",
+    "chime.js unlockAudio: `ctx.resume()` returns a Promise that is not caught. If browser rejects (e.g. autoplay policy on locked context after gesture failure) this becomes an unhandled rejection. In our environment resume() resolved cleanly, but recommend `.catch(()=>{})` for defensive parity with the audio error paths.",
+    "SceneVisual: when a source image fails to load, the Frame still animates but shows an empty ivory area (no broken-image glyph, no layout shift). Acceptable resilience; if you want a visible placeholder, wire an <img onError> to swap to LineArt.",
+    "CountdownScreen SidePanel uses `h-[min(76dvh,calc(100dvh-300px))]` and works cleanly at 1366+; keep as-is.",
+    "public/index.html: no <link rel=\"icon\" href=\"/favicon.ico\"> is declared, only the webp icon — good — but /favicon.ico is auto-requested by browsers and currently returns index.html. Add a static /public/favicon.ico or /public/favicon.webp to remove the noise."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100% (all functional checklist items pass; minor cosmetic/asset observations only)"},
+  "test_credentials": "N/A - no auth in this app",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Persistent scripts now live at /app/frontend/tests/iteration_6_test_script.py plus the two JSON result files. Rerun order: (1) real-time 60s ceremony capture, (2) viewport sweep 1920/1440/1366/820/430/390, (3) optional-image-abort route on images.unsplash.com, (4) curl asset SHA + HTTP status. Ceremony data-testids used: launch-button, launch-title, ceremony-phase-(idle|countdown|celebration|complete), countdown-timer, scene-message-s{0..19}, scene-visual-(left|right|mobile)-s{0..19}, side-panel-(left|right), *-logo-image, celebration-eyebrow/title/live, coming-soon-title, footer-rights. Chime instrumentation via monkey-patching AudioContext.prototype.createOscillator counts 4 oscillators at zero and 0 before — matches design.",
+  "rca of the issue": "N/A - no defects reproduced. The three action items are LOW-severity asset/hardening notes (favicon fallback, chime resume() catch, mobile 390 vertical padding) that do not affect the 60s ceremony experience."
+}

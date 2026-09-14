@@ -41,7 +41,7 @@ export const LaunchScreen = ({ onLaunch }) => {
           {t("brand.est")}
         </motion.p>
         <motion.div {...fade(0.3)} className="mt-6 sm:mt-8">
-          <Logo variant="vertical" size="lg" testId="launch-logo" />
+          <Logo size="lg" testId="launch-logo" />
         </motion.div>
         <motion.h1 {...fade(0.6)} data-testid="launch-title" className="mt-8 sm:mt-10 font-display text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight text-charcoal">
           {t("launch.title")}

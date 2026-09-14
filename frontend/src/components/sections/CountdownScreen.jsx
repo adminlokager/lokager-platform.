@@ -36,7 +36,7 @@ export const CountdownScreen = ({ remaining, progress }) => {
     <div data-testid="countdown-screen" className="relative flex min-h-[100dvh] flex-col bg-ivory-light overflow-hidden">
       <ArchFrame tl={t("brand.indiaWorld")} tr={t("brand.connects")} />
       <header className="relative z-10 flex justify-center pt-6 sm:pt-10 lg:pt-7">
-        <Logo variant="vertical" size="md" testId="countdown-logo" />
+        <Logo size="md" testId="countdown-logo" />
       </header>
 
       <main className="relative z-10 grid flex-1 grid-cols-1 items-center lg:grid-cols-[1fr_minmax(0,600px)_1fr] px-6 sm:px-12 lg:px-10 xl:px-14 py-6 lg:py-2">

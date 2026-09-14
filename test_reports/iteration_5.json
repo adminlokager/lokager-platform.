@@ -1,0 +1,48 @@
+{
+  "summary": "Frontend-only regression for the final logo swap (WebP artwork provided by user). Verified single reusable Logo.jsx component now drives every placement (launch, countdown, celebration, coming-soon, header on 404, plus art-merge and art-identity scene overlays). Asset served from /brand/lokager-logo.webp (SHA256 bf39ce6e... matches expected), natural size 2000x751, object-fit: contain, complete=true at every placement. Full 60s countdown -> 700ms zero-hold -> 9s celebration -> coming-soon sequence completed end-to-end with no console errors and zero /api requests. No old Wordmark/LogoMark/wordmarkPaths references remain. 1366x768 countdown no longer overflows (iteration_4 regression fixed: scrollHeight==viewportHeight==768).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "measurements": {
+    "asset_sha256": "bf39ce6e6e2c2f7e0991e04e422ce000367eb32013b03781064d01826afc6d4b (match)",
+    "natural_size": "2000x751 at every placement (launch, countdown, celebration, coming-soon, header, art-merge, art-identity)",
+    "object_fit": "contain, block, object-center on <img>",
+    "no_horizontal_overflow": {
+      "1920x800": "sw=1920/iw=1920",
+      "1366x768": "sw=1366/iw=1366",
+      "820x1180": "sw=820/iw=820",
+      "390x844": "sw=390/iw=390",
+      "360x780": "sw=360/iw=360"
+    },
+    "logo_centered_cx": {"1920x800": 960, "1366x768": 683, "820x1180": 410, "390x844": 195, "360x780": 180},
+    "logo_box_at_lg": "760x294.8 (h respects intrinsic aspect via object-contain, sm+ 364x136 and mobile 260x97)",
+    "countdown_1366x768_scroll": "scrollHeight=768, viewportHeight=768 (0px vertical scroll, iteration_4 regression FIXED)",
+    "sequence_timing": "manual click -> countdown 60s -> celebration reached -> coming-soon reached (all within ~70s)",
+    "merge_scene_index_2": "art-merge-logo-image present, complete=true, nw=2000 (screenshot merge_scene.png shows small LOKAGER logo over globe circle in left panel)",
+    "identity_scene_index_17": "art-identity-logo-image present, complete=true, nw=2000 (screenshot identity_scene.png shows LOKAGER logo inside concentric circle panel on right)",
+    "celebration_heading_semantics": "single H1 with text 'LOKAGER' (no duplicate full lockup - upper mark slot has full logo, semantic announcement below is text-only)",
+    "idle_on_reload": "confirmed - reload on / keeps phase=idle until manual launch click",
+    "404_header_logo": "header-logo-image loads same asset, back-home-button navigates to / launch idle",
+    "console_errors": 0,
+    "api_requests": 0,
+    "favicon_manifest_og_twitter": "all reference /brand/lokager-logo.webp (no stale placeholder SVGs)"
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Logo.jsx sizes are correct and preserve former slot heights; note the `md` slot height (97.2px) is slightly larger than the intrinsic aspect for its width (260 * 751/2000 ~= 97.6px), so object-contain fits perfectly with no visible letterboxing.",
+    "manifest.json declares a single icon at 2000x751 which is fine for now but PWA installability audits typically expect maskable 192/512 square icons; not required for launch ceremony scope, flag for post-swap follow-up when the final Canva SVG lands.",
+    "Chime playback depends on user gesture (unlockAudio on click) - working as designed."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "test_credentials": "N/A - no auth in this app",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Logo swap is stable. Single Logo.jsx (frontend/src/components/brand/Logo.jsx) points at /brand/lokager-logo.webp; only LOGO_SRC needs to change when the final Canva SVG arrives. All data-testids used: launch-logo-image, countdown-logo-image, celebration-logo-image, coming-soon-logo-image, header-logo-image, art-merge-logo-image, art-identity-logo-image. Full 60s + 9s ceremony verified. When the SVG replacement lands, re-run this iteration_5 script and update the natural size / SHA assertion.",
+  "rca of the issue": "N/A - no issues found. Iteration_4's 1366x768 overflow was fixed by the main agent (SidePanel reserve reduced from 100dvh-310px to 100dvh-300px and header/footer padding tightened at lg breakpoint)."
+}

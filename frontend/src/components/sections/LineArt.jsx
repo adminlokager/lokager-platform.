@@ -1,4 +1,4 @@
-import { LogoMark } from "@/components/brand/LogoMark";
+import { Logo } from "@/components/brand/Logo";
 
 const G = ({ children }) => (
   <g fill="none" stroke="#B8894A" strokeWidth="1.2" vectorEffect="non-scaling-stroke">
@@ -32,7 +32,7 @@ const arts = {
       <svg viewBox="0 0 400 400" className="h-full w-full">
         <G><Globe cx={160} cy={200} r={130} /></G>
       </svg>
-      <LogoMark className="absolute right-[8%] top-1/2 h-[46%] w-auto -translate-y-1/2 drop-shadow-[0_12px_30px_rgba(184,137,74,0.25)]" testId="art-merge-mark" />
+      <Logo size="art" className="absolute right-[8%] top-1/2 h-[46%] w-[84%] -translate-y-1/2 drop-shadow-[0_12px_30px_rgba(184,137,74,0.25)]" testId="art-merge-logo" />
     </div>
   ),
   world: () => (
@@ -68,7 +68,7 @@ const arts = {
           <circle cx="200" cy="200" r="130" strokeOpacity="0.55" />
         </G>
       </svg>
-      <LogoMark className="relative h-[42%] w-auto drop-shadow-[0_16px_36px_rgba(184,137,74,0.3)]" testId="art-identity-mark" />
+      <Logo size="art" className="relative h-[42%] w-[84%] drop-shadow-[0_16px_36px_rgba(184,137,74,0.3)]" testId="art-identity-logo" />
     </div>
   ),
 };
