@@ -10,7 +10,7 @@ export default function MortgagePage() {
       title="Home Loan & EMI Calculator — LOKAGER Mortgage"
       description="Estimate an indicative home-loan EMI with LOKAGER's mortgage calculator. Figures are illustrative and not a loan approval or final bank offer."
       path="/mortgage"
-      crumbs={[{ label: "Home", to: "/" }, { label: "Mortgage" }]}
+      crumbs={[{ label: "Home", to: "/home" }, { label: "Mortgage" }]}
     >
       <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-8 sm:px-8 sm:pb-20 lg:px-16 lg:pb-24 lg:pt-10">
         <SectionHeader

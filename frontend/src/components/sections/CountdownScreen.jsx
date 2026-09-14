@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Logo } from "@/components/brand/Logo";
 import { ArchFrame } from "@/components/sections/ArchFrame";
 import { BrandStrip } from "@/components/sections/BrandStrip";
-import { CountdownNumber } from "@/components/sections/CountdownNumber";
+import { CountdownClock } from "@/components/sections/CountdownClock";
 import { SceneMessage } from "@/components/sections/SceneMessage";
 import { SceneVisual } from "@/components/sections/SceneVisual";
 import { SCENE_VISUALS, sceneIndexAt, preloadScenes } from "@/lib/scenes";
@@ -46,9 +46,8 @@ export const CountdownScreen = ({ remaining, progress }) => {
           <p className="font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-charcoal">{t("countdown.eyebrow")}</p>
           <p className="mt-1.5 font-sans text-[11px] sm:text-xs font-medium uppercase tracking-[0.3em] text-gold">{t("countdown.beginsIn")}</p>
           <div className="mt-5 sm:mt-6">
-            <CountdownNumber remaining={remaining} progress={progress} />
+            <CountdownClock remaining={remaining} progress={progress} />
           </div>
-          <p className="mt-4 font-sans text-[11px] sm:text-xs font-medium uppercase tracking-[0.3em] text-charcoal-soft/60">{t("countdown.unit")}</p>
           <div className="mt-3 sm:mt-7 w-full">
             <SceneMessage scene={scene} sceneKey={sceneKey} />
           </div>

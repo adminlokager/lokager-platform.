@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import EntryPage from "@/pages/EntryPage";
 import HomePage from "@/pages/HomePage";
 import LaunchPage from "@/pages/LaunchPage";
 import VerticalListingPage from "@/pages/VerticalListingPage";
@@ -10,8 +11,9 @@ import NotFoundPage from "@/pages/NotFoundPage";
 
 export const AppRoutes = () => (
   <Routes>
-    <Route path="/" element={<HomePage />} />
+    <Route path="/" element={<EntryPage />} />
     <Route path="/launch" element={<LaunchPage />} />
+    <Route path="/home" element={<HomePage />} />
     <Route path="/buy" element={<VerticalListingPage vertical="buy" />} />
     <Route path="/rent" element={<VerticalListingPage vertical="rent" />} />
     <Route path="/new-projects" element={<VerticalListingPage vertical="new-projects" />} />

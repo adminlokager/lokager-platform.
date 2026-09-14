@@ -16,7 +16,7 @@ export default function NotFoundPage() {
           <h1 className="font-display text-3xl sm:text-4xl text-charcoal">{t("notFound.title")}</h1>
           <p className="mt-4 font-sans text-sm sm:text-base text-charcoal-soft">{t("notFound.body")}</p>
           <Link
-            to="/"
+            to="/home"
             data-testid="back-home-button"
             className="mt-10 inline-flex min-h-[56px] items-center justify-center rounded-full border border-charcoal px-8 font-sans text-sm uppercase tracking-eyebrow text-charcoal transition-[background-color,color] duration-300 hover:bg-charcoal hover:text-ivory"
           >

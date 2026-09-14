@@ -35,7 +35,7 @@ export default function HomePage() {
 
   return (
     <div data-testid="lokager-homepage" className="min-h-[100dvh] bg-ivory">
-      <Meta title={HOME_TITLE} description={HOME_DESC} path="/" />
+      <Meta title={HOME_TITLE} description={HOME_DESC} path="/home" />
       <Toaster position="bottom-center" />
 
       <SiteHeader onNotify={notify} />

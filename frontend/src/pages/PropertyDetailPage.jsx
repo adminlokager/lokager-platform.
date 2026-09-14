@@ -53,7 +53,7 @@ export default function PropertyDetailPage() {
       title={`${property.title}, ${property.locality} ${property.city} — LOKAGER`}
       description={`${property.title} in ${property.locality}, ${property.city}. ${property.propertyType}, ${property.area}, priced ${property.price}. Illustrative demo listing on LOKAGER.`}
       path={`/property/${property.slug}`}
-      crumbs={[{ label: "Home", to: "/" }, { label: crumbVertical.crumb, to: crumbVertical.route }, { label: property.title }]}
+      crumbs={[{ label: "Home", to: "/home" }, { label: crumbVertical.crumb, to: crumbVertical.route }, { label: property.title }]}
     >
       <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-6 sm:px-8 sm:pb-20 lg:px-16 lg:pb-24">
         <button data-testid="detail-back" onClick={() => navigate(-1)} className="mb-6 inline-flex items-center gap-2 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-charcoal-soft transition-colors hover:text-gold">

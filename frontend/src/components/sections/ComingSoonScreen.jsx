@@ -41,7 +41,7 @@ export const ComingSoonScreen = () => {
         <motion.button
           {...fade(1.35)}
           data-testid="enter-lokager-button"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
           className="mt-10 inline-flex min-h-[56px] items-center justify-center rounded-full border border-gold bg-charcoal px-10 font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.24em] text-ivory transition-[transform,background-color] duration-300 hover:bg-charcoal-soft active:scale-[0.98]"
         >
           Enter LOKAGER

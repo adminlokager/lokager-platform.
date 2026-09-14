@@ -11,9 +11,9 @@ const NAV = [
   { label: "New Projects", to: "/new-projects" },
   { label: "Commercial", to: "/commercial" },
   { label: "Land", to: "/land" },
-  { label: "Services", to: "/#services" },
+  { label: "Services", to: "/home#services" },
   { label: "Mortgage", to: "/mortgage" },
-  { label: "Sell Property", to: "/#list" },
+  { label: "Sell Property", to: "/home#list" },
 ];
 
 export const SiteHeader = ({ onNotify }) => {
@@ -31,12 +31,12 @@ export const SiteHeader = ({ onNotify }) => {
 
   const go = (to) => {
     setOpen(false);
-    if (to.startsWith("/#")) {
-      const id = to.slice(2);
-      if (window.location.pathname === "/") {
+    if (to.includes("#")) {
+      const id = to.split("#")[1];
+      if (window.location.pathname === "/home") {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       } else {
-        navigate("/");
+        navigate("/home");
         setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 400);
       }
     } else {
@@ -54,7 +54,7 @@ export const SiteHeader = ({ onNotify }) => {
       )}
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-16 h-[82px] lg:h-[86px]">
-        <button data-testid="header-logo-button" onClick={() => go("/")} aria-label="LOKAGER home" className="flex items-center">
+        <button data-testid="header-logo-button" onClick={() => go("/home")} aria-label="LOKAGER home" className="flex items-center">
           <HeaderBrand testId="header-logo" />
         </button>
 

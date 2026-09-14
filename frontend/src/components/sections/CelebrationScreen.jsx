@@ -11,7 +11,7 @@ const fade = (delay, dur = 1) => ({
   transition: { duration: dur, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-export const CelebrationScreen = () => {
+export const CelebrationScreen = ({ showEnter = false, onEnter }) => {
   const { t } = useTranslation();
   useGoldConfetti();
   return (
@@ -46,6 +46,16 @@ export const CelebrationScreen = () => {
         <motion.p {...fade(2.9)} data-testid="celebration-sub" className="mt-5 font-display text-xl sm:text-2xl lg:text-3xl text-charcoal-soft">
           {t("celebration.sub")}
         </motion.p>
+        {showEnter && (
+          <motion.button
+            {...fade(3.4)}
+            data-testid="enter-lokager-button"
+            onClick={() => onEnter?.()}
+            className="mt-9 inline-flex min-h-[56px] items-center justify-center rounded-full border border-gold bg-charcoal px-10 font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.24em] text-ivory transition-[transform,background-color] duration-300 hover:bg-charcoal-soft active:scale-[0.98]"
+          >
+            Enter LOKAGER
+          </motion.button>
+        )}
       </div>
     </Stage>
   );

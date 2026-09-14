@@ -29,7 +29,7 @@ export default function ComparePage() {
       title="Compare Properties — LOKAGER"
       description="Compare shortlisted properties side by side on LOKAGER — price, size, locality and more."
       path="/compare"
-      crumbs={[{ label: "Home", to: "/" }, { label: "Compare" }]}
+      crumbs={[{ label: "Home", to: "/home" }, { label: "Compare" }]}
     >
       <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-8 sm:px-8 sm:pb-20 lg:px-16 lg:pb-24 lg:pt-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
