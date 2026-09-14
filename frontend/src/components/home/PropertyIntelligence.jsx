@@ -11,7 +11,7 @@ export const PropertyIntelligence = () => (
       style={{ backgroundImage: "linear-gradient(#B8894A 1px, transparent 1px), linear-gradient(90deg, #B8894A 1px, transparent 1px)", backgroundSize: "64px 64px" }}
       aria-hidden="true"
     />
-    <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="relative mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <SectionHeader
         eyebrow="LOKAGER Property Intelligence"
         title="More than listings. Better property decisions."
@@ -33,7 +33,7 @@ export const PropertyIntelligence = () => (
                 <span className="rounded-full border border-ivory/15 px-3 py-1 font-sans text-[9px] font-semibold uppercase tracking-[0.16em] text-ivory/60">{f.tag}</span>
               </div>
               <h3 className="mt-6 font-display text-xl font-medium text-ivory">{f.title}</h3>
-              <p className="mt-2.5 font-sans text-sm leading-relaxed text-ivory/65">{f.body}</p>
+              <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-ivory/75">{f.body}</p>
             </div>
           </Reveal>
         ))}

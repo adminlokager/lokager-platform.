@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 // property discovery. Marked COMING SOON with no service guarantees.
 export const LokagerServices = ({ onExplore }) => (
   <section id="services" data-testid="lokager-services-section" className="bg-ivory-light">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <div className="flex flex-col gap-4">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/30 bg-gold/8 px-4 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
           Coming Soon

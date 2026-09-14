@@ -9,9 +9,13 @@
 
 const px = (url, w = 1200) => `${url}&w=${w}`;
 
+// Guaranteed-good fallback if a remote image fails to load.
+export const IMG_FALLBACK = px("https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxwcmVtaXVtJTIwbW9kZXJuJTIwdmlsbGElMjBob3VzZSUyMGV4dGVyaW9yfGVufDB8fHx8MTc4OTM2NDYyMHww&ixlib=rb-4.1.0&q=80", 1000);
+export const onImgError = (e) => { e.currentTarget.onerror = null; e.currentTarget.src = IMG_FALLBACK; };
+
 // ---- Hero -------------------------------------------------------------------
 export const HERO_IMAGE = px(
-  "https://images.unsplash.com/photo-1782544088839-0e293fc78470?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80",
+  "https://images.unsplash.com/photo-1773470920361-4f6cbb702ce0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80",
   1400,
 );
 
@@ -211,7 +215,7 @@ export const PROJECTS = [
     startingPrice: "₹1.8 Cr onwards",
     configuration: "2, 3 & 4 BHK",
     status: "New Launch",
-    image: px("https://images.unsplash.com/photo-1782544088839-0e293fc78470?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80", 900),
+    image: px("https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80", 900),
   },
   {
     id: "NP-502",
@@ -248,7 +252,7 @@ export const LOCALITIES = [
     businessHubs: "ITPL, EPIP tech parks",
     lifestyle: "Malls, cafes, green belts",
     infrastructure: "Metro extension underway",
-    image: px("https://images.unsplash.com/photo-1782544088839-0e293fc78470?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80", 800),
+    image: px("https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80", 800),
   },
   {
     id: "LOC-2",
@@ -261,7 +265,7 @@ export const LOCALITIES = [
     businessHubs: "Financial & media district",
     lifestyle: "High streets, dining, arts",
     infrastructure: "Coastal road connectivity",
-    image: px("https://images.unsplash.com/photo-1620372177236-03c33d977675?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwzfHxtdW1iYWklMjBjaXR5JTIwc2t5bGluZSUyMGR1c2t8ZW58MHx8fHwxNzg5MzY0NjI2fDA&ixlib=rb-4.1.0&q=80", 800),
+    image: px("https://images.unsplash.com/photo-1666843527155-14ec5f016802?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwzfHxtdW1iYWklMjBjaXR5JTIwc2t5bGluZSUyMGR1c2t8ZW58MHx8fHwxNzg5MzY0NjI2fDA&ixlib=rb-4.1.0&q=80", 800),
   },
   {
     id: "LOC-3",

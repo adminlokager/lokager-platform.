@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { onImgError } from "@/data/home";
 
 // Large premium category card with hover zoom photography.
 export const CategoryCard = ({ title, note, image, onClick, testId, tall = false }) => (
@@ -11,6 +12,7 @@ export const CategoryCard = ({ title, note, image, onClick, testId, tall = false
       src={image}
       alt={title}
       loading="lazy"
+      onError={onImgError}
       className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" aria-hidden="true" />

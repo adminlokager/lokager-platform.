@@ -5,7 +5,7 @@ import { LIST_TYPES } from "@/data/home";
 
 export const ListProperty = ({ onList, onPartnership }) => (
   <section id="list" data-testid="list-sell-section" className="bg-ivory">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <div className="overflow-hidden rounded-3xl border border-charcoal/10 bg-ivory-light">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr]">
           <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
@@ -42,7 +42,7 @@ export const ListProperty = ({ onList, onPartnership }) => (
                   </span>
                   <div>
                     <h3 className="font-display text-lg font-medium text-charcoal">{tpe.title}</h3>
-                    <p className="mt-1 font-sans text-sm leading-relaxed text-charcoal-soft/80">{tpe.body}</p>
+                    <p className="mt-1 font-sans text-[15px] leading-[1.6] text-charcoal-soft/90">{tpe.body}</p>
                   </div>
                 </div>
               </Reveal>

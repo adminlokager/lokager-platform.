@@ -10,6 +10,6 @@ export const TrustCard = ({ icon, title, body, testId }) => (
       <Icon name={icon} size={22} aria-hidden="true" />
     </span>
     <h3 className="mt-6 font-display text-xl font-medium text-charcoal">{title}</h3>
-    <p className="mt-3 font-sans text-sm leading-relaxed text-charcoal-soft/85">{body}</p>
+    <p className="mt-3 font-sans text-[15px] leading-[1.6] text-charcoal-soft/90">{body}</p>
   </div>
 );

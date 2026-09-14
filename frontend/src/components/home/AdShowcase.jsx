@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/home/motion";
-import { AD_SHOWCASE } from "@/data/home";
+import { AD_SHOWCASE, onImgError } from "@/data/home";
 import { cn } from "@/lib/utils";
 
 // <AdShowcase /> — huge premium advertising slot.
@@ -34,9 +34,9 @@ export const AdShowcase = ({ campaign = AD_SHOWCASE, onCta }) => {
 
   return (
     <section data-testid="ad-video-showcase-section" className="bg-ivory">
-      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-8 sm:pb-24 lg:px-12 lg:pb-28">
-        <Reveal className="mx-auto w-full lg:w-[88%]">
-          <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal shadow-[0_40px_90px_-45px_rgba(17,17,17,0.55)]">
+      <div className="mx-auto w-[92vw] max-w-[1760px] pb-14 pt-2 sm:pb-16 lg:pb-20">
+        <Reveal className="mx-auto w-full">
+          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal shadow-[0_40px_90px_-45px_rgba(17,17,17,0.55)] sm:aspect-[2/1] lg:aspect-[2.3/1]">
             {!failed && (
               <video
                 ref={videoRef}
@@ -58,11 +58,12 @@ export const AdShowcase = ({ campaign = AD_SHOWCASE, onCta }) => {
               alt={campaign.headline}
               className={cn("absolute inset-0 h-full w-full object-cover transition-opacity duration-500", playing ? "opacity-0" : "opacity-100")}
               loading="lazy"
+              onError={onImgError}
               width="1280"
               height="720"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/25 to-charcoal/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/45 to-charcoal/10" aria-hidden="true" />
 
             <span data-testid="ad-disclosure" className="absolute right-4 top-4 rounded-full border border-ivory/25 bg-charcoal/40 px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-ivory/80 backdrop-blur-sm">
               {campaign.disclosure}

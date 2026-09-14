@@ -11,10 +11,10 @@ const SOCIALS = [
 
 export const SiteFooter = ({ onNotify }) => (
   <footer data-testid="national-brand-footer" className="bg-charcoal text-ivory">
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-8 lg:px-12 lg:py-20">
+    <div className="mx-auto max-w-[1600px] px-5 py-14 sm:px-8 lg:px-16 lg:py-16">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <div className="[&_img]:brightness-0 [&_img]:invert">
+          <div className="inline-flex rounded-2xl bg-ivory-light px-5 py-3.5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.5)]">
             <Logo size="sm" testId="footer-logo" />
           </div>
           <p className="mt-6 max-w-xs font-display text-lg italic text-ivory/80">Where property meets trust.</p>

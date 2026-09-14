@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export const SectionHeader = ({ eyebrow, title, description, align = "left", tone = "charcoal", testId }) => {
   const centered = align === "center";
   const titleColor = tone === "ivory" ? "text-ivory" : "text-charcoal";
-  const bodyColor = tone === "ivory" ? "text-ivory/70" : "text-charcoal-soft/85";
+  const bodyColor = tone === "ivory" ? "text-ivory/80" : "text-charcoal-soft";
   return (
     <div
       data-testid={testId}
@@ -20,7 +20,7 @@ export const SectionHeader = ({ eyebrow, title, description, align = "left", ton
         {title}
       </Reveal>
       {description && (
-        <Reveal as="p" delay={0.1} className={cn("font-sans text-base sm:text-lg leading-relaxed", bodyColor)}>
+        <Reveal as="p" delay={0.1} className={cn("font-sans text-[17px] sm:text-lg lg:text-xl leading-[1.6]", bodyColor)}>
           {description}
         </Reveal>
       )}

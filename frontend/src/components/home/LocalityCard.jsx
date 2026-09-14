@@ -1,4 +1,5 @@
 import { TrendingUp, Train, GraduationCap, HeartPulse, Briefcase } from "lucide-react";
+import { onImgError } from "@/data/home";
 
 // Reusable <LocalityCard />. Sample/demo data — not live market data.
 const Row = ({ icon: I, label, value }) => (
@@ -20,7 +21,7 @@ export const LocalityCard = ({ locality, onClick, testId }) => {
       className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-charcoal/10 bg-ivory-light text-left transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-[0_28px_70px_-38px_rgba(17,17,17,0.4)]"
     >
       <div className="relative aspect-[16/9] overflow-hidden">
-        <img src={image} alt={`${name}, ${city}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]" />
+        <img src={image} alt={`${name}, ${city}`} loading="lazy" onError={onImgError} className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent" aria-hidden="true" />
         <div className="absolute bottom-4 left-4">
           <h3 className="font-display text-xl font-medium text-ivory">{name}</h3>

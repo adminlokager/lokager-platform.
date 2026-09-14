@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Logo } from "@/components/brand/Logo";
+import { HeaderBrand } from "@/components/brand/HeaderBrand";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -43,9 +43,9 @@ export const SiteHeader = ({ onNotify }) => {
         scrolled ? "bg-ivory-light/90 backdrop-blur-xl border-b border-charcoal/10 shadow-[0_1px_30px_rgba(17,17,17,0.05)]" : "bg-transparent border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-8 lg:px-12 h-[68px] lg:h-[76px]">
+      <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-16 h-[86px] lg:h-[92px]">
         <button data-testid="header-logo-button" onClick={() => go("top")} aria-label="LOKAGER home" className="flex items-center">
-          <Logo size="sm" testId="header-logo" />
+          <HeaderBrand testId="header-logo" />
         </button>
 
         <nav data-testid="header-desktop-nav" className="hidden xl:flex items-center gap-6 2xl:gap-8">

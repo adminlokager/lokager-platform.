@@ -5,7 +5,7 @@ import { TRUST_PILLARS } from "@/data/home";
 
 export const TrustLayer = () => (
   <section id="trust" data-testid="trust-pillars-section" className="bg-ivory">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <SectionHeader
         eyebrow="Why LOKAGER"
         title="Property decisions deserve more trust."

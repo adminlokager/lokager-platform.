@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export const FeaturedProperties = ({ onProperty, onViewAll }) => (
   <section id="properties" data-testid="featured-properties-grid" className="bg-ivory">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeader eyebrow="Featured" title="Handpicked properties to explore." testId="featured-header" />
         <button

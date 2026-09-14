@@ -5,7 +5,7 @@ const LOGO_SRC = `${process.env.PUBLIC_URL}/brand/lokager-logo.webp`;
 
 // Retain the approved logo slots so surrounding content and motion stay in place.
 const sizes = {
-  sm: "h-8 w-[181px]",
+  sm: "h-[46px] w-[122px] sm:h-[58px] sm:w-[155px]",
   md: "h-[97.2px] w-[260px] sm:h-[136.2px] sm:w-[364px]",
   lg: "h-[196.6px] w-[min(760px,calc(100vw-48px))] sm:h-[252.2px] lg:h-[294.8px]",
   art: "h-full w-full",

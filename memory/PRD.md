@@ -44,6 +44,12 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - No verification/guarantee claims anywhere; demo data isolated in `src/data/home.js` with PROPERTY≠LISTING model. IBM Plex Mono added for metrics.
 - QA: iteration_7 passed 100% (all sections, search interactions, ad controls + fallback, launch→home flow, no horizontal overflow at 1920/430/390, no console errors). Report: `/app/docs/LOKAGER_Module_1_Technology_Report.md`.
 
+## Module 1 refinement (June 2026 — founder design correction)
+- Header logo rebuilt as `HeaderBrand.jsx`: exact wordmark from artwork (CSS-cropped, full width shown, baked tagline clipped) + crisp re-typeset readable tagline; ~184px desktop / 162 tablet / 144 mobile; header 86-92px; clear on transparent + sticky; no nav collision.
+- Content container widened 1280→1600px, desktop side padding 64px, section vertical spacing reduced ~18%. Ad banner widened to 92vw / max 1760px, cinematic 2.3:1 desktop (16:11 mobile), stronger dark gradient behind text, controls+fallback preserved. Body/section copy 17-20px with deeper charcoal + 1.6 line-height. Footer logo on ivory badge.
+- Added `onImgError` fallback across all remote images; swapped 2 dead Unsplash URLs. QA: iteration_8 regression PASS (zero horizontal overflow at 1920/1440/1366/430/390, logo/nav/ad/search/cards/launch-flow all good, 0 broken images).
+- OUTSTANDING (founder): supply a transparent SVG / wordmark-only logo asset for pixel-perfect header lockup; interim uses CSS-cropped raster + live tagline.
+
 ## Backlog (prioritised)
 - **P0 (Module 1):** Waitlist capture (`/api/waitlist`, Mongo or MySQL per stack decision), per-vertical Coming Soon routes `/buy` … `/mortgage`.
 - **P1:** Full homepage (hero, vertical tiles, Why LOKAGER, benefits, vision); final logo asset drop; analytics + consent banner.

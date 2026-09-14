@@ -14,7 +14,7 @@ const CITIES = [
 // India -> Global vision. Restrained typographic coordinate language, no flags.
 export const IndiaGlobal = () => (
   <section data-testid="india-global-section" className="bg-ivory-light">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div>
           <Reveal as="span" className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-gold">Vision</Reveal>

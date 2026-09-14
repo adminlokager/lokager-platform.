@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export const NewProjects = ({ onProject, onExploreAll }) => (
   <section id="projects" data-testid="featured-new-projects-grid" className="bg-ivory-light">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <SectionHeader
         eyebrow="New Projects"
         title="Featured new projects."

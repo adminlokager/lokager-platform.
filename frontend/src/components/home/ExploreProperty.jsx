@@ -5,7 +5,7 @@ import { CATEGORIES } from "@/data/home";
 
 export const ExploreProperty = ({ onCategory }) => (
   <section id="explore" data-testid="category-cards-section" className="bg-ivory-light">
-    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
       <SectionHeader
         eyebrow="Explore Property"
         title="Every kind of property, one platform."

@@ -1,4 +1,5 @@
 import { MapPin, Building2 } from "lucide-react";
+import { onImgError } from "@/data/home";
 
 // Reusable <ProjectCard /> for new project launches.
 export const ProjectCard = ({ project, onClick, testId }) => {
@@ -9,7 +10,7 @@ export const ProjectCard = ({ project, onClick, testId }) => {
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-charcoal/10 bg-ivory transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-[0_28px_70px_-38px_rgba(17,17,17,0.4)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
-        <img src={image} alt={`${name} by ${developer}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]" />
+        <img src={image} alt={`${name} by ${developer}`} loading="lazy" onError={onImgError} className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]" />
         <span className="absolute left-3 top-3 rounded-full bg-gold px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-charcoal">{status}</span>
       </div>
       <div className="flex flex-1 flex-col p-6">
