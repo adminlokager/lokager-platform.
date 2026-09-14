@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend testing of LOKAGER Module 1 next-phase (dual ad, 6 vertical pages, property detail, save/shortlist, mortgage EMI, responsive). Dual ad renders correct desktop (apt image) and mobile (villa image) creatives via matchMedia with data-variant switching; video muted + not autoplaying; all ad controls (play/mute/disclosure/CTA) present; no overflow on mobile. All 6 nav links route correctly (/buy, /rent, /new-projects, /commercial, /land, /mortgage). BUY page filters work: city 'Bengaluru' 6->1, type=Villa 6->2, beds=4 6->3; results-count pluralisation correct; filter-clear resets. RENT empty-state shows on 'ZZZZ' city and Clear from empty restores. NEW-PROJECTS renders 6 NP cards; developer=Kestrel filter yields 2. MORTGAGE emi-calculator works: moving emi-value slider from default to 1 Cr changes emi-result from ₹69,426 to ₹17,18,290. Property detail page renders detail-title/price/gallery(4 thumbs, main image swaps on thumb click)/map-placeholder/similar cards/interest/share/save. SAVE persistence: localStorage['lokager_saved_properties'] correctly stores IDs; after hard-reload data-saved='true' persists and header saved-count shows '1'. /saved page loads with valid+invalid IDs mix without crashing; clear-saved-button empties and shows saved-empty. Zero horizontal overflow at 1920/1440/1366/430/390 on /, /buy, /new-projects, /mortgage, /saved, and a /property/:slug page. Mobile hamburger opens mobile-nav-panel. /launch idle ceremony screen intact.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Save property -> header saved-count live update (same tab)",
+        "issue": "Header data-testid='saved-count' badge does NOT update reactively when a property card's save heart is clicked in the same tab. The card's own data-saved flips to 'true' and localStorage is written, but header saved-count stays absent (rendered only when count > 0) until a page reload. Root cause: useSavedProperties hook uses per-component useState + only listens to the 'storage' event (which does NOT fire in the same tab). Each mounted instance has its own state; SiteHeader's instance is never notified when PropertyCard's instance toggles. Fix: dispatch a custom same-tab event on toggle (e.g. window.dispatchEvent(new Event('lokager:saved-changed'))) and have the hook listen for it, or lift state to a Context / a tiny store (zustand/simple pub-sub). Also consider dispatching a synthetic 'storage' event.",
+        "affected_selectors": ["[data-testid='saved-count']", "[data-testid='header-saved-button']", "[data-testid$='-save']"]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix useSavedProperties (frontend/src/hooks/useSavedProperties.js) to sync save state across component instances within the same tab so the header 'saved-count' badge updates immediately on card save/unsave (no reload). Add a same-tab pub/sub or React Context, in addition to the existing cross-tab 'storage' listener."
+  ],
+  "critical_code_review_comments": [
+    "useSavedProperties.js: each component call gets an isolated useState; cross-component sync only via cross-tab 'storage' event. Same-tab consumers (SiteHeader vs PropertyCard vs SavedPage vs PropertyDetailPage) can go out of sync. Introduce a module-level subscriber list or React Context to broadcast changes.",
+    "SiteHeader saved-count: element is only rendered when count>0 — acceptable, but consider making the testid always present (with text '0' hidden) for easier automated assertions.",
+    "verticals.js: dataset budget/rent/area/price selects use match:'none' by design (documented in request) — OK.",
+    "EmiCalculator uses native <input type='range'>; works well and is accessible."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "96%"},
+  "test_credentials": "N/A (no auth)",
+  "seed_data_creation": "None (localStorage manipulated during tests then cleared)",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "One outstanding integration bug: header saved-count does not live-update when a card save button is clicked in the same tab (reload works). Root cause + fix suggestion in frontend_issues.integration_issues. All other Module 1 next-phase functionality (dual ad, nav routing, vertical filters/empty state, property detail, mortgage EMI slider, persistence across reload, invalid-ID resilience on /saved, responsive overflow at 1920/1440/1366/430/390, launch route regression) verified working. Ad text at 390 fits within 358x448 frame (no children overflow the frame). Preview URL https://lokager-launch.preview.emergentagent.com.",
+  "rca of the issue": "useSavedProperties hook (frontend/src/hooks/useSavedProperties.js) uses per-instance useState and only subscribes to the browser 'storage' event. The 'storage' event is dispatched only to OTHER tabs/windows sharing the same origin — never to the tab that wrote to localStorage. Consequently, when PropertyCard.toggle() writes 'lokager_saved_properties' and updates its own local state, sibling consumers (SiteHeader) that also call useSavedProperties() see stale state until a full remount (page reload). Repro: (1) clear localStorage; (2) open /buy; (3) click any [data-testid$='-save'] once; observe card data-saved flips true but [data-testid='saved-count'] does not appear in header; (4) reload — saved-count '1' now shows. Mitigation: broadcast a same-tab event on write and listen for it in the hook. Minimal patch: in toggle/setIds after localStorage.setItem, call window.dispatchEvent(new CustomEvent('lokager:saved-changed', {detail: next})); and in useEffect add a listener that setIds(e.detail || read())."
+}

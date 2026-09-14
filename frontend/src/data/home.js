@@ -68,19 +68,42 @@ export const TRUST_PILLARS = [
   },
 ];
 
-// ---- Ad showcase (demo campaign) --------------------------------------------
-export const AD_SHOWCASE = {
+// ---- Ad showcase (demo campaign, dual desktop/mobile creatives) -------------
+// Data model mirrors a future backend-controlled campaign record. Module 1 uses
+// demo creatives only; no backend/DB. Video never autoplays with sound.
+export const AD_CAMPAIGN = {
   campaignId: "demo-001",
-  advertiser: "Meridian Developers",
+  active: true,
+  priority: 1,
+  advertiserName: "Meridian Developers",
+  campaignTitle: "The Grove Residences — Whitefield, Bengaluru",
+  campaignCopy: "Limited collection of 3 & 4 BHK sky homes overlooking 6 acres of landscaped green.",
+  ctaText: "View Campaign",
+  ctaHref: "#",
+  startDate: "2026-06-01",
+  endDate: "2026-12-31",
   disclosure: "Advertisement",
-  headline: "The Grove Residences — Whitefield, Bengaluru",
-  subline: "Limited collection of 3 & 4 BHK sky homes overlooking 6 acres of landscaped green.",
-  ctaLabel: "View Campaign",
-  poster: px(
-    "https://images.unsplash.com/photo-1773470920361-4f6cbb702ce0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80",
-    1600,
-  ),
-  videoMp4: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  // Desktop creative (~2.3:1)
+  desktopImage: px("https://images.unsplash.com/photo-1773470920361-4f6cbb702ce0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80", 1760),
+  desktopPoster: px("https://images.unsplash.com/photo-1773470920361-4f6cbb702ce0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBpbmRpYW4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODkzNjQ2MjB8MA&ixlib=rb-4.1.0&q=80", 1760),
+  desktopVideo: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  // Mobile creative (~16:11) — distinct asset, not a crop of the desktop one
+  mobileImage: px("https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxwcmVtaXVtJTIwbW9kZXJuJTIwdmlsbGElMjBob3VzZSUyMGV4dGVyaW9yfGVufDB8fHx8MTc4OTM2NDYyMHww&ixlib=rb-4.1.0&q=80", 900),
+  mobilePoster: px("https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxwcmVtaXVtJTIwbW9kZXJuJTIwdmlsbGElMjBob3VzZSUyMGV4dGVyaW9yfGVufDB8fHx8MTc4OTM2NDYyMHww&ixlib=rb-4.1.0&q=80", 900),
+  mobileVideo: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+};
+
+// Resolve the correct creative variant for the current viewport (mobile falls
+// back to desktop assets when a mobile-specific asset is not provided).
+export const resolveAdCreative = (campaign, isMobile) => {
+  if (isMobile) {
+    return {
+      image: campaign.mobileImage || campaign.desktopImage,
+      poster: campaign.mobilePoster || campaign.desktopPoster || campaign.mobileImage,
+      video: campaign.mobileVideo || campaign.desktopVideo,
+    };
+  }
+  return { image: campaign.desktopImage, poster: campaign.desktopPoster || campaign.desktopImage, video: campaign.desktopVideo };
 };
 
 // ---- Explore categories -----------------------------------------------------

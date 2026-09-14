@@ -1,28 +1,34 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/home/motion";
-import { AD_SHOWCASE, onImgError } from "@/data/home";
+import { AD_CAMPAIGN, resolveAdCreative, onImgError } from "@/data/home";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 
-// <AdShowcase /> — huge premium advertising slot.
-// Architected for a future advertising backend (campaignId, advertiser, media,
-// dates, targeting, impressions, clicks). Module 1 uses demo content only.
-// Video never autoplays with sound; failures fall back silently to the poster.
-export const AdShowcase = ({ campaign = AD_SHOWCASE, onCta }) => {
+// <AdShowcase /> — huge premium advertising slot with separate desktop/mobile
+// creatives. Only the creative for the current viewport is rendered, so both
+// videos are never fetched. Video never autoplays with sound; failures fall
+// back to the poster/image. Data model is ready for a future ad backend.
+export const AdShowcase = ({ campaign = AD_CAMPAIGN, onCta }) => {
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const creative = resolveAdCreative(campaign, isMobile);
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
   const [failed, setFailed] = useState(false);
 
+  // Reset playback state when the creative variant changes across breakpoints.
+  useEffect(() => {
+    setPlaying(false);
+    setFailed(false);
+    if (videoRef.current) videoRef.current.pause();
+  }, [creative.video]);
+
   const togglePlay = () => {
     const v = videoRef.current;
     if (!v) return;
-    if (v.paused) {
-      v.play().then(() => setPlaying(true)).catch(() => setFailed(true));
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
+    if (v.paused) v.play().then(() => setPlaying(true)).catch(() => setFailed(true));
+    else { v.pause(); setPlaying(false); }
   };
 
   const toggleMute = () => {
@@ -36,13 +42,18 @@ export const AdShowcase = ({ campaign = AD_SHOWCASE, onCta }) => {
     <section data-testid="ad-video-showcase-section" className="bg-ivory">
       <div className="mx-auto w-[92vw] max-w-[1760px] pb-14 pt-2 sm:pb-16 lg:pb-20">
         <Reveal className="mx-auto w-full">
-          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal shadow-[0_40px_90px_-45px_rgba(17,17,17,0.55)] sm:aspect-[2/1] lg:aspect-[2.3/1]">
+          <div
+            data-testid="ad-frame"
+            data-variant={isMobile ? "mobile" : "desktop"}
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal shadow-[0_40px_90px_-45px_rgba(17,17,17,0.55)] sm:aspect-[2/1] lg:aspect-[2.3/1]"
+          >
             {!failed && (
               <video
+                key={creative.video}
                 ref={videoRef}
                 data-testid="ad-video"
                 className={cn("absolute inset-0 h-full w-full object-cover transition-opacity duration-500", playing ? "opacity-100" : "opacity-0")}
-                poster={campaign.poster}
+                poster={creative.poster}
                 muted={muted}
                 playsInline
                 preload="none"
@@ -50,15 +61,15 @@ export const AdShowcase = ({ campaign = AD_SHOWCASE, onCta }) => {
                 onError={() => setFailed(true)}
                 onEnded={() => setPlaying(false)}
               >
-                <source src={campaign.videoMp4} type="video/mp4" />
+                <source src={creative.video} type="video/mp4" />
               </video>
             )}
             <img
-              src={campaign.poster}
-              alt={campaign.headline}
+              src={creative.image}
+              alt={campaign.campaignTitle}
+              onError={onImgError}
               className={cn("absolute inset-0 h-full w-full object-cover transition-opacity duration-500", playing ? "opacity-0" : "opacity-100")}
               loading="lazy"
-              onError={onImgError}
               width="1280"
               height="720"
             />
@@ -71,15 +82,15 @@ export const AdShowcase = ({ campaign = AD_SHOWCASE, onCta }) => {
 
             <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-6 sm:p-10 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
-                <p data-testid="ad-advertiser" className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-gold-champagne">{campaign.advertiser}</p>
-                <h3 data-testid="ad-headline" className="mt-2 font-display text-2xl font-medium leading-tight text-ivory sm:text-3xl lg:text-4xl">{campaign.headline}</h3>
-                <p className="mt-2 max-w-xl font-sans text-sm text-ivory/75 sm:text-base">{campaign.subline}</p>
+                <p data-testid="ad-advertiser" className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-gold-champagne">{campaign.advertiserName}</p>
+                <h3 data-testid="ad-headline" className="mt-2 font-display text-xl font-medium leading-tight text-ivory sm:text-3xl lg:text-4xl">{campaign.campaignTitle}</h3>
+                <p className="mt-2 max-w-xl font-sans text-sm text-ivory/80 sm:text-base">{campaign.campaignCopy}</p>
                 <button
                   data-testid="ad-cta-button"
                   onClick={() => onCta?.(campaign)}
                   className="mt-5 inline-flex items-center gap-2 rounded-full bg-ivory px-6 py-3 font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal transition-[transform,background-color] duration-200 hover:bg-gold-champagne active:scale-[0.98]"
                 >
-                  {campaign.ctaLabel} <ArrowUpRight size={16} aria-hidden="true" />
+                  {campaign.ctaText} <ArrowUpRight size={16} aria-hidden="true" />
                 </button>
               </div>
 

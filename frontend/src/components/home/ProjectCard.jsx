@@ -1,4 +1,5 @@
 import { MapPin, Building2 } from "lucide-react";
+import { toast } from "sonner";
 import { onImgError } from "@/data/home";
 
 // Reusable <ProjectCard /> for new project launches.
@@ -33,7 +34,7 @@ export const ProjectCard = ({ project, onClick, testId }) => {
         </div>
         <button
           data-testid={`${testId}-explore`}
-          onClick={() => onClick?.(project)}
+          onClick={() => (onClick ? onClick(project) : toast(`${name} details are coming soon.`))}
           className="mt-5 inline-flex h-11 w-full items-center justify-center rounded-full border border-charcoal/20 font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal transition-colors duration-200 hover:border-gold hover:bg-charcoal hover:text-ivory"
         >
           Explore Project

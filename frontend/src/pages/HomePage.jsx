@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { Meta } from "@/components/layout/Meta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -19,28 +21,30 @@ const HOME_TITLE = "LOKAGER | Property, Homes, Land & Real Estate in India";
 const HOME_DESC = "Discover homes, land, commercial property and new projects with LOKAGER — a smarter property platform built around trust, information and better decisions.";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const notify = (msg) => toast(msg);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1);
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 300);
+    }
+  }, []);
 
   return (
     <div data-testid="lokager-homepage" className="min-h-[100dvh] bg-ivory">
       <Meta title={HOME_TITLE} description={HOME_DESC} path="/" />
-      <Toaster position="bottom-center" richColors={false} />
+      <Toaster position="bottom-center" />
 
       <SiteHeader onNotify={notify} />
 
       <main>
-        <HeroSection onSearch={() => notify("Search results are coming soon — this is a preview.")} />
+        <HeroSection onSearch={() => navigate("/buy")} />
         <TrustLayer />
-        <AdShowcase onCta={(c) => notify(`${c.advertiser} campaign — coming soon.`)} />
-        <ExploreProperty onCategory={(c) => notify(`${c.title} — coming soon.`)} />
-        <FeaturedProperties
-          onProperty={(p) => notify(`${p.title} details — coming soon.`)}
-          onViewAll={() => notify("Full property search is coming soon.")}
-        />
-        <NewProjects
-          onProject={(p) => notify(`${p.name} — coming soon.`)}
-          onExploreAll={() => notify("New projects browsing is coming soon.")}
-        />
+        <AdShowcase onCta={(c) => notify(`${c.advertiserName} campaign — coming soon.`)} />
+        <ExploreProperty onCategory={(c) => navigate(`/${c.id}`)} />
+        <FeaturedProperties />
+        <NewProjects onExploreAll={() => navigate("/new-projects")} />
         <LocalityIntelligence onLocality={(l) => notify(`${l.name} intelligence — coming soon.`)} />
         <PropertyIntelligence />
         <LokagerServices onExplore={() => notify("LOKAGER Services is coming soon.")} />

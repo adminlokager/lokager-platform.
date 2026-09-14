@@ -13,7 +13,7 @@ export const HeroSection = ({ onSearch }) => {
   });
 
   return (
-    <section id="top" data-testid="hero-search-section" className="relative overflow-hidden bg-ivory pt-[86px] lg:pt-[92px]">
+    <section id="top" data-testid="hero-search-section" className="relative overflow-hidden bg-ivory pt-[82px] lg:pt-[86px]">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 items-center gap-10 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-16 lg:pb-20 lg:pt-16">
         <div className="relative z-10">
           <motion.span {...rise(0.05)} className="inline-flex items-center gap-2 rounded-full border border-charcoal/12 bg-ivory-light px-4 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
