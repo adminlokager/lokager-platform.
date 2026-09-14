@@ -5,6 +5,7 @@ import VerticalListingPage from "@/pages/VerticalListingPage";
 import MortgagePage from "@/pages/MortgagePage";
 import PropertyDetailPage from "@/pages/PropertyDetailPage";
 import SavedPage from "@/pages/SavedPage";
+import ComparePage from "@/pages/ComparePage";
 import NotFoundPage from "@/pages/NotFoundPage";
 
 export const AppRoutes = () => (
@@ -19,6 +20,7 @@ export const AppRoutes = () => (
     <Route path="/mortgage" element={<MortgagePage />} />
     <Route path="/property/:propertySlug" element={<PropertyDetailPage />} />
     <Route path="/saved" element={<SavedPage />} />
+    <Route path="/compare" element={<ComparePage />} />
     <Route path="*" element={<NotFoundPage />} />
   </Routes>
 );

@@ -3,6 +3,7 @@ import { Meta } from "@/components/layout/Meta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { CompareTray } from "@/components/compare/CompareTray";
 
 // Shared page shell for all non-home routes: header + toaster + breadcrumbs +
 // footer + SEO meta. Keeps every vertical/detail page consistent.
@@ -16,6 +17,7 @@ export const PageShell = ({ title, description, path, crumbs, children, testId }
       {crumbs && <Breadcrumbs items={crumbs} />}
       <main>{typeof children === "function" ? children(notify) : children}</main>
       <SiteFooter onNotify={notify} />
+      <CompareTray />
     </div>
   );
 };

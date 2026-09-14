@@ -50,6 +50,11 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - Added `onImgError` fallback across all remote images; swapped 2 dead Unsplash URLs. QA: iteration_8 regression PASS (zero horizontal overflow at 1920/1440/1366/430/390, logo/nav/ad/search/cards/launch-flow all good, 0 broken images).
 - OUTSTANDING (founder): supply a transparent SVG / wordmark-only logo asset for pixel-perfect header lockup; interim uses CSS-cropped raster + live tagline.
 
+## Module 1 — FROZEN (June 2026)
+- Final features shipped & QA-passed (iteration_10, 100%): Share My Shortlist (`/saved` share → `/saved?ids=` view + save-all, invalid-ID safe) and Compare Tray (`useCompare` max 3, floating tray, `/compare` side-by-side table).
+- Visual refinement locked (iteration_8 approved): section spacing, typography, grid gaps, hero 7:8, laptop nav (full ≥1280 / hamburger below), mobile. Homepage @1366 11,233→10,102px (−10.1%).
+- Full handover: `/app/docs/LOKAGER_Module_1_Final_Handover.md`. Deferred: Recently Viewed, Rich Detail Media, Locality Pages, all backend.
+
 ## Backlog (prioritised)
 ### Module 1 next-phase (June 2026 — dual ads, verticals, detail, save) — DONE
 - Phase 1 Dual Ad: `AdShowcase` serves separate desktop (2.3:1) / mobile (4:5 portrait) creatives via `useMediaQuery`; only selected video rendered; no-sound autoplay, controls, disclosure, fallback preserved. Data model = future ad-backend schema.

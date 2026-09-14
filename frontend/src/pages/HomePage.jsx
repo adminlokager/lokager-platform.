@@ -4,6 +4,7 @@ import { Toaster, toast } from "sonner";
 import { Meta } from "@/components/layout/Meta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { CompareTray } from "@/components/compare/CompareTray";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustLayer } from "@/components/home/TrustLayer";
 import { AdShowcase } from "@/components/home/AdShowcase";
@@ -57,6 +58,7 @@ export default function HomePage() {
       </main>
 
       <SiteFooter onNotify={notify} />
+      <CompareTray />
     </div>
   );
 }

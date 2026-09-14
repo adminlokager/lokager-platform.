@@ -1,6 +1,7 @@
 import { MapPin, BedDouble, Maximize, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { SaveButton } from "@/components/home/SaveButton";
+import { CompareButton } from "@/components/home/CompareButton";
 import { onImgError } from "@/data/home";
 
 // Reusable <PropertyCard />. Opens the property detail page; shows listing
@@ -21,8 +22,9 @@ export const PropertyCard = ({ property, testId }) => {
         <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-ivory-light/95 px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-charcoal backdrop-blur-sm">
           <Clock size={11} aria-hidden="true" /> {listing.status}
         </span>
-        <span className="absolute right-3 top-3">
+        <span className="absolute right-3 top-3 flex flex-col gap-2">
           <SaveButton id={propertyId} testId={`${testId}-save`} />
+          <CompareButton id={propertyId} testId={`${testId}-compare`} />
         </span>
       </div>
 
