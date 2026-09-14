@@ -2,7 +2,7 @@ import { Reveal } from "@/components/home/motion";
 import { cn } from "@/lib/utils";
 
 // Reusable section heading with eyebrow + optional description.
-export const SectionHeader = ({ eyebrow, title, description, align = "left", tone = "charcoal", testId }) => {
+export const SectionHeader = ({ eyebrow, title, description, align = "left", tone = "charcoal", titleAs = "h2", testId }) => {
   const centered = align === "center";
   const titleColor = tone === "ivory" ? "text-ivory" : "text-charcoal";
   const bodyColor = tone === "ivory" ? "text-ivory/80" : "text-charcoal-soft";
@@ -16,7 +16,7 @@ export const SectionHeader = ({ eyebrow, title, description, align = "left", ton
           {eyebrow}
         </Reveal>
       )}
-      <Reveal as="h2" delay={0.05} className={cn("font-display font-medium leading-[1.08] tracking-tight text-3xl sm:text-4xl lg:text-[2.75rem]", titleColor)}>
+      <Reveal as={titleAs} delay={0.05} className={cn("font-display font-medium leading-[1.08] tracking-tight text-3xl sm:text-4xl lg:text-[2.75rem]", titleColor)}>
         {title}
       </Reveal>
       {description && (

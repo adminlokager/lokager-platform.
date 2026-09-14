@@ -33,7 +33,7 @@ export default function ComparePage() {
     >
       <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-8 sm:px-8 sm:pb-20 lg:px-16 lg:pb-24 lg:pt-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeader eyebrow="Compare" title="Properties side by side." testId="compare-header" />
+          <SectionHeader eyebrow="Compare" title="Compare properties side by side." titleAs="h1" testId="compare-header" />
           {items.length > 0 && (
             <button data-testid="compare-page-clear" onClick={clear} className="inline-flex h-11 items-center gap-2 self-start rounded-full border border-charcoal/20 px-5 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-charcoal-soft transition-colors hover:border-gold sm:self-auto">
               Clear all

@@ -47,8 +47,9 @@ export default function SavedPage() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeader
             eyebrow={isShared ? "Shared with you" : "Your shortlist"}
-            title={isShared ? "A shared shortlist." : "Saved properties."}
+            title={isShared ? "A shared shortlist." : "Your saved properties."}
             description={isShared ? "Someone shared these properties with you. Save them to your own shortlist to keep them." : undefined}
+            titleAs="h1"
             testId="saved-header"
           />
           {!isShared && ids.length > 0 && (

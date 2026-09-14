@@ -118,7 +118,7 @@ export const VERTICALS = {
   },
   rent: {
     key: "rent", route: "/rent", crumb: "Rent",
-    eyebrow: "Rent Property", heading: "Rent a place that feels like home.",
+    eyebrow: "Rent Property", heading: "Find a home that fits your life.",
     sub: "Flexible, ready-to-move rentals with transparent details and direct connections.",
     metaTitle: "Rent Property in India | Flats & Houses for Rent — LOKAGER",
     metaDesc: "Find flats, houses and villas for rent across India on LOKAGER, with transparent details and trusted connections.",
@@ -133,7 +133,7 @@ export const VERTICALS = {
   },
   "new-projects": {
     key: "new-projects", route: "/new-projects", crumb: "New Projects",
-    eyebrow: "New Projects", heading: "Discover the newest launches.",
+    eyebrow: "New Projects", heading: "Discover new property developments.",
     sub: "Upcoming and ready developments from established builders across India.",
     metaTitle: "New Projects & Property Launches in India — LOKAGER",
     metaDesc: "Explore new residential and commercial project launches across India on LOKAGER — configurations, pricing and possession timelines.",
@@ -148,7 +148,7 @@ export const VERTICALS = {
   },
   commercial: {
     key: "commercial", route: "/commercial", crumb: "Commercial",
-    eyebrow: "Commercial Property", heading: "Space for business to grow.",
+    eyebrow: "Commercial Property", heading: "Find the right space for your business.",
     sub: "Offices, retail and warehousing — to buy or lease across key business hubs.",
     metaTitle: "Commercial Property in India | Office, Retail & Warehouse — LOKAGER",
     metaDesc: "Browse office, retail and warehouse spaces to buy or lease across India on LOKAGER.",
@@ -163,7 +163,7 @@ export const VERTICALS = {
   },
   land: {
     key: "land", route: "/land", crumb: "Land",
-    eyebrow: "Land & Plots", heading: "Build on the right foundation.",
+    eyebrow: "Land & Plots", heading: "Find land with lasting potential.",
     sub: "Residential, commercial and agricultural plots with clear listing details.",
     metaTitle: "Land & Plots for Sale in India — LOKAGER",
     metaDesc: "Find residential, commercial and agricultural plots across India on LOKAGER, with clear listing and ownership details.",

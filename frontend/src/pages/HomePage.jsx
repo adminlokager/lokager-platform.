@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { Meta } from "@/components/layout/Meta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { DemoBanner } from "@/components/layout/DemoBanner";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { CompareTray } from "@/components/compare/CompareTray";
 import { HeroSection } from "@/components/home/HeroSection";
@@ -38,6 +39,7 @@ export default function HomePage() {
       <Toaster position="bottom-center" />
 
       <SiteHeader onNotify={notify} />
+      <DemoBanner />
 
       <main>
         <HeroSection onSearch={() => navigate("/buy")} />

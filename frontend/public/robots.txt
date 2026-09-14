@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /launch
-
-Sitemap: https://lokager.com/sitemap.xml
+Disallow: /

@@ -94,8 +94,15 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - Clearly-named download copies in `/app/docs/module-2-planning/delivery/`.
 - **No coding/provisioning/cloud accounts/integrations performed. Module 1 remains FROZEN.**
 
-## Module 2 planning package status
-- Delivered June 2026 under `/app/docs/module-2-planning/` (22 numbered docs + Phase 0 design). Planning accepted by founder.
+## Public DEMO deployment prep (June 2026 — founder-authorised, frontend-only)
+- Founder authorised deploying ONLY Module 0 (/launch) + frozen Module 1 as a public DEMO (no backend/db/auth/email/SMS/payments/AI/personal-data, no custom domain, no Module 2 docs served).
+- **DEMO_MODE** added (`src/lib/demo.js`, `REACT_APP_DEMO_MODE=true` in frontend/.env; default ON, set `false` for production later):
+  - Search-engine protection: `Meta.jsx` sets robots `noindex, nofollow, noarchive, nosnippet` on every route + canonical/og:url to the live demo origin (never lokager.com); static `public/index.html` robots set noindex + canonical/og:url made relative (no lokager.com); `public/robots.txt` = `Disallow: /`; `public/sitemap.xml` emptied (no demo/property URLs). No JSON-LD/real-estate structured data present. X-Robots-Tag response header not settable from the static frontend build (noted; robots meta + robots.txt cover it).
+  - **DemoBanner** (`src/components/layout/DemoBanner.jsx`): restrained premium strip "LOKAGER Product Demo — Illustrative information only" fixed just below the header on all property-related routes (home + all PageShell routes); hidden on /launch and 404; inline spacer preserves locked layout (no overlap).
+- **One H1 per route** (semantic fix, no CSS change): `SectionHeader` gained `titleAs` prop (default h2). Primary page titles now H1 with founder-specified copy — /buy "Find a home worth buying.", /rent "Find a home that fits your life.", /new-projects "Discover new property developments.", /commercial "Find the right space for your business.", /land "Find land with lasting potential.", /mortgage "Plan your property financing.", /saved "Your saved properties." (shared: "A shared shortlist."), /compare "Compare properties side by side."; /property/:slug uses property title (already H1); property-not-found + 404 already H1. Vertical headings updated in `data/verticals.js`.
+- QA `iteration_12`: 100% — all 20 founder checks pass (single H1, hierarchy, robots noindex, robots.txt block, no lokager.com canonical, empty sitemap, no listing structured data, demo banner on property routes only, footer disclaimer, launch unchanged, header unchanged, deep-link + refresh, no console errors, no broken images, no overflow @1920/1440/1366/430/390, save/share/compare work). Deployment-readiness scan PASS (compiles clean, docs not bundled, backend health-only).
+- LOCKED areas untouched: header lockup, logo, tagline, colours, typography appearance, global spacing, homepage architecture, ad experience, property cards, search/filter, saved/share/compare, launch ceremony, routes.
+- Build identifier: git `c30f68a`. Deploy is a founder one-click action via the platform Deploy button (agent cannot trigger). Preview: https://lokager-launch.preview.emergentagent.com
 
 ## Next tasks
 1. Founder review + approval of Phase 0 Detailed Design (`phase-0/PHASE-0-DETAILED-DESIGN.md`), including the §0.14 coding go/no-go gate.

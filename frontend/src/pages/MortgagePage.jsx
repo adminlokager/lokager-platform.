@@ -15,8 +15,9 @@ export default function MortgagePage() {
       <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-8 sm:px-8 sm:pb-20 lg:px-16 lg:pb-24 lg:pt-10">
         <SectionHeader
           eyebrow="Mortgage"
-          title="Understand what a home could cost."
+          title="Plan your property financing."
           description="Use the calculator below to explore an indicative monthly EMI. When LOKAGER Mortgage launches, you'll be able to compare lenders and check eligibility here."
+          titleAs="h1"
           testId="mortgage-header"
         />
 

@@ -27,7 +27,7 @@ export default function VerticalListingPage({ vertical }) {
       crumbs={[{ label: "Home", to: "/" }, { label: config.crumb }]}
     >
       <div className="mx-auto max-w-[1600px] px-5 pb-16 pt-8 sm:px-8 sm:pb-20 lg:px-16 lg:pb-24 lg:pt-10">
-        <SectionHeader eyebrow={config.eyebrow} title={config.heading} description={config.sub} testId={`${config.key}-header`} />
+        <SectionHeader eyebrow={config.eyebrow} title={config.heading} description={config.sub} titleAs="h1" testId={`${config.key}-header`} />
 
         <div className="mt-8 lg:mt-10">
           <FilterBar filters={config.filters} values={values} onChange={onChange} onClear={onClear} activeCount={activeCount} />

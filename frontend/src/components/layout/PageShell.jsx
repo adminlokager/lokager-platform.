@@ -1,6 +1,7 @@
 import { Toaster, toast } from "sonner";
 import { Meta } from "@/components/layout/Meta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { DemoBanner } from "@/components/layout/DemoBanner";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CompareTray } from "@/components/compare/CompareTray";
@@ -14,6 +15,7 @@ export const PageShell = ({ title, description, path, crumbs, children, testId }
       <Meta title={title} description={description} path={path} />
       <Toaster position="bottom-center" />
       <SiteHeader onNotify={notify} />
+      <DemoBanner />
       {crumbs && <Breadcrumbs items={crumbs} />}
       <main>{typeof children === "function" ? children(notify) : children}</main>
       <SiteFooter onNotify={notify} />
