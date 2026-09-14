@@ -61,15 +61,27 @@ flowchart TD
 | Retention | Defined per data category (founder/legal) |
 | Erasure/rectification | Privacy-request workflow (audited) |
 | Breach handling | Incident response + notification process |
-| Data residency | India region recommended (doc 21) |
+| Data residency | **India region — founder architecture/risk decision** (approved, D2 in `22-DECISIONS-LOG.md`). **Not** stated as an automatic DPDP requirement; subject to legal advice, applicable government transfer restrictions, service-specific regulations, payment-provider requirements and future international expansion. |
 | Children/sensitive data | Avoid collecting; flag if unavoidable |
 
 ---
 
 ## 18.5 Founder/legal actions required
 1. Engage qualified legal counsel for RERA (state-wise), brokerage, GST, DPDP, and agreements.
-2. Decide fund-handling posture (recommend: no fund holding initially).
-3. Approve verification definition + process before any "verified" language.
+2. Fund-handling posture: **APPROVED — no fund holding initially** (D4). No internal wallet/escrow/pooled account without separate legal + regulated payment-partner approval (RBI regulates payment aggregation).
+3. Approve verification definition + process before any "verified" language (D5 — evidence-based labels below).
 4. Approve privacy policy, T&C, provider terms before public accounts.
+
+## 18.6 Approved trust-language policy (D5) — evidence-based labels
+"Verified/guaranteed/approved" language is **prohibited** until a real process exists (level defined, evidence specified, reviewer identified, date recorded, expiry rules, audit records, legal+ops approval, functioning in production). Instead, plan **evidence-based labels**, each stating what was checked **and** what was not:
+
+| Label | Means | Does NOT mean |
+|-------|-------|---------------|
+| Identity Checked | A contact identity confirmed (e.g., mobile) | Not full background/KYC |
+| RERA Details Matched | Provided RERA number matched a record | Not a project/legal guarantee |
+| Site Visited | A LOKAGER-associated visit occurred (dated) | Not a condition/quality guarantee |
+| Listing Recently Confirmed | Provider reconfirmed listing (dated) | Not a price/availability guarantee |
+| Documents Submitted | Documents were uploaded | Not that documents were legally verified |
+| Ownership Reviewed | Ownership evidence reviewed | Not a legal title guarantee |
 
 > This register must be reviewed and signed off by qualified legal counsel. It is a planning aid, **not** legal advice, and does not itself authorise any launch.

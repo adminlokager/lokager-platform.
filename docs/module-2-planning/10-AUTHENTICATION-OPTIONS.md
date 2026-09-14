@@ -1,6 +1,8 @@
 # 10 — Authentication Options
 
-> Plain language: How people prove who they are when logging in. India-first means mobile-number login is king. This document compares options and gives a recommendation, but **no authentication will be built or activated until the founder approves** (Phase 2). It also separates "logged in" from "identity verified" — two very different things.
+> Plain language: How people prove who they are when logging in. India-first means mobile-number login is king. This document compares options and gives a recommendation. It also separates "logged in" from "identity verified" — two very different things.
+>
+> ✅ **FOUNDER-APPROVED (June 2026, D3):** Mobile OTP is the **primary** customer auth method; email OTP/link secondary; **mandatory stronger 2FA for employees/administrators**; rate limiting, OTP attempt limits, session/device monitoring, account-recovery, and **SIM-swap / account-takeover protection**; social login optional future. **OTP and auth providers remain founder-decision-pending.** Approval covers Phase 0 design only — **no auth will be built or activated** until the Phase 0 design and a provider are approved.
 
 ---
 

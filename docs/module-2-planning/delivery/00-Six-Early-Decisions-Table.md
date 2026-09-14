@@ -1,6 +1,6 @@
 # Six Early Decisions (⏰) — Founder Approval Table
 
-> These are the only six decisions that shape early work and are expensive/difficult to reverse later. All require **explicit founder approval** before Phase 0 begins. Full context in `21-Founder-Pending-Decisions.md`.
+> ✅ **STATUS: ALL SIX APPROVED (June 2026)** — with a wording correction on decision 2 (hosting region recorded as a founder architecture/risk decision, **not** an automatic DPDP mandate; cloud provider undecided). Authoritative record: `22-Approved-Decisions-Log` / `../22-DECISIONS-LOG.md`. Approval covers **Phase 0 design only** — no coding/provisioning/integration authorised. Full context in `21-Founder-Pending-Decisions.md`.
 
 | # | Decision required | Recommended option | Alternative | Why decide early | Expected cost impact | Risk if delayed | Difficulty to change later | Final engineering recommendation |
 |---|-------------------|--------------------|-------------|------------------|----------------------|-----------------|----------------------------|----------------------------------|

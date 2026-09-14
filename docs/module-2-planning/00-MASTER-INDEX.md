@@ -10,10 +10,11 @@
 
 ## How to read this package
 
-1. Start with **01 — Founder Decision Summary** (non-technical).
-2. Skim **19 — Phased Implementation Roadmap** to see the sequence.
-3. Review **07 — Database Decision** (the one big technology call).
-4. Approve or override the items in **21 — Founder-Pending Decision Register**.
+> ✅ **STATUS UPDATE (June 2026):** The planning package is **accepted**. The **six early (⏰) decisions are FOUNDER-APPROVED** (with a wording correction on hosting region) — see **22 — Approved Decisions Log**. The **Phase 0 Detailed Design & Implementation Proposal** (`phase-0/PHASE-0-DETAILED-DESIGN.md`) is now delivered and awaiting founder approval **before any coding**. No provisioning/coding/integration/Module 1 changes performed.
+
+1. Review **22 — Approved Decisions Log** (what's now locked in).
+2. Review **phase-0/PHASE-0-DETAILED-DESIGN.md** (the next approval gate).
+3. Reference **07 — Database Decision** and **19 — Phased Roadmap** as needed.
 
 ---
 
@@ -42,7 +43,9 @@
 | 18 | [Legal & Compliance Dependency Register](./18-LEGAL-COMPLIANCE-REGISTER.md) | RERA, GST, mandates, privacy gates | Draft for review | Pending | — | Entire register | All |
 | 19 | [Phased Implementation Roadmap](./19-PHASED-IMPLEMENTATION-ROADMAP.md) | Phases 0–8 with 12-point spec each | Draft for review | Pending | All | Per-phase gates | 0–8 |
 | 20 | [Cost-Impacting Decision Register](./20-COST-IMPACTING-DECISION-REGISTER.md) | Decisions that drive spend | Draft for review | Pending | 02, 07, 11, 12 | See doc | All |
-| 21 | [Founder-Pending Decision Register](./21-FOUNDER-PENDING-DECISION-REGISTER.md) | Every open decision, structured | Draft for review | Pending | All | The whole doc | All |
+| 21 | [Founder-Pending Decision Register](./21-FOUNDER-PENDING-DECISION-REGISTER.md) | Every open decision, structured | Six ⏰ approved; rest open | Partial | All | Non-early items | All |
+| 22 | [Approved Decisions Log](./22-DECISIONS-LOG.md) | Authoritative record of the six approved decisions | **Approved** | **Approved (Phase 0 design)** | 07,10,13,18,21 | — | 0 |
+| P0 | [Phase 0 Detailed Design](./phase-0/PHASE-0-DETAILED-DESIGN.md) | Buildable design + implementation proposal + coding gate | Awaiting approval | Pending | 22, all | Coding go/no-go | 0 |
 
 ---
 

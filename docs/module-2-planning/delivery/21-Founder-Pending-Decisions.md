@@ -3,6 +3,8 @@
 > Plain language: Every decision that is **still open** and must not be silently made by engineering. Each row gives a recommendation plus the trade-offs so the founder can decide. Nothing here is locked. Many can be deferred to their phase; a few (marked ⏰ **early**) shape early work.
 >
 > **Column key:** Rec = recommended option · Cost/Sec/Legal/Scale = impact (L/M/H) · Decide-by = latest sensible phase · Reverse = how hard to change later.
+>
+> ✅ **UPDATE — FOUNDER-APPROVED (June 2026):** The six ⏰ early decisions are now **APPROVED** (with a wording correction on hosting region). Authoritative record: `22-DECISIONS-LOG.md`. Summary: (1) PostgreSQL primary — approved; (2) India-region hosting — approved as a **founder architecture/risk decision, not an automatic DPDP mandate**, cloud provider still undecided; (3) Mobile OTP primary + mandatory staff 2FA + SIM-swap/ATO protections — approved; (4) No fund holding — approved; (5) No "verified/guaranteed" language until a real evidence-based process exists (evidence labels planned) — approved; (6) Masked/routed contact default — approved. Approval covers **Phase 0 design only**.
 
 ---
 
@@ -12,7 +14,7 @@
 |----------|-----|--------------|-------------------|----------------------|:----:|:---:|:-----:|:-----:|-----------|---------|
 | ⏰ Primary database | PostgreSQL | MongoDB | Integrity, money, reporting, geo | Schema discipline needed | M | M | L | M | Phase 0 | **Hard** |
 | ⏰ Cloud provider | Defer; India region | Multi-cloud | Data residency, latency | Some lock-in | H | M | M | H | Phase 0 | Hard |
-| ⏰ Hosting region | India | Elsewhere | DPDP residency, latency | Fewer edge options | M | M | H | M | Phase 0 | Hard |
+| ⏰ Hosting region | India | Elsewhere | Latency, ops simplicity, risk reduction (founder architecture/risk decision — **not** an automatic DPDP mandate; subject to legal advice, transfer rules, payment-provider needs, international expansion) | Fewer edge options | M | M | M | M | Phase 0 | Hard |
 | Backend framework/language | Defer to team | — | Team familiarity | — | L | M | L | M | Phase 0 | Medium |
 | API architecture | REST `/api/v1` | GraphQL | Simplicity, caching, matches ingress | Less flexible queries | L | L | L | M | Phase 0 | Medium |
 | Managed vs self-hosted DB | Managed | Self-hosted | Reliability, backups, PITR | Ongoing fee | M | M | L | M | Phase 0 | Medium |

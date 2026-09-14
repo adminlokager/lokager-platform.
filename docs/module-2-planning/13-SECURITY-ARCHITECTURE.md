@@ -52,7 +52,7 @@ flowchart TD
 | No PII in URLs | Shared shortlists use opaque tokens, not emails/IDs |
 | Encryption | TLS in transit; encryption at rest for DB, storage, backups |
 | Right to erasure | Privacy-request workflow (delete/anonymise, audited) — doc 18 |
-| Data residency | India region recommended (doc 21) |
+| Data residency | **India region — founder architecture/risk decision** (approved, D2). Not asserted as an automatic DPDP mandate; subject to legal advice, transfer restrictions, payment-provider needs and future international expansion. Cloud provider undecided; minimise lock-in. |
 
 ---
 

@@ -1,6 +1,8 @@
 # 07 — Database Decision: PostgreSQL vs MongoDB
 
-> This is the single biggest technology decision in Module 2. It contains a **firm engineering recommendation** (as requested), with an honest trade-off table. The founder may approve or override. **No database has been provisioned.**
+> This is the single biggest technology decision in Module 2. It contains a **firm engineering recommendation** (as requested), with an honest trade-off table. **No database has been provisioned.**
+>
+> ✅ **FOUNDER-APPROVED (June 2026):** Managed PostgreSQL is approved as LOKAGER's primary system of record — preserve PROPERTY≠LISTING, relational integrity for agreements/roles/approvals/payments/audit, plan PostGIS for geo, object storage for media, and **no** dedicated search engine or MongoDB until proven scale/use case justifies it. See `22-DECISIONS-LOG.md` (D1). Approval covers Phase 0 design only; no provisioning/coding authorised.
 
 ---
 

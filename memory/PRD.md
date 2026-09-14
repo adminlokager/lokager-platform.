@@ -81,8 +81,24 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - **No implementation done.** No DB/APIs/auth/email/payments/AI/cloud accounts/keys. STOP condition: await founder approval (docs 01 & 21) before Phase 0 detailed design or any coding.
 - **Early founder decisions requested (doc 21):** primary DB (PostgreSQL rec), cloud/region (India rec), auth method (Mobile OTP rec), fund-handling posture (no fund holding initially rec), meaning of "verified", contact masking.
 
+## Module 2 — SIX EARLY DECISIONS APPROVED + PHASE 0 DESIGN DELIVERED (June 2026)
+- Founder **approved all six early (⏰) decisions** for Phase 0 design only (recorded in `/app/docs/module-2-planning/22-DECISIONS-LOG.md`):
+  - D1 PostgreSQL primary (PROPERTY≠LISTING, PostGIS planned, object storage for media, no dedicated search/MongoDB until justified).
+  - D2 India-region hosting as a **founder architecture/risk decision — NOT an automatic DPDP mandate**; cloud provider undecided; minimise lock-in.
+  - D3 Mobile OTP primary + email OTP secondary + **mandatory staff/admin 2FA** + SIM-swap/ATO protection; providers pending.
+  - D4 **No fund holding** (no wallet/escrow/pooled account) without separate legal + regulated payment-partner approval.
+  - D5 No "verified/guaranteed/approved" language until a real evidence-based process exists; plan evidence labels (Identity Checked, RERA Details Matched, Site Visited, Listing Recently Confirmed, Documents Submitted, Ownership Reviewed).
+  - D6 Masked/routed contact by default (no public PII, consent, anti-scraping, lead attribution, reveal/dispute rules).
+- Docs updated with approvals + India-region wording correction (07, 10, 13, 18, 21, 00) and new `22-DECISIONS-LOG.md`.
+- **Phase 0 Detailed Design & Implementation Proposal** delivered at `/app/docs/module-2-planning/phase-0/PHASE-0-DETAILED-DESIGN.md` (architecture, illustrative PostgreSQL schema DDL, PROPERTY≠LISTING in data terms, security/audit/media design, dev/staging/prod + CI/CD plan, Module 1→API migration, Phase 1 API contracts, testing/acceptance, implementation proposal, and a coding go/no-go gate). **Awaiting founder approval before any coding.**
+- Clearly-named download copies in `/app/docs/module-2-planning/delivery/`.
+- **No coding/provisioning/cloud accounts/integrations performed. Module 1 remains FROZEN.**
+
+## Module 2 planning package status
+- Delivered June 2026 under `/app/docs/module-2-planning/` (22 numbered docs + Phase 0 design). Planning accepted by founder.
+
 ## Next tasks
-1. Founder review + approval of Module 2 planning package (start with docs 01, 07, 19; then decision register doc 21).
-2. On approval of Phases 0–1, produce Phase 0 detailed technical design (still no production coding until founder says go).
-3. Founder rehearsal of `/launch` on the presenting phone.
-4. Push to GitHub `lokager-platform` from platform UI.
+1. Founder review + approval of Phase 0 Detailed Design (`phase-0/PHASE-0-DETAILED-DESIGN.md`), including the §0.14 coding go/no-go gate.
+2. On explicit go: provision Phase 1 infra (managed PostgreSQL + object storage, India region) and build Core Marketplace Backend read APIs + admin skeleton; migrate Module 1 demo content to structured records; connect frozen frontend via feature-flagged API client (no UI change).
+3. Public frontend demo: readiness scan PASS + regression QA 100% (iteration_11). Founder triggers production Deploy via platform button (agent cannot click Deploy). Current preview: https://lokager-launch.preview.emergentagent.com
+4. Founder rehearsal of `/launch`; push to GitHub `lokager-platform` from platform UI.
