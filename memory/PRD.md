@@ -51,6 +51,15 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - OUTSTANDING (founder): supply a transparent SVG / wordmark-only logo asset for pixel-perfect header lockup; interim uses CSS-cropped raster + live tagline.
 
 ## Backlog (prioritised)
+### Module 1 next-phase (June 2026 — dual ads, verticals, detail, save) — DONE
+- Phase 1 Dual Ad: `AdShowcase` serves separate desktop (2.3:1) / mobile (4:5 portrait) creatives via `useMediaQuery`; only selected video rendered; no-sound autoplay, controls, disclosure, fallback preserved. Data model = future ad-backend schema.
+- Phase 2 Verticals: `/buy /rent /new-projects /commercial /land /mortgage` via config-driven `VerticalListingPage` + `FilterBar` + `EmptyState`; unique SEO, breadcrumbs, working client-side filters, coming-soon toasts.
+- Phase 3 Detail: `/property/:slug` — gallery, specs, description, amenities, map placeholder, locality snapshot, similar, share, express-interest.
+- Phase 4 Save: `useSavedProperties` (module-level store, localStorage, cross+same-tab sync), heart on cards/detail, header count, `/saved` page, invalid-ID safe.
+- Header lockup FOUNDER-APPROVED & LOCKED (HeaderBrand: #FAF5EC-matched bg, one-line tagline). Do not alter.
+- QA iteration_9: 96% → saved-count live-update bug fixed & re-verified. Zero overflow 1920/1440/1366/430/390.
+
+
 - **P0 (Module 1):** Waitlist capture (`/api/waitlist`, Mongo or MySQL per stack decision), per-vertical Coming Soon routes `/buy` … `/mortgage`.
 - **P1:** Full homepage (hero, vertical tiles, Why LOKAGER, benefits, vision); final logo asset drop; analytics + consent banner.
 - **P2:** Vite + TypeScript migration; Kannada/Hindi locales; Lighthouse tuning; auth/listings (later modules).
