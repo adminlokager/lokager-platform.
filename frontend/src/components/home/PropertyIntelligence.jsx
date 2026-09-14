@@ -11,7 +11,7 @@ export const PropertyIntelligence = () => (
       style={{ backgroundImage: "linear-gradient(#B8894A 1px, transparent 1px), linear-gradient(90deg, #B8894A 1px, transparent 1px)", backgroundSize: "64px 64px" }}
       aria-hidden="true"
     />
-    <div className="relative mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
+    <div className="relative mx-auto max-w-[1600px] px-5 py-8 sm:px-8 sm:py-10 lg:px-16 lg:py-12">
       <SectionHeader
         eyebrow="LOKAGER Property Intelligence"
         title="More than listings. Better property decisions."
@@ -19,7 +19,7 @@ export const PropertyIntelligence = () => (
         tone="ivory"
         testId="intelligence-header"
       />
-      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-6">
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6">
         {INTELLIGENCE.map((f, i) => (
           <Reveal key={f.id} delay={(i % 3) * 0.08}>
             <div
@@ -33,7 +33,7 @@ export const PropertyIntelligence = () => (
                 <span className="rounded-full border border-ivory/15 px-3 py-1 font-sans text-[9px] font-semibold uppercase tracking-[0.16em] text-ivory/60">{f.tag}</span>
               </div>
               <h3 className="mt-6 font-display text-xl font-medium text-ivory">{f.title}</h3>
-              <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-ivory/75">{f.body}</p>
+              <p className="mt-2.5 font-sans text-base leading-[1.6] text-ivory/80">{f.body}</p>
             </div>
           </Reveal>
         ))}

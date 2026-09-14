@@ -3,7 +3,7 @@ import { Reveal } from "@/components/home/motion";
 // Distinctive brand trust statement on a deep charcoal canvas.
 export const TrustStatement = () => (
   <section data-testid="trust-statement-section" className="bg-charcoal">
-    <div className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-8 sm:py-24 lg:px-16 lg:py-28">
+    <div className="mx-auto max-w-5xl px-5 py-14 text-center sm:px-8 sm:py-16 lg:px-16 lg:py-20">
       <Reveal as="span" className="font-sans text-xs font-semibold uppercase tracking-[0.28em] text-gold">
         The LOKAGER Promise
       </Reveal>

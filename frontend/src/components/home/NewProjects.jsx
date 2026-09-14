@@ -6,14 +6,14 @@ import { ArrowRight } from "lucide-react";
 
 export const NewProjects = ({ onProject, onExploreAll }) => (
   <section id="projects" data-testid="featured-new-projects-grid" className="bg-ivory-light">
-    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
+    <div className="mx-auto max-w-[1600px] px-5 py-8 sm:px-8 sm:py-10 lg:px-16 lg:py-12">
       <SectionHeader
         eyebrow="New Projects"
         title="Featured new projects."
         description="Discover fresh launches and upcoming developments from established builders."
         testId="projects-header"
       />
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
         {PROJECTS.map((p, i) => (
           <Reveal key={p.id} delay={(i % 3) * 0.08}>
             <ProjectCard project={p} onClick={onProject} testId={`project-card-${p.id}`} />

@@ -14,13 +14,13 @@ export const HeroSection = ({ onSearch }) => {
 
   return (
     <section id="top" data-testid="hero-search-section" className="relative overflow-hidden bg-ivory pt-[82px] lg:pt-[86px]">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 items-center gap-10 px-5 pb-14 pt-10 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-16 lg:pb-20 lg:pt-16">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-1 items-center gap-10 px-5 pb-10 pt-8 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-16 lg:pb-14 lg:pt-12">
         <div className="relative z-10">
           <motion.span {...rise(0.05)} className="inline-flex items-center gap-2 rounded-full border border-charcoal/12 bg-ivory-light px-4 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
             <ShieldCheck size={14} aria-hidden="true" /> Where property meets trust
           </motion.span>
 
-          <motion.h1 {...rise(0.12)} data-testid="hero-headline" className="mt-6 font-display font-medium leading-[1.04] tracking-tight text-4xl sm:text-5xl lg:text-6xl text-charcoal">
+          <motion.h1 {...rise(0.12)} data-testid="hero-headline" className="mt-6 font-display font-medium leading-[1.04] tracking-tight text-[2.5rem] sm:text-5xl lg:text-6xl text-charcoal">
             Find property<br />you can trust.
           </motion.h1>
 
@@ -32,7 +32,7 @@ export const HeroSection = ({ onSearch }) => {
             <SearchBar onSearch={onSearch} />
           </motion.div>
 
-          <motion.p {...rise(0.42)} className="mt-5 font-sans text-[15px] text-charcoal-soft/80">
+          <motion.p {...rise(0.42)} className="mt-5 font-sans text-base text-charcoal-soft/80">
             A smarter property journey starts here.
           </motion.p>
         </div>
@@ -43,7 +43,7 @@ export const HeroSection = ({ onSearch }) => {
           transition={{ duration: 1, ease: EASE }}
           className="relative hidden lg:block"
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-charcoal/10">
+          <div className="relative aspect-[7/8] overflow-hidden rounded-3xl border border-charcoal/10">
             <img
               src={HERO_IMAGE}
               alt="Modern Indian residential towers surrounded by landscaped greenery"

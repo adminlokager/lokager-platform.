@@ -58,7 +58,7 @@ export const SiteHeader = ({ onNotify }) => {
           <HeaderBrand testId="header-logo" />
         </button>
 
-        <nav data-testid="header-desktop-nav" className="hidden xl:flex items-center gap-6 2xl:gap-8">
+        <nav data-testid="header-desktop-nav" className="hidden xl:flex items-center gap-4 2xl:gap-6">
           {NAV.map((item) => (
             <button
               key={item.label}
@@ -71,7 +71,7 @@ export const SiteHeader = ({ onNotify }) => {
           ))}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-3">
+        <div className="hidden xl:flex items-center gap-2.5">
           <button
             data-testid="header-saved-button"
             onClick={() => go("/saved")}
@@ -93,7 +93,7 @@ export const SiteHeader = ({ onNotify }) => {
           <button
             data-testid="header-list-property-button"
             onClick={() => onNotify?.("Property listing opens soon on LOKAGER.")}
-            className="inline-flex h-11 items-center justify-center rounded-full border border-gold bg-charcoal px-6 font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-ivory transition-[transform,background-color] duration-200 hover:bg-charcoal-soft active:scale-[0.98]"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-gold bg-charcoal px-5 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-ivory transition-[transform,background-color] duration-200 hover:bg-charcoal-soft active:scale-[0.98]"
           >
             List Property
           </button>

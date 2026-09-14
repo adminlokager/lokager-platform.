@@ -5,14 +5,14 @@ import { LOCALITIES } from "@/data/home";
 
 export const LocalityIntelligence = ({ onLocality }) => (
   <section id="locality" data-testid="locality-intelligence-section" className="bg-ivory">
-    <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
+    <div className="mx-auto max-w-[1600px] px-5 py-8 sm:px-8 sm:py-10 lg:px-16 lg:py-12">
       <SectionHeader
         eyebrow="Locality Intelligence"
         title="Know the location before you choose the property."
         description="Understand connectivity, amenities and neighbourhood context — because where you buy matters as much as what you buy."
         testId="locality-header"
       />
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
         {LOCALITIES.map((l, i) => (
           <Reveal key={l.id} delay={(i % 3) * 0.08}>
             <LocalityCard locality={l} onClick={onLocality} testId={`locality-card-${l.id}`} />

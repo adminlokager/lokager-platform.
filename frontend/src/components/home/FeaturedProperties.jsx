@@ -9,7 +9,7 @@ export const FeaturedProperties = () => {
   const navigate = useNavigate();
   return (
     <section id="properties" data-testid="featured-properties-grid" className="bg-ivory">
-      <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
+      <div className="mx-auto max-w-[1600px] px-5 py-8 sm:px-8 sm:py-10 lg:px-16 lg:py-12">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeader eyebrow="Featured" title="Handpicked properties to explore." testId="featured-header" />
           <button
@@ -22,7 +22,7 @@ export const FeaturedProperties = () => {
           </button>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
           {FEATURED.map((p, i) => (
             <Reveal key={p.propertyId} delay={(i % 3) * 0.08}>
               <PropertyCard property={p} testId={`property-card-${p.propertyId}`} />
