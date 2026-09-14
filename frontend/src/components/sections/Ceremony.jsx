@@ -1,28 +1,22 @@
-import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLaunchCeremony } from "@/hooks/useLaunchCeremony";
-import { AUTO_ENTER_MS } from "@/lib/site";
 import { LaunchScreen } from "@/components/sections/LaunchScreen";
 import { CountdownScreen } from "@/components/sections/CountdownScreen";
 import { CelebrationScreen } from "@/components/sections/CelebrationScreen";
 import { ComingSoonScreen } from "@/components/sections/ComingSoonScreen";
 
-// autoEnter + onEnter: used by the public "/" demo entry so the reveal
-// transitions to the homepage. Without them (e.g. "/launch" rehearsal) the
-// ceremony ends on the Coming Soon screen.
-export const Ceremony = ({ autoEnter = false, onEnter }) => {
-  const ceremony = useLaunchCeremony();
-
-  useEffect(() => {
-    if (!autoEnter || ceremony.phase !== "celebration") return undefined;
-    const id = setTimeout(() => onEnter?.(), AUTO_ENTER_MS);
-    return () => clearTimeout(id);
-  }, [autoEnter, ceremony.phase, onEnter]);
+// When `onEnter` is provided (public "/" entry) the ceremony ends PERMANENTLY on
+// the congratulations reveal with a single ENTER LOKAGER CTA — no auto-navigation,
+// no timers. Without it (e.g. "/launch" rehearsal) the ceremony proceeds to the
+// Coming Soon screen, whose ENTER LOKAGER also navigates to /home.
+export const Ceremony = ({ onEnter }) => {
+  const terminal = typeof onEnter === "function";
+  const ceremony = useLaunchCeremony({ autoAdvanceCelebration: !terminal });
 
   const screens = {
     idle: (c) => <LaunchScreen onLaunch={c.start} />,
     countdown: (c) => <CountdownScreen remaining={c.remaining} progress={c.progress} />,
-    celebration: () => <CelebrationScreen showEnter={autoEnter} onEnter={onEnter} />,
+    celebration: () => <CelebrationScreen showEnter={terminal} onEnter={onEnter} />,
     complete: () => <ComingSoonScreen />,
   };
 

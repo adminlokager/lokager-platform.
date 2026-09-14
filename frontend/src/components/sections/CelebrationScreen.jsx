@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Stage } from "@/components/layout/Stage";
@@ -13,6 +14,7 @@ const fade = (delay, dur = 1) => ({
 
 export const CelebrationScreen = ({ showEnter = false, onEnter }) => {
   const { t } = useTranslation();
+  const [entered, setEntered] = useState(false);
   useGoldConfetti();
   return (
     <Stage hideHeader testId="celebration-screen">
@@ -50,8 +52,14 @@ export const CelebrationScreen = ({ showEnter = false, onEnter }) => {
           <motion.button
             {...fade(3.4)}
             data-testid="enter-lokager-button"
-            onClick={() => onEnter?.()}
-            className="mt-9 inline-flex min-h-[56px] items-center justify-center rounded-full border border-gold bg-charcoal px-10 font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.24em] text-ivory transition-[transform,background-color] duration-300 hover:bg-charcoal-soft active:scale-[0.98]"
+            onClick={() => {
+              if (entered) return;
+              setEntered(true);
+              onEnter?.();
+            }}
+            disabled={entered}
+            aria-disabled={entered}
+            className="mt-9 inline-flex min-h-[56px] items-center justify-center rounded-full border border-gold bg-charcoal px-10 font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.24em] text-ivory transition-[transform,background-color] duration-300 hover:bg-charcoal-soft active:scale-[0.98] disabled:opacity-60 disabled:pointer-events-none"
           >
             Enter LOKAGER
           </motion.button>

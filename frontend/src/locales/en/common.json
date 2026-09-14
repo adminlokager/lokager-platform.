@@ -13,7 +13,7 @@
   },
   "launch": {
     "eyebrow": "Official Launch",
-    "title": "The Beginning of a New World of Property",
+    "title": "The Beginning of a New World of Properties",
     "pillars": ["People", "Places", "Possibilities"],
     "button": "LAUNCH LOKAGER",
     "hint": "Tap once to begin the launch.",
@@ -30,7 +30,7 @@
   "scenes": [
     { "lead": "LOK means", "lines": ["WORLD."], "support": "A world of possibilities begins here.", "chapter": "World" },
     { "lead": "AGER means", "lines": ["PROPERTY."], "support": "Land. Homes. Spaces. Possibilities.", "chapter": "Property" },
-    { "lead": "Together,", "lines": ["they become LOKAGER."], "support": "The World of Property.", "chapter": "LOKAGER" },
+    { "lead": "Together,", "lines": ["they become LOKAGER."], "support": "The World of Properties.", "chapter": "LOKAGER" },
     { "lines": ["ROOTED IN INDIA."], "support": "Built with a global vision.", "chapter": "India" },
     { "lines": ["LAND"], "support": "Where every possibility begins.", "chapter": "Land" },
     { "lines": ["HOMES"], "support": "Spaces where life happens.", "chapter": "Homes" },
@@ -46,17 +46,17 @@
     { "lines": ["SMARTER PROPERTY."], "support": "Better information. Better decisions.", "chapter": "Smarter" },
     { "lines": ["TRUSTED CONNECTIONS."], "support": "Property connects people.", "chapter": "Trust" },
     { "lines": ["WHERE PROPERTY", "MEETS TRUST."], "chapter": "LOKAGER" },
-    { "lines": ["A NEW WORLD", "OF PROPERTY", "IS ABOUT TO BEGIN."], "chapter": "" },
+    { "lines": ["A NEW WORLD", "OF PROPERTIES", "IS ABOUT TO BEGIN."], "chapter": "" },
     { "lines": ["WELCOME TO", "THE WORLD OF LOKAGER."], "chapter": "" }
   ],
   "celebration": {
     "eyebrow": "Congratulations!",
     "name": "LOKAGER",
     "live": "is now live",
-    "sub": "A New World of Property Begins."
+    "sub": "A New World of Properties Begins."
   },
   "comingSoon": {
-    "statement": ["A NEW WORLD", "OF PROPERTY", "BEGINS."],
+    "statement": ["A NEW WORLD", "OF PROPERTIES", "BEGINS."],
     "title": "Coming Soon",
     "verticals": ["Buy", "Sell", "Rent", "New Projects", "Commercial", "Land", "Mortgage"]
   },

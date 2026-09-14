@@ -4,7 +4,7 @@ import { unlockAudio, playChime } from "@/lib/chime";
 
 const COUNTDOWN_END = COUNTDOWN_MS + ZERO_HOLD_MS;
 
-export const useLaunchCeremony = () => {
+export const useLaunchCeremony = ({ autoAdvanceCelebration = true } = {}) => {
   const startedAtRef = useRef(0);
   const chimedRef = useRef(false);
   const [phase, setPhase] = useState("idle");
@@ -38,10 +38,10 @@ export const useLaunchCeremony = () => {
   }, [phase]);
 
   useEffect(() => {
-    if (phase !== "celebration") return undefined;
+    if (phase !== "celebration" || !autoAdvanceCelebration) return undefined;
     const id = setTimeout(() => setPhase("complete"), CELEBRATION_MS);
     return () => clearTimeout(id);
-  }, [phase]);
+  }, [phase, autoAdvanceCelebration]);
 
   return { phase, remaining, progress, start };
 };
