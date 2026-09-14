@@ -1,0 +1,17 @@
+# Six Early Decisions (⏰) — Founder Approval Table
+
+> These are the only six decisions that shape early work and are expensive/difficult to reverse later. All require **explicit founder approval** before Phase 0 begins. Full context in `21-Founder-Pending-Decisions.md`.
+
+| # | Decision required | Recommended option | Alternative | Why decide early | Expected cost impact | Risk if delayed | Difficulty to change later | Final engineering recommendation |
+|---|-------------------|--------------------|-------------|------------------|----------------------|-----------------|----------------------------|----------------------------------|
+| 1 | **Primary database** (system of record) | PostgreSQL (managed) | MongoDB | Every schema, API and migration is built on it; real data makes it costly to switch | Medium (managed DB fee) | Rework of schema/APIs; migration risk once data exists | **Hard** — data migration + code rewrite | **Approve PostgreSQL.** Best fit for PROPERTY≠LISTING, agreements, approvals, money, audit, reporting and geo. |
+| 2 | **Cloud provider & hosting region** | Defer provider; commit to **India region** | Non-India region / multi-cloud | Data residency (DPDP), latency, and data "gravity" make later moves painful | High (ongoing hosting) | Residency/compliance rework; egress costs to move data | **Hard** — data + integration lock-in | **Commit to India region now; keep services modular** so the specific provider stays swappable. |
+| 3 | **Primary authentication method** | Mobile OTP (email OTP secondary) | Password-first / social-only | Sets user identity model, security posture and provider integration for all accounts | Medium (per-SMS cost) | Re-architecting login + session/security later | Medium | **Approve Mobile OTP primary**, email OTP secondary; staff get 2FA. Social login optional later. |
+| 4 | **Fund-handling posture** (rent/vendor/customer money) | **Do NOT hold or route funds initially** | Hold funds via escrow/aggregator | Determines licensing, liability, insurance and Manage/monetisation design | Low if avoided; High if adopted (compliance) | Building flows that later trigger licensing; legal exposure | **Hard** — licensing + financial-flow redesign | **Approve "no fund holding" initially.** Owner↔tenant/vendor pay directly; revisit only with legal + payment-aggregator clearance. |
+| 5 | **Meaning of "verified"** (trust language) | Define a real, legally-approved process **before any use** | Use "verified" loosely now | Brand is trust-first; premature claims create legal + reputational exposure | Low | Legal/reputational damage; retrofitting a real process under pressure | **Hard** — reputation/legal once claimed | **No "verified/guaranteed" language until a documented verification process exists and functions.** |
+| 6 | **Contact masking** (owner phone/email visibility) | Masked/routed via platform | Show contact directly | Shapes data model, anti-spam, lead attribution and privacy from Phase 2/3 | Medium | Scraping/spam, lost lead attribution, privacy gaps; retrofit later | Medium | **Approve masked/routed contact.** Protects users, reduces spam/scraping, preserves lead attribution. |
+
+---
+
+## How to approve
+Reply with an approve/override for each of the six rows (e.g., "1 approve, 2 India region approve, 3 approve, 4 approve no-fund-holding, 5 approve, 6 approve masked"). On explicit approval, the next step is a **Phase 0 detailed design** document — still no backend coding, database work or integrations until you say go.
