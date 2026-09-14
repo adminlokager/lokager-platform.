@@ -69,7 +69,20 @@ Premium public launch site for lokager.com, a trust-first PropTech brand (India-
 - **P1:** Full homepage (hero, vertical tiles, Why LOKAGER, benefits, vision); final logo asset drop; analytics + consent banner.
 - **P2:** Vite + TypeScript migration; Kannada/Hindi locales; Lighthouse tuning; auth/listings (later modules).
 
+## Approved future verticals (June 2026 — founder-approved, planning only)
+- **LOKAGER Manage** — Residential property management for owners who can't self-manage (outstation/NRI/investor/multi-property; tenanted or vacant). Separate from LOKAGER Services (standalone painting/interiors/repairs). Future Phase 6; controlled Bengaluru/Mysuru pilot; legally gated. Do not build public pages/dashboards yet.
+- **LOKAGER Commercial Connect** — Commercial leasing + business-space matchmaking (retail brands, QSR, offices, IT, banks, co-working, warehouses, logistics, tech parks, institutions). Future Phase 7; relationship-managed mandate+match model; legally gated. No third-party brand logos without written permission. Do not build public pages/dashboards yet.
+
+## Module 2 — PLANNING ONLY (June 2026)
+- Complete Module 2 planning package delivered under `/app/docs/module-2-planning/` (22 documents: master index, founder decision summary, system architecture, ER model, PROPERTY≠LISTING lifecycle, user/org model, role & permission matrix, DB decision, API inventory, frontend↔API mapping, auth options, media storage, search, security, audit-log, backup/DR, Manage architecture, Commercial Connect architecture, legal/compliance register, phased roadmap 0–8, cost register, founder-pending decision register).
+- **Database recommendation:** PostgreSQL as primary system of record (firm engineering recommendation; awaiting founder approval). PostGIS for geo (later), Redis for cache/sessions, object storage + CDN for media, PG full-text search → dedicated engine only when catalogue demands.
+- **Founder-approved phase order (0–8):** 0 Foundation & Compliance → 1 Core Marketplace Backend → 2 Auth & Roles → 3 Enquiries/Waitlist/Leads → 4 Listing Onboarding & Moderation → 5 Monetisation & Advertising → 6 Manage pilot → 7 Commercial Connect pilot → 8 Intelligence & AI. MVP = Phases 0–3; pre-commercial = 4–5; future = 6–8.
+- **Hard guardrails (locked):** PROPERTY≠LISTING always; no "verified/guaranteed" claims until a real legally-approved verification process exists; no third-party logos without written permission; every record timestamped + status-history + user-attributed; India-first, multi-city/state/language/currency ready; do not over-engineer MVP; Module 1 stays FROZEN.
+- **No implementation done.** No DB/APIs/auth/email/payments/AI/cloud accounts/keys. STOP condition: await founder approval (docs 01 & 21) before Phase 0 detailed design or any coding.
+- **Early founder decisions requested (doc 21):** primary DB (PostgreSQL rec), cloud/region (India rec), auth method (Mobile OTP rec), fund-handling posture (no fund holding initially rec), meaning of "verified", contact masking.
+
 ## Next tasks
-1. Founder rehearsal of `/launch` on the presenting phone.
-2. Push to GitHub `lokager-platform` from platform UI.
-3. Confirm backend stack decision before Module 1 persistence work.
+1. Founder review + approval of Module 2 planning package (start with docs 01, 07, 19; then decision register doc 21).
+2. On approval of Phases 0–1, produce Phase 0 detailed technical design (still no production coding until founder says go).
+3. Founder rehearsal of `/launch` on the presenting phone.
+4. Push to GitHub `lokager-platform` from platform UI.
